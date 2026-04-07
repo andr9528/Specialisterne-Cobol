@@ -3,7 +3,7 @@
        
        DATA DIVISION.
        WORKING-STORAGE SECTION. 
-       01 USER-ID PIC X(10) VALUE SPACES.
+       01 CUSTOMER-ID PIC X(10) VALUE SPACES.
        01 FIRST-NAME PIC X(20) VALUE SPACES.
        01 LAST-NAME PIC X(20) VALUE SPACES.
        01 FULLNAME PIC X(40) VALUE SPACES.
@@ -19,7 +19,7 @@
 
 
        PROCEDURE DIVISION.
-       MOVE "9876543210" TO USER-ID.
+       MOVE "9876543210" TO CUSTOMER-ID.
        MOVE "Hans" TO FIRST-NAME.
        MOVE "Hansen" TO LAST-NAME.
        MOVE "DK98765432112345" TO ACCOUNT-NUMBER.
@@ -45,9 +45,11 @@
        END-IF
        END-PERFORM
 
-       DISPLAY USER-ID.
-       DISPLAY CLEANED-FULLNAME.
-       DISPLAY ACCOUNT-NUMBER.
-       DISPLAY BALANCE " " CURRENCY-CODE.
+       DISPLAY "--------------------------------------".
+       DISPLAY "Customer ID    : " CUSTOMER-ID.
+       DISPLAY "Full Name      : " CLEANED-FULLNAME.
+       DISPLAY "Account Number : " ACCOUNT-NUMBER.
+       DISPLAY "Balance        : " BALANCE " " CURRENCY-CODE.
+       DISPLAY "--------------------------------------".
 
        STOP RUN.
