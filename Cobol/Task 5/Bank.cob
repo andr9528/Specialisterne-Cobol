@@ -3,87 +3,174 @@
        
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 CUSTOMER-INFO.
+       01 CUSTOMER-INFO-01.
        COPY "Customer.cpy".
 
-       01 INDEX-ONE PIC 9(2) VALUE ZEROES.
-       01 INDEX-TWO PIC 9(2) VALUE ZEROES.
-       01 CURRENT-CHAR PIC X VALUE SPACES.
-       01 PREVIOUS-CHAR PIC X VALUE SPACES.
+       01 CUSTOMER-INFO-02.
+       COPY "Customer.cpy".
 
-       PROCEDURE DIVISION.       
+       PROCEDURE DIVISION.
 
-      * Base Information
-       MOVE "9876543210" TO REFERENCE-ID.
-       MOVE "Hans" TO FIRST-NAME.
-       MOVE "Hansen" TO LAST-NAME.
-       MOVE "DK98765432112345" TO ACCOUNT-NUMBER.
-       MOVE "DKK" TO CURRENCY-CODE.
-       MOVE 420.69 TO BALANCE.
-       MOVE BALANCE TO BALANCE-DISPLAY.
+      * Customer 01 - Base Information
+       MOVE "9876543210" TO REFERENCE-ID OF CUSTOMER-INFO-01
+       MOVE "Hans" TO FIRST-NAME OF CUSTOMER-INFO-01
+       MOVE "Hansen" TO LAST-NAME OF CUSTOMER-INFO-01
+       MOVE "DK98765432112345" TO ACCOUNT-NUMBER 
+           OF BANK-INFO OF CUSTOMER-INFO-01
+       MOVE "DKK" TO CURRENCY-CODE OF BANK-INFO OF CUSTOMER-INFO-01
+       MOVE 420.69 TO BALANCE OF BANK-INFO OF CUSTOMER-INFO-01
+       MOVE BALANCE OF BANK-INFO OF CUSTOMER-INFO-01
+           TO BALANCE-DISPLAY OF BANK-INFO OF CUSTOMER-INFO-01
 
-      * Address info
-       MOVE "Main Street" TO STREET-NAME
-       MOVE "42" TO HOUSE-NUMBER
-       MOVE "2" TO FLOOR
-       MOVE "TV" TO SIDE
-       MOVE "Odense" TO CITY
-       MOVE "5000" TO ZIPCODE
-       MOVE "DK" TO COUNTRYCODE
+      * Customer 01 - Address info
+       MOVE "Main Street" TO STREET-NAME 
+           OF ADDRESS-INFO OF CUSTOMER-INFO-01
+       MOVE "42" TO HOUSE-NUMBER OF ADDRESS-INFO OF CUSTOMER-INFO-01
+       MOVE "2" TO FLOOR OF ADDRESS-INFO OF CUSTOMER-INFO-01
+       MOVE "TV" TO SIDE OF ADDRESS-INFO OF CUSTOMER-INFO-01
+       MOVE "Odense" TO CITY OF ADDRESS-INFO OF CUSTOMER-INFO-01
+       MOVE "5000" TO ZIPCODE OF ADDRESS-INFO OF CUSTOMER-INFO-01
+       MOVE "DK" TO COUNTRYCODE OF ADDRESS-INFO OF CUSTOMER-INFO-01
 
-      * Contact info
-       MOVE "+4512345678" TO PHONE-NUMBER
-       MOVE "hans.hansen@example.com" TO EMAIL
+      * Customer 01 - Contact info
+       MOVE "+4512345678" TO PHONE-NUMBER 
+           OF CONTACT-INFO OF CUSTOMER-INFO-01
+       MOVE "hans.hansen@example.com" TO EMAIL 
+           OF CONTACT-INFO OF CUSTOMER-INFO-01
 
-       STRING FIRST-NAME DELIMITED BY SIZE " " 
-           DELIMITED BY SIZE LAST-NAME 
-           DELIMITED BY SIZE 
-           INTO FULLNAME.
+      * Customer 01 - Full name
+       STRING FIRST-NAME OF CUSTOMER-INFO-01 DELIMITED BY SPACE
+              " " DELIMITED BY SIZE
+              LAST-NAME OF CUSTOMER-INFO-01 DELIMITED BY SPACE
+           INTO FULLNAME OF CUSTOMER-INFO-01
 
-       PERFORM VARYING INDEX-ONE FROM 1 BY 1 
-           UNTIL INDEX-ONE > LENGTH OF FULLNAME
-       
-       MOVE CURRENT-CHAR TO PREVIOUS-CHAR
-       MOVE FULLNAME(INDEX-ONE:1) TO CURRENT-CHAR
-       
-       IF CURRENT-CHAR NOT = SPACE OR PREVIOUS-CHAR NOT = SPACE
+      * Customer 02 - Base Information
+       MOVE "1234567890" TO REFERENCE-ID OF CUSTOMER-INFO-02
+       MOVE "Anne" TO FIRST-NAME OF CUSTOMER-INFO-02
+       MOVE "Andersen" TO LAST-NAME OF CUSTOMER-INFO-02
+       MOVE "DK11223344556677" TO ACCOUNT-NUMBER 
+           OF BANK-INFO OF CUSTOMER-INFO-02
+       MOVE "EUR" TO CURRENCY-CODE OF BANK-INFO OF CUSTOMER-INFO-02
+       MOVE 1337.50 TO BALANCE OF BANK-INFO OF CUSTOMER-INFO-02
+       MOVE BALANCE OF BANK-INFO OF CUSTOMER-INFO-02
+           TO BALANCE-DISPLAY OF BANK-INFO OF CUSTOMER-INFO-02
 
-           ADD 1 TO INDEX-TWO
-           MOVE CURRENT-CHAR TO CLEANED-FULLNAME(INDEX-TWO:1)
+      * Customer 02 - Address info
+       MOVE "Baker Street" TO STREET-NAME 
+           OF ADDRESS-INFO OF CUSTOMER-INFO-02
+       MOVE "221B" TO HOUSE-NUMBER OF ADDRESS-INFO OF CUSTOMER-INFO-02
+       MOVE "1" TO FLOOR OF ADDRESS-INFO OF CUSTOMER-INFO-02
+       MOVE "TH" TO SIDE OF ADDRESS-INFO OF CUSTOMER-INFO-02
+       MOVE "Copenhagen" TO CITY OF ADDRESS-INFO OF CUSTOMER-INFO-02
+       MOVE "2100" TO ZIPCODE OF ADDRESS-INFO OF CUSTOMER-INFO-02
+       MOVE "DK" TO COUNTRYCODE OF ADDRESS-INFO OF CUSTOMER-INFO-02
 
-       END-IF
-       END-PERFORM
+      * Customer 02 - Contact info
+       MOVE "+4598765432" TO PHONE-NUMBER 
+           OF CONTACT-INFO OF CUSTOMER-INFO-02
+       MOVE "anne.andersen@example.com" TO EMAIL 
+           OF CONTACT-INFO OF CUSTOMER-INFO-02
 
-       DISPLAY "--------------------------------------".
-       DISPLAY "Customer ID    : " REFERENCE-ID.
-       DISPLAY "Full Name      : " CLEANED-FULLNAME.
-       
-       DISPLAY "Account Number : " ACCOUNT-NUMBER.
-       DISPLAY "Balance        : " FUNCTION 
-           TRIM(BALANCE-DISPLAY LEADING) " " CURRENCY-CODE.
-       
-       DISPLAY " ".
-       
+      * Customer 02 - Full name
+       STRING FIRST-NAME OF CUSTOMER-INFO-02 DELIMITED BY SPACE
+              " " DELIMITED BY SIZE
+              LAST-NAME OF CUSTOMER-INFO-02 DELIMITED BY SPACE
+           INTO FULLNAME OF CUSTOMER-INFO-02
+
+      * Display customer 01
+       DISPLAY "--------------------------------------"
+       DISPLAY "Customer ID    : " REFERENCE-ID OF CUSTOMER-INFO-01
+       DISPLAY "Full Name      : " FULLNAME OF CUSTOMER-INFO-01
+
+       DISPLAY "Account Number : " ACCOUNT-NUMBER OF BANK-INFO 
+           OF CUSTOMER-INFO-01
+       DISPLAY "Balance        : "
+           FUNCTION TRIM(BALANCE-DISPLAY OF BANK-INFO 
+               OF CUSTOMER-INFO-01 LEADING)
+           " "
+           CURRENCY-CODE OF BANK-INFO OF CUSTOMER-INFO-01
+
+       DISPLAY " "
+
        DISPLAY "Address        : "
-        FUNCTION TRIM(STREET-NAME TRAILING)
-        " "
-        FUNCTION TRIM(HOUSE-NUMBER TRAILING).
+           FUNCTION TRIM(STREET-NAME OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-01 TRAILING)
+           " "
+           FUNCTION TRIM(HOUSE-NUMBER OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-01 TRAILING)
 
        DISPLAY "                 Floor "
-        FUNCTION TRIM(FLOOR TRAILING)
-        " "
-        FUNCTION TRIM(SIDE TRAILING).
+           FUNCTION TRIM(FLOOR OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-01 TRAILING)
+           " "
+           FUNCTION TRIM(SIDE OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-01 TRAILING)
 
        DISPLAY "                 "
-        FUNCTION TRIM(ZIPCODE TRAILING)
-        " "
-        FUNCTION TRIM(CITY TRAILING).
-       DISPLAY "                 " COUNTRYCODE.
-       
-       DISPLAY " ".
-       
-       DISPLAY "Phone Number   : " PHONE-NUMBER.
-       DISPLAY "Email          : " EMAIL.
-       
-       DISPLAY "--------------------------------------".
+           FUNCTION TRIM(ZIPCODE OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-01 TRAILING)
+           " "
+           FUNCTION TRIM(CITY OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-01 TRAILING)
+
+       DISPLAY "                 "
+           COUNTRYCODE OF ADDRESS-INFO OF CUSTOMER-INFO-01
+
+       DISPLAY " "
+
+       DISPLAY "Phone Number   : " PHONE-NUMBER OF CONTACT-INFO 
+           OF CUSTOMER-INFO-01
+       DISPLAY "Email          : " EMAIL OF CONTACT-INFO 
+           OF CUSTOMER-INFO-01
+
+       DISPLAY "--------------------------------------"
+       DISPLAY " "
+
+      * Display customer 02
+       DISPLAY "--------------------------------------"
+       DISPLAY "Customer ID    : " REFERENCE-ID OF CUSTOMER-INFO-02
+       DISPLAY "Full Name      : " FULLNAME OF CUSTOMER-INFO-02
+
+       DISPLAY "Account Number : " ACCOUNT-NUMBER OF BANK-INFO 
+           OF CUSTOMER-INFO-02
+       DISPLAY "Balance        : "
+           FUNCTION TRIM(BALANCE-DISPLAY OF BANK-INFO 
+               OF CUSTOMER-INFO-02 LEADING)
+           " "
+           CURRENCY-CODE OF BANK-INFO OF CUSTOMER-INFO-02
+
+       DISPLAY " "
+
+       DISPLAY "Address        : "
+           FUNCTION TRIM(STREET-NAME OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-02 TRAILING)
+           " "
+           FUNCTION TRIM(HOUSE-NUMBER OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-02 TRAILING)
+
+       DISPLAY "                 Floor "
+           FUNCTION TRIM(FLOOR OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-02 TRAILING)
+           " "
+           FUNCTION TRIM(SIDE OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-02 TRAILING)
+
+       DISPLAY "                 "
+           FUNCTION TRIM(ZIPCODE OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-02 TRAILING)
+           " "
+           FUNCTION TRIM(CITY OF ADDRESS-INFO 
+               OF CUSTOMER-INFO-02 TRAILING)
+
+       DISPLAY "                 "
+           COUNTRYCODE OF ADDRESS-INFO OF CUSTOMER-INFO-02
+
+       DISPLAY " "
+
+       DISPLAY "Phone Number   : " PHONE-NUMBER OF CONTACT-INFO 
+           OF CUSTOMER-INFO-02
+       DISPLAY "Email          : " EMAIL OF CONTACT-INFO 
+           OF CUSTOMER-INFO-02
+
+       DISPLAY "--------------------------------------"
        STOP RUN.
