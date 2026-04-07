@@ -50,11 +50,12 @@
        END-PERFORM
 
        DISPLAY "--------------------------------------".
-       DISPLAY "Customer ID    : " REFERENCE-ID.
-       DISPLAY "Full Name      : " CLEANED-FULLNAME.
-       DISPLAY "Account Number : " ACCOUNT-NUMBER.
-       DISPLAY "Balance        : " FUNCTION 
-           trim(BALANCE-DISPLAY LEADING) " " CURRENCY-CODE.
+      *DISPLAY "Customer ID    : " REFERENCE-ID.
+      *DISPLAY "Full Name      : " CLEANED-FULLNAME.
+      *DISPLAY "Account Number : " ACCOUNT-NUMBER.
+      *DISPLAY "Balance        : " FUNCTION 
+      *    trim(BALANCE-DISPLAY LEADING) " " CURRENCY-CODE.
+       DISPLAY CUSTOMER-INFO
        DISPLAY "--------------------------------------".
 
        STOP RUN.
