@@ -1,0 +1,4 @@
+       02 BANK-INFO.       
+       03 ACCOUNT-NUMBER PIC X(20).
+       03 CURRENCY-CODE PIC X(3).
+       03 BALANCE PIC 9(7)V99.

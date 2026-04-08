@@ -1,0 +1,5 @@
+CUST000001Main Street                             12   1    TV   Copenhagen                                        2100      DNK
+CUST000002Second Avenue                           45   2    TH   Aarhus                                            8000      DNK
+CUST000003Third Road                              7    ST   MF   Odense                                            5000      DNK
+CUST000004Fourth Blvd                             99   3    TV   Aalborg                                           9000      DNK
+CUST000005Fifth Lane                              21   4    TH   Esbjerg                                           6700      DNK
