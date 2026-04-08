@@ -1,0 +1,5 @@
+CUST000001John                Doe                 123456789012345john.doe@example.com                                                    
+CUST000002Jane                Smith               234567890123456jane.smith@example.com                                                 
+CUST000003Michael             Jensen              345678901234567michael.jensen@example.com                                              
+CUST000004Emily               Hansen              456789012345678emily.hansen@example.com                                               
+CUST000005Lucas               Nielsen             567890123456789lucas.nielsen@example.com                                               
