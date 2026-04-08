@@ -1,1 +1,2 @@
-       02 REFERENCE-ID PIC X(10) VALUE SPACES.
+       02 REFERENCE-ID PIC X(10).       
+       
