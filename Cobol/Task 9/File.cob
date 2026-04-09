@@ -230,6 +230,7 @@
                        "Information file on line: " LINE-INDEX
                        MOVE "Y" TO END-OF-FILE
                    NOT AT END
+                       DISPLAY "Not At End Index: " LINE-INDEX
                        ADD 1 TO LINE-INDEX
                END-READ
            END-PERFORM
@@ -249,6 +250,7 @@
                        "Information file on line: " LINE-INDEX
                        MOVE "Y" TO END-OF-FILE
                    NOT AT END
+                       DISPLAY "Not At End Index: " LINE-INDEX
                        PERFORM BUILD-DERIVED-BALANCE
                        ADD 1 TO LINE-INDEX
                END-READ
@@ -269,6 +271,7 @@
                        "Information file on line: " LINE-INDEX
                        MOVE "Y" TO END-OF-FILE
                    NOT AT END
+                       DISPLAY "Not At End Index: " LINE-INDEX
                        PERFORM BUILD-DERIVED-FULLNAME
                        ADD 1 TO LINE-INDEX
                END-READ
