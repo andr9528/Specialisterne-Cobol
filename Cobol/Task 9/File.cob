@@ -22,17 +22,17 @@
        DATA DIVISION.
        FILE SECTION.
        FD IN-BANK-FILE.
-       01 IN-BANK-RECORD OCCURS 5 TIMES.
+       01 IN-BANK-RECORD.
            COPY "Identification.cpy".
            COPY "BankInfo.cpy".
 
        FD IN-ADDRESS-FILE.
-       01 IN-ADDRESS-RECORD OCCURS 5 TIMES.
+       01 IN-ADDRESS-RECORD.
            COPY "Identification.cpy".
            COPY "AddressInfo.cpy".
 
        FD IN-CUSTOMER-FILE.
-       01 IN-CUSTOMER-RECORD OCCURS 5 TIMES.
+       01 IN-CUSTOMER-RECORD.
            COPY "Identification.cpy".
            02 FIRST-NAME PIC X(20).
            02 LAST-NAME PIC X(20).
@@ -46,6 +46,23 @@
            COPY "Customer.cpy".
 
        WORKING-STORAGE SECTION.
+       01 IN-CUSTOMER OCCURS 5 TIMES.
+           COPY "Identification.cpy".
+           02 FIRST-NAME PIC X(20).
+           02 LAST-NAME PIC X(20).
+           02 CONTACT-INFO.
+           03 PHONE-NUMBER PIC X(15).
+           03 EMAIL PIC X(80).
+       
+       01 IN-BANK OCCURS 5 TIMES.
+           COPY "Identification.cpy".
+           COPY "BankInfo.cpy".
+
+       01 IN-ADDRESS OCCURS 5 TIMES.
+           COPY "Identification.cpy".
+           COPY "AddressInfo.cpy".
+
+
        01 END-OF-FILE PIC X VALUE "N".
        01 LINE-INDEX PIC 9 VALUE 1.
        01 BALANCE-DISPLAY PIC Z(6)9.99 VALUE ZEROES OCCURS 5 TIMES.
@@ -87,7 +104,7 @@
                ELSE
                    DISPLAY "NO MATCH FOUND FOR REFERENCE-ID: "
                        REFERENCE-ID 
-                       OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
+                       OF IN-CUSTOMER(CUSTOMER-INDEX)
                END-IF
            END-PERFORM
            EXIT.
@@ -148,8 +165,8 @@
                UNTIL BANK-INDEX > 5
                   OR BANK-MATCH-FOUND = "Y"
 
-               IF REFERENCE-ID OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
-                  = REFERENCE-ID OF IN-BANK-RECORD(BANK-INDEX)
+               IF REFERENCE-ID OF IN-CUSTOMER(CUSTOMER-INDEX)
+                  = REFERENCE-ID OF IN-BANK(BANK-INDEX)
                    MOVE "Y" TO BANK-MATCH-FOUND
                END-IF
            END-PERFORM
@@ -162,8 +179,8 @@
                UNTIL ADDRESS-INDEX > 5
                   OR ADDRESS-MATCH-FOUND = "Y"
 
-               IF REFERENCE-ID OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
-                  = REFERENCE-ID OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+               IF REFERENCE-ID OF IN-CUSTOMER(CUSTOMER-INDEX)
+                  = REFERENCE-ID OF IN-ADDRESS(ADDRESS-INDEX)
                    MOVE "Y" TO ADDRESS-MATCH-FOUND
                END-IF
            END-PERFORM
@@ -172,49 +189,49 @@
        MOVE-INPUT-TO-OUTPUT.
            MOVE SPACES TO OUT-CUSTOMER-RECORD
 
-           MOVE REFERENCE-ID OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
+           MOVE REFERENCE-ID OF IN-CUSTOMER(CUSTOMER-INDEX)
                TO REFERENCE-ID OF OUT-CUSTOMER-RECORD
 
-           MOVE FIRST-NAME OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
+           MOVE FIRST-NAME OF IN-CUSTOMER(CUSTOMER-INDEX)
                TO FIRST-NAME OF OUT-CUSTOMER-RECORD
 
-           MOVE LAST-NAME OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
+           MOVE LAST-NAME OF IN-CUSTOMER(CUSTOMER-INDEX)
                TO LAST-NAME OF OUT-CUSTOMER-RECORD
 
-           MOVE ACCOUNT-NUMBER OF IN-BANK-RECORD(BANK-INDEX)
+           MOVE ACCOUNT-NUMBER OF IN-BANK(BANK-INDEX)
                TO ACCOUNT-NUMBER OF OUT-CUSTOMER-RECORD
 
-           MOVE CURRENCY-CODE OF IN-BANK-RECORD(BANK-INDEX)
+           MOVE CURRENCY-CODE OF IN-BANK(BANK-INDEX)
                TO CURRENCY-CODE OF OUT-CUSTOMER-RECORD
 
-           MOVE BALANCE OF IN-BANK-RECORD(BANK-INDEX)
+           MOVE BALANCE OF IN-BANK(BANK-INDEX)
                TO BALANCE OF OUT-CUSTOMER-RECORD
 
-           MOVE STREET-NAME OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE STREET-NAME OF IN-ADDRESS(ADDRESS-INDEX)
                TO STREET-NAME OF OUT-CUSTOMER-RECORD
 
-           MOVE HOUSE-NUMBER OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE HOUSE-NUMBER OF IN-ADDRESS(ADDRESS-INDEX)
                TO HOUSE-NUMBER OF OUT-CUSTOMER-RECORD
 
-           MOVE FLOOR OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE FLOOR OF IN-ADDRESS(ADDRESS-INDEX)
                TO FLOOR OF OUT-CUSTOMER-RECORD
 
-           MOVE SIDE OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE SIDE OF IN-ADDRESS(ADDRESS-INDEX)
                TO SIDE OF OUT-CUSTOMER-RECORD
 
-           MOVE CITY OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE CITY OF IN-ADDRESS(ADDRESS-INDEX)
                TO CITY OF OUT-CUSTOMER-RECORD
 
-           MOVE ZIPCODE OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE ZIPCODE OF IN-ADDRESS(ADDRESS-INDEX)
                TO ZIPCODE OF OUT-CUSTOMER-RECORD
 
-           MOVE COUNTRYCODE OF IN-ADDRESS-RECORD(ADDRESS-INDEX)
+           MOVE COUNTRYCODE OF IN-ADDRESS(ADDRESS-INDEX)
                TO COUNTRYCODE OF OUT-CUSTOMER-RECORD
 
-           MOVE PHONE-NUMBER OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
+           MOVE PHONE-NUMBER OF IN-CUSTOMER(CUSTOMER-INDEX)
                TO PHONE-NUMBER OF OUT-CUSTOMER-RECORD
 
-           MOVE EMAIL OF IN-CUSTOMER-RECORD(CUSTOMER-INDEX)
+           MOVE EMAIL OF IN-CUSTOMER(CUSTOMER-INDEX)
                TO EMAIL OF OUT-CUSTOMER-RECORD
 
            EXIT.
@@ -224,12 +241,13 @@
            DISPLAY "Opening Address Information File"
            OPEN INPUT IN-ADDRESS-FILE
            PERFORM UNTIL END-OF-FILE = "Y"
-               READ IN-ADDRESS-FILE INTO IN-ADDRESS-RECORD(LINE-INDEX)
+               READ IN-ADDRESS-FILE INTO IN-ADDRESS-RECORD
                    AT END
                        DISPLAY "Found End of Address "
                        "Information file on line: " LINE-INDEX
                        MOVE "Y" TO END-OF-FILE
                    NOT AT END
+                       MOVE IN-ADDRESS-RECORD TO IN-ADDRESS(LINE-INDEX)
                        DISPLAY "Not At End Index: " LINE-INDEX
                        ADD 1 TO LINE-INDEX
                END-READ
@@ -244,12 +262,13 @@
            DISPLAY "Opening Bank Information File"
            OPEN INPUT IN-BANK-FILE
            PERFORM UNTIL END-OF-FILE = "Y"
-               READ IN-BANK-FILE INTO IN-BANK-RECORD(LINE-INDEX)
+               READ IN-BANK-FILE INTO IN-BANK-RECORD
                    AT END
                        DISPLAY "Found End of Bank "
                        "Information file on line: " LINE-INDEX
                        MOVE "Y" TO END-OF-FILE
                    NOT AT END
+                       MOVE IN-BANK-RECORD TO IN-BANK(LINE-INDEX)
                        DISPLAY "Not At End Index: " LINE-INDEX
                        PERFORM BUILD-DERIVED-BALANCE
                        ADD 1 TO LINE-INDEX
@@ -265,12 +284,14 @@
            DISPLAY "Opening Customer Information File"
            OPEN INPUT IN-CUSTOMER-FILE
            PERFORM UNTIL END-OF-FILE = "Y"
-               READ IN-CUSTOMER-FILE INTO IN-CUSTOMER-RECORD(LINE-INDEX)
+               READ IN-CUSTOMER-FILE INTO IN-CUSTOMER-RECORD
                    AT END
                        DISPLAY "Found End of Customer "
                        "Information file on line: " LINE-INDEX
                        MOVE "Y" TO END-OF-FILE
                    NOT AT END
+                       MOVE IN-CUSTOMER-RECORD 
+                           TO IN-CUSTOMER(LINE-INDEX)
                        DISPLAY "Not At End Index: " LINE-INDEX
                        PERFORM BUILD-DERIVED-FULLNAME
                        ADD 1 TO LINE-INDEX
@@ -290,16 +311,16 @@
            EXIT.
        
        BUILD-DERIVED-BALANCE.
-           MOVE BALANCE OF IN-BANK-RECORD(LINE-INDEX)
+           MOVE BALANCE OF IN-BANK(LINE-INDEX)
                TO BALANCE-DISPLAY(LINE-INDEX)
            EXIT.
 
        BUILD-DERIVED-FULLNAME.
            STRING
-               FIRST-NAME OF IN-CUSTOMER-RECORD(LINE-INDEX) 
+               FIRST-NAME OF IN-CUSTOMER(LINE-INDEX) 
                    DELIMITED BY SPACE
                " " DELIMITED BY SIZE
-               LAST-NAME OF IN-CUSTOMER-RECORD(LINE-INDEX)
+               LAST-NAME OF IN-CUSTOMER(LINE-INDEX)
                    DELIMITED BY SPACE
                INTO FULLNAME(LINE-INDEX)
            END-STRING

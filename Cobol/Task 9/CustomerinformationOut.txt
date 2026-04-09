@@ -1,0 +1,4 @@
+CUST000001John                Doe                 ACC00000000000000002USD000987654Second Avenue                           45   2    TH   Aarhus                                            8000      DNK123456789012345john.doe@example.com
+CUST000002Jane                Smith               ACC00000000000000003EUR000555000Third Road                              7    ST   MF   Odense                                            5000      DNK234567890123456jane.smith@example.com
+CUST000003Michael             Jensen              ACC00000000000000004DKK000100200Fourth Blvd                             99   3    TV   Aalborg                                           9000      DNK345678901234567michael.jensen@example.com
+CUST000004Emily               Hansen              ACC00000000000000005EUR000777888Fifth Lane                              21   4    TH   Esbjerg                                           6700      DNK456789012345678emily.hansen@example.com
