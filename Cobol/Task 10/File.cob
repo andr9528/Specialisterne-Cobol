@@ -206,20 +206,26 @@
                END-IF
        
                IF TRANSACTION-TYPE 
-                   OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
-                   = "Udbetaling"
-                   OR
-                  (TRANSACTION-TYPE 
-                   OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
-                   = "Overfoersel"
-                   AND DKK-AMOUNT 
+                      OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                      = "Udbetaling"
+               
+                   SUBTRACT DKK-AMOUNT 
                        OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
-                       < 0)
-       
+                   FROM DKK-TOTAL-PAYMENTS 
+                       OF CUSTOMERS(CUSTOMER-INDEX)
+               
+               ELSE IF TRANSACTION-TYPE 
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                           = "Overfoersel"
+                       AND DKK-AMOUNT 
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                           < 0
+               
                    ADD DKK-AMOUNT 
                        OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
                        TO DKK-TOTAL-PAYMENTS 
                            OF CUSTOMERS(CUSTOMER-INDEX)
+               
                END-IF
            END-PERFORM
     
