@@ -74,8 +74,15 @@
        01 OUTPUT-LINE-INDEX PIC 99 VALUE 0.
        01 CURRENT-BANK-INDEX PIC 99 VALUE 0.
        01 OUTPUT-TEXT PIC X(100).
-       01 SEPARATOR-LINE PIC X(95) VALUE ALL "-".
-       01 INSET-LINE PIC X(50) VALUE SPACES.
+       01 SEPARATOR-LINE PIC X(90) VALUE ALL "-".
+       01 INSET-LINE PIC X(45) VALUE SPACES.
+
+       01 SOURCE-AMOUNT PIC S9(11)V99.
+       01 ABS-AMOUNT PIC 9(11)V99.
+       01 FORMAT-AMOUNT-DISPLAY PIC Z,ZZZ,ZZZ,ZZ9.99.
+       01 SIGNED-FORMAT-AMOUNT-DISPLAY PIC X(20).
+       01 FORMATTED-DKK-AMOUNT-DISPLAY PIC X(20).
+       01 FORMATTED-AMOUNT-DISPLAY PIC X(20).
 
        PROCEDURE DIVISION.          
            PERFORM LOAD-BANKS-DATA-TO-ARRAY
@@ -179,10 +186,43 @@
            
            PERFORM COMPUTE-TOTALS
            PERFORM BUILD-CUSTOMER-REPORT
+           PERFORM DISPLAY-CUSTOMER-REPORT
 
            END-PERFORM
            EXIT.
+       
+       DISPLAY-CUSTOMER-REPORT.
+           PERFORM VARYING OUTPUT-LINE-INDEX FROM 1 BY 1
+               UNTIL OUTPUT-LINE-INDEX >
+                   OUTPUT-LINES-COUNT OF CUSTOMERS(CUSTOMER-INDEX)
 
+               DISPLAY OUTPUT-LINES(CUSTOMER-INDEX, OUTPUT-LINE-INDEX)
+           END-PERFORM
+
+           DISPLAY SPACE
+           DISPLAY SPACE
+
+           EXIT.
+       
+       FORMAT-SIGNED-AMOUNT.
+           MOVE SPACES TO SIGNED-FORMAT-AMOUNT-DISPLAY
+           MOVE FUNCTION ABS(SOURCE-AMOUNT) TO ABS-AMOUNT
+           MOVE ABS-AMOUNT TO FORMAT-AMOUNT-DISPLAY
+       
+           IF SOURCE-AMOUNT < 0
+               STRING
+                   "-"
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
+                   DELIMITED BY SIZE
+                   INTO SIGNED-FORMAT-AMOUNT-DISPLAY
+           ELSE
+               MOVE FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
+                   TO SIGNED-FORMAT-AMOUNT-DISPLAY
+           END-IF
+       
+           EXIT.
+       
        BUILD-CUSTOMER-REPORT.
            PERFORM CLEAR-CUSTOMER-OUTPUT-LINES
 
@@ -297,7 +337,7 @@
            PERFORM ADD-OUTPUT-LINE
            
            STRING
-               "Dato Tidspunkt Transaktionstype Beloeb (DKK)"
+               "Dato Tidspunkt Transaktionstype Beloeb (DKK) "
                "Beloeb (valuta) Butik"
                INTO OUTPUT-TEXT
            END-STRING           
@@ -318,25 +358,28 @@
                INTO OUTPUT-TEXT
            END-STRING
            PERFORM ADD-OUTPUT-LINE
-
+           
+           MOVE DKK-TOTAL-PAYMENTS OF CUSTOMERS(CUSTOMER-INDEX)
+               TO SOURCE-AMOUNT
+           PERFORM FORMAT-SIGNED-AMOUNT
+           
            STRING
                "Totalt udbetalt (DKK): "
                DELIMITED BY SIZE
-               FUNCTION TRIM(
-                   DKK-TOTAL-PAYMENTS-DISPLAY 
-                       OF CUSTOMERS(CUSTOMER-INDEX)
-                   LEADING)
+               FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
                DELIMITED BY SIZE
                INTO OUTPUT-TEXT
            END-STRING
            PERFORM ADD-OUTPUT-LINE
 
+           MOVE DKK-SALDO-DISPLAY OF CUSTOMERS(CUSTOMER-INDEX)
+               TO SOURCE-AMOUNT
+           PERFORM FORMAT-SIGNED-AMOUNT
+           
            STRING
                "Saldo (DKK): "
                DELIMITED BY SIZE
-               FUNCTION TRIM(
-                   DKK-SALDO-DISPLAY OF CUSTOMERS(CUSTOMER-INDEX)
-                   LEADING)
+               FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
                DELIMITED BY SIZE
                INTO OUTPUT-TEXT
            END-STRING
@@ -391,6 +434,19 @@
                    CUSTOMER-TRANSACTION-INDEX)
                    TO CURRENT-TRANSACTION-INDEX
 
+               MOVE DKK-AMOUNT 
+                   OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                   TO SOURCE-AMOUNT
+               PERFORM FORMAT-SIGNED-AMOUNT
+               MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+                   TO FORMATTED-DKK-AMOUNT-DISPLAY
+               
+               MOVE AMOUNT OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                   TO SOURCE-AMOUNT
+               PERFORM FORMAT-SIGNED-AMOUNT
+               MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+                   TO FORMATTED-AMOUNT-DISPLAY
+
                STRING
                    FUNCTION TRIM(
                        TIME-OF-TRANSACTION
@@ -406,17 +462,11 @@
                    DELIMITED BY SIZE
                    " "
                    DELIMITED BY SIZE
-                   FUNCTION TRIM(
-                       DKK-AMOUNT-DISPLAY
-                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
-                       LEADING)
+                   FUNCTION TRIM(FORMATTED-DKK-AMOUNT-DISPLAY TRAILING)
                    DELIMITED BY SIZE
                    " (DKK) "
                    DELIMITED BY SIZE
-                   FUNCTION TRIM(
-                       AMOUNT-DISPLAY
-                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
-                       LEADING)
+                   FUNCTION TRIM(FORMATTED-AMOUNT-DISPLAY TRAILING)
                    DELIMITED BY SIZE
                    " ("
                    DELIMITED BY SIZE
