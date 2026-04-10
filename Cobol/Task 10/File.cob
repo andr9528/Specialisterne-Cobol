@@ -46,7 +46,8 @@
            02 TRANSACTION-INDICES PIC 99 OCCURS 8 TIMES.
            02 CUSTOMER-TRANSACTIONS-COUNT PIC 9 VALUE 0.
            02 CUSTOMER-BANK-INDEX PIC 99.
-           02 OUTPUT-LINES PIC X(100) OCCURS 25 TIMES.
+           02 OUTPUT-LINES PIC X(100) OCCURS 40 TIMES.
+           02 OUTPUT-LINES-COUNT PIC 99.
 
        01 END-OF-FILE PIC X VALUE "N".
        01 LINE-INDEX PIC 99 VALUE 1.
@@ -70,6 +71,11 @@
 
        01 NEXT-TRANSACTION-SLOT PIC 99 VALUE 0.
 
+       01 OUTPUT-LINE-INDEX PIC 99 VALUE 0.
+       01 CURRENT-BANK-INDEX PIC 99 VALUE 0.
+       01 OUTPUT-TEXT PIC X(100).
+       01 SEPARATOR-LINE PIC X(95) VALUE ALL "-".
+       01 INSET-LINE PIC X(50) VALUE SPACES.
 
        PROCEDURE DIVISION.          
            PERFORM LOAD-BANKS-DATA-TO-ARRAY
@@ -172,8 +178,265 @@
                UNTIL CUSTOMER-INDEX > CUSTOMER-COUNT
            
            PERFORM COMPUTE-TOTALS
+           PERFORM BUILD-CUSTOMER-REPORT
 
            END-PERFORM
+           EXIT.
+
+       BUILD-CUSTOMER-REPORT.
+           PERFORM CLEAR-CUSTOMER-OUTPUT-LINES
+
+           MOVE CUSTOMER-BANK-INDEX OF CUSTOMERS(CUSTOMER-INDEX)
+               TO CURRENT-BANK-INDEX
+
+           MOVE SEPARATOR-LINE TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               "Kunde: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX) TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               "Adresse: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   CUSTOMER-ADDRESS 
+                       OF CUSTOMERS(CUSTOMER-INDEX) TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               INSET-LINE
+               "Registreringsnummer: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   REGISTRATION-NUMBER OF BANKS(CURRENT-BANK-INDEX)
+                   TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               INSET-LINE
+               "Bank: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   BANK-NAME OF BANKS(CURRENT-BANK-INDEX) TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               INSET-LINE
+               "Bankadresse: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   BANK-ADDRESS OF BANKS(CURRENT-BANK-INDEX) TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               INSET-LINE
+               "Telefon: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   TELEFON OF BANKS(CURRENT-BANK-INDEX) TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               INSET-LINE
+               "E-mail: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   EMAIL OF BANKS(CURRENT-BANK-INDEX) TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE TRANSACTION-INDICES(CUSTOMER-INDEX, 1)
+               TO CURRENT-TRANSACTION-INDEX
+
+           STRING
+               "Kontoudskrift for kontonr.: "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   ACCOUNT-IDENTIFICATION
+                       OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                   TRAILING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+           
+           STRING
+               "Dato Tidspunkt Transaktionstype Beloeb (DKK)"
+               "Beloeb (valuta) Butik"
+               INTO OUTPUT-TEXT
+           END-STRING           
+           PERFORM ADD-OUTPUT-LINE
+
+           PERFORM ADD-TRANSACTION-OUTPUT-LINES
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               "Totalt indbetalt (DKK): "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   DKK-TOTAL-INCOME-DISPLAY OF CUSTOMERS(CUSTOMER-INDEX)
+                   LEADING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               "Totalt udbetalt (DKK): "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   DKK-TOTAL-PAYMENTS-DISPLAY 
+                       OF CUSTOMERS(CUSTOMER-INDEX)
+                   LEADING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           STRING
+               "Saldo (DKK): "
+               DELIMITED BY SIZE
+               FUNCTION TRIM(
+                   DKK-SALDO-DISPLAY OF CUSTOMERS(CUSTOMER-INDEX)
+                   LEADING)
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE "Med venlig hilsen" TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE SPACES TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           MOVE BANK-NAME OF BANKS(CURRENT-BANK-INDEX)
+               TO OUTPUT-TEXT
+           PERFORM ADD-OUTPUT-LINE
+
+           EXIT.
+       
+       CLEAR-CUSTOMER-OUTPUT-LINES.
+           MOVE 0 TO OUTPUT-LINES-COUNT OF CUSTOMERS(CUSTOMER-INDEX)
+
+           PERFORM VARYING OUTPUT-LINE-INDEX FROM 1 BY 1
+               UNTIL OUTPUT-LINE-INDEX > 25
+               MOVE SPACES
+                   TO OUTPUT-LINES(CUSTOMER-INDEX, OUTPUT-LINE-INDEX)
+           END-PERFORM
+
+           EXIT.
+
+       ADD-OUTPUT-LINE.
+           ADD 1 TO OUTPUT-LINES-COUNT OF CUSTOMERS(CUSTOMER-INDEX)
+
+           MOVE OUTPUT-LINES-COUNT OF CUSTOMERS(CUSTOMER-INDEX)
+               TO OUTPUT-LINE-INDEX
+
+           MOVE OUTPUT-TEXT
+               TO OUTPUT-LINES(CUSTOMER-INDEX, OUTPUT-LINE-INDEX)
+
+           MOVE SPACES TO OUTPUT-TEXT
+
+           EXIT.
+
+       ADD-TRANSACTION-OUTPUT-LINES.
+           PERFORM VARYING CUSTOMER-TRANSACTION-INDEX FROM 1 BY 1
+               UNTIL CUSTOMER-TRANSACTION-INDEX >
+                   CUSTOMER-TRANSACTIONS-COUNT 
+                       OF CUSTOMERS(CUSTOMER-INDEX)
+
+               MOVE TRANSACTION-INDICES(CUSTOMER-INDEX,
+                   CUSTOMER-TRANSACTION-INDEX)
+                   TO CURRENT-TRANSACTION-INDEX
+
+               STRING
+                   FUNCTION TRIM(
+                       TIME-OF-TRANSACTION
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                       TRAILING)
+                   DELIMITED BY SIZE
+                   " "
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(
+                       TRANSACTION-TYPE
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                       TRAILING)
+                   DELIMITED BY SIZE
+                   " "
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(
+                       DKK-AMOUNT-DISPLAY
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                       LEADING)
+                   DELIMITED BY SIZE
+                   " (DKK) "
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(
+                       AMOUNT-DISPLAY
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                       LEADING)
+                   DELIMITED BY SIZE
+                   " ("
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(
+                       CURRENCY-CODE
+                           OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                       TRAILING)
+                   DELIMITED BY SIZE
+                   ") "
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(
+                       SHOP OF TRANSACTIONS(CURRENT-TRANSACTION-INDEX)
+                       TRAILING)
+                   DELIMITED BY SIZE
+                   INTO OUTPUT-TEXT
+               END-STRING
+
+               PERFORM ADD-OUTPUT-LINE
+           END-PERFORM
+
            EXIT.
 
        COMPUTE-TOTALS.
