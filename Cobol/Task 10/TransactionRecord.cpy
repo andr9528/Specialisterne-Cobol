@@ -1,4 +1,4 @@
-           COPY "CustomerInfo.cpy"   
+           COPY "CustomerInfo.cpy".   
            02 BIRTHDAY PIC X(10).
            02 ACCOUNT-IDENTIFICATION PIC X(15).           
            COPY "Identification.cpy".
