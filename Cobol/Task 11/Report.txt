@@ -1,0 +1,8 @@
+
+Top 3 kunder baseret paa saldo:
+CPR: 230354-5176, Name: Niels Mortensen, Saldo: 1,220,597.71 DKK
+CPR: 011087-3472, Name: Lars Olsen, Saldo: 786,260.41 DKK
+CPR: 170878-2382, Name: Marie Nielsen, Saldo: 750,451.12 DKK
+
+------------------------------------------------------------------------------------------
+
