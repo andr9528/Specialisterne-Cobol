@@ -1,0 +1,523 @@
+------------------------------------------------------------------------------------------
+
+Kunde: Marie Christensen
+Adresse: Frederiks Alle 578A, 4700 Vejle
+
+                                             Registreringsnummer: 0002
+                                             Bank: Jyske Bank
+                                             Bankadresse: Hovedgaden 101B, 6700 Roskilde
+                                             Telefon: +45 88315922
+                                             E-mail: kontakt@jyskebank.dk
+
+Kontoudskrift for kontonr.: 521-58-82557
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2023-10-22-17.44.36.000000 Overfoersel 145,198.22 (DKK) 21,352.68 (USD) Blomsterhandler
+2020-10-09-03.25.25.000000 Indbetaling 58,303.78 (DKK) 58,303.78 (DKK) Apotek
+
+Totalt indbetalt (DKK): 20,3502.00
+Totalt udbetalt (DKK): 0.00
+Saldo (DKK): 253,502.00
+
+Med venlig hilsen
+
+Jyske Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Niels Mortensen
+Adresse: Frederiks Alle 904A, 9000 Odense
+
+                                             Registreringsnummer: 0009
+                                             Bank: Spar Nord Bank
+                                             Bankadresse: Hovedgaden 876B, 6700 Esbjerg
+                                             Telefon: +45 47521456
+                                             E-mail: kontakt@sparnordbank.dk
+
+Kontoudskrift for kontonr.: 682-20-40584
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2020-03-15-01.25.25.000000 Indbetaling 569,366.55 (DKK) 75,915.54 (EUR) Tankstation
+2023-02-17-09.04.35.000000 Overfoersel 40,021.87 (DKK) 40,021.87 (DKK) Elektronikbutik
+2025-03-31-19.00.16.000000 Indbetaling 507,801.30 (DKK) 67,706.84 (EUR) Toejbutik
+2024-02-21-20.44.00.000000 Indbetaling 595,561.12 (DKK) 79,408.15 (EUR) Toejbutik
+2021-01-19-03.23.32.000000 Indbetaling 27,213.42 (DKK) 27,213.42 (DKK) Boghandel
+
+Totalt indbetalt (DKK): 173,9964.26
+Totalt udbetalt (DKK): 0.00
+Saldo (DKK): 1,789,964.26
+
+Med venlig hilsen
+
+Spar Nord Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Anne Olsen
+Adresse: Soendergade 268C, 4700 Helsingoer
+
+                                             Registreringsnummer: 0013
+                                             Bank: Nordea
+                                             Bankadresse: Frederiks Alle 908C, 5000 Roskilde
+                                             Telefon: +45 47850288
+                                             E-mail: kontakt@nordea.dk
+
+Kontoudskrift for kontonr.: 124-86-60879
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2025-06-17-16.37.15.000000 Udbetaling 94,501.50 (DKK) 94,501.50 (DKK) Toejbutik
+2025-05-18-09.34.18.000000 Overfoersel -552,654.49 (DKK) -81,272.72 (USD) Biograf
+
+Totalt indbetalt (DKK): 0.00
+Totalt udbetalt (DKK): -647,155.99
+Saldo (DKK): -597,155.99
+
+Med venlig hilsen
+
+Nordea
+
+------------------------------------------------------------------------------------------
+
+Kunde: Marie Nielsen
+Adresse: Noerreport 43C, 9000 Koebenhavn
+
+                                             Registreringsnummer: 0011
+                                             Bank: Nykredit Bank
+                                             Bankadresse: Frederiks Alle 148A, 3000 Helsingoer
+                                             Telefon: +45 31901438
+                                             E-mail: kontakt@nykreditbank.dk
+
+Kontoudskrift for kontonr.: 574-47-22042
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2021-01-29-11.15.06.000000 Indbetaling 791.40 (DKK) 105.52 (EUR) Moebelbutik
+2022-09-02-14.04.33.000000 Overfoersel 12,480.18 (DKK) 12,480.18 (DKK) Blomsterhandler
+2021-03-22-07.31.22.000000 Indbetaling 544,621.24 (DKK) 80,091.36 (USD) Boghandel
+2021-05-01-21.48.19.000000 Indbetaling 133,514.73 (DKK) 19,634.52 (USD) Blomsterhandler
+2022-10-20-04.03.55.000000 Indbetaling 9,834.97 (DKK) 9,834.97 (DKK) Boghandel
+
+Totalt indbetalt (DKK): 70,1242.52
+Totalt udbetalt (DKK): 0.00
+Saldo (DKK): 751,242.52
+
+Med venlig hilsen
+
+Nykredit Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Niels Larsen
+Adresse: Oesterbrogade 243B, 4000 Vejle
+
+                                             Registreringsnummer: 0002
+                                             Bank: Jyske Bank
+                                             Bankadresse: Hovedgaden 101B, 6700 Roskilde
+                                             Telefon: +45 88315922
+                                             E-mail: kontakt@jyskebank.dk
+
+Kontoudskrift for kontonr.: 829-10-85115
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2025-01-28-11.01.00.000000 Indbetaling 264,572.56 (DKK) 38,907.73 (USD) Tankstation
+2021-01-25-16.48.06.000000 Indbetaling 83,776.48 (DKK) 83,776.48 (DKK) Cafe
+2023-12-29-17.27.10.000000 Overfoersel -454,005.46 (DKK) -66,765.51 (USD) Bageri
+2020-10-11-11.35.28.000000 Indbetaling 232,482.75 (DKK) 34,188.64 (USD) Toejbutik
+2021-07-05-23.54.12.000000 Udbetaling 90,098.54 (DKK) 90,098.54 (DKK) Boghandel
+
+Totalt indbetalt (DKK): 58,0831.79
+Totalt udbetalt (DKK): -544,104.00
+Saldo (DKK): 86,727.79
+
+Med venlig hilsen
+
+Jyske Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Hanne Larsen
+Adresse: Amagerbrogade 114C, 9000 Roskilde
+
+                                             Registreringsnummer: 0007
+                                             Bank: Danske Bank
+                                             Bankadresse: Amagerbrogade 830A, 7100 Naestved
+                                             Telefon: +45 28572441
+                                             E-mail: kontakt@danskebank.dk
+
+Kontoudskrift for kontonr.: 419-42-99514
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2021-11-29-10.42.09.000000 Indbetaling 407,017.33 (DKK) 59,855.49 (USD) Bageri
+2023-12-15-19.36.28.000000 Overfoersel 188,790.44 (DKK) 27,763.30 (USD) Apotek
+
+Totalt indbetalt (DKK): 59,5807.77
+Totalt udbetalt (DKK): 0.00
+Saldo (DKK): 645,807.77
+
+Med venlig hilsen
+
+Danske Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Mette Nielsen
+Adresse: Noerreport 145, 9000 Koebenhavn
+
+                                             Registreringsnummer: 0014
+                                             Bank: Arbejdernes Landsbank
+                                             Bankadresse: Oesterbrogade 523B, 2100 Aarhus
+                                             Telefon: +45 20025342
+                                             E-mail: kontakt@arbejderneslandsbank.dk
+
+Kontoudskrift for kontonr.: 356-60-41339
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2020-04-05-06.13.58.000000 Udbetaling 24,966.20 (DKK) 24,966.20 (DKK) Apotek
+2021-05-20-14.47.38.000000 Overfoersel 149,393.21 (DKK) 21,969.59 (USD) Blomsterhandler
+2024-08-11-05.32.31.000000 Indbetaling 5,706.20 (DKK) 5,706.20 (DKK) Bageri
+2022-03-09-15.50.39.000000 Udbetaling 3,015.97 (DKK) 3,015.97 (DKK) Bageri
+2020-07-07-09.10.45.000000 Udbetaling 409,909.78 (DKK) 60,280.85 (USD) Restaurant
+
+Totalt indbetalt (DKK): 15,5099.41
+Totalt udbetalt (DKK): -437,891.95
+Saldo (DKK): -232,792.54
+
+Med venlig hilsen
+
+Arbejdernes Landsbank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Lars Olsen
+Adresse: Soendergade 480B, 7100 Aalborg
+
+                                             Registreringsnummer: 0010
+                                             Bank: Sydbank
+                                             Bankadresse: Vesterbrogade 876C, 8000 Randers
+                                             Telefon: +45 69773939
+                                             E-mail: kontakt@sydbank.dk
+
+Kontoudskrift for kontonr.: 774-87-76177
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2020-10-29-01.39.07.000000 Indbetaling 62,014.91 (DKK) 9,119.84 (USD) Blomsterhandler
+2021-10-04-14.26.26.000000 Overfoersel 22,207.69 (DKK) 22,207.69 (DKK) Cafe
+2024-05-08-06.06.16.000000 Indbetaling 714,052.72 (DKK) 95,207.03 (EUR) Blomsterhandler
+
+Totalt indbetalt (DKK): 79,8275.32
+Totalt udbetalt (DKK): 0.00
+Saldo (DKK): 848,275.32
+
+Med venlig hilsen
+
+Sydbank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Marie Jensen
+Adresse: Amagerbrogade 621C, 2100 Roskilde
+
+                                             Registreringsnummer: 0001
+                                             Bank: Spar Nord Bank
+                                             Bankadresse: Oesterbrogade 6, 6700 Randers
+                                             Telefon: +45 16739745
+                                             E-mail: kontakt@sparnordbank.dk
+
+Kontoudskrift for kontonr.: 469-29-86501
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2022-02-07-20.27.14.000000 Udbetaling 491,013.67 (DKK) 65,468.49 (EUR) Moebelbutik
+2025-09-02-05.21.31.000000 Udbetaling 542,568.60 (DKK) 79,789.50 (USD) Cafe
+2021-07-17-15.46.18.000000 Udbetaling 60,186.49 (DKK) 60,186.49 (DKK) Toejbutik
+2024-04-06-07.36.05.000000 Udbetaling 52,929.72 (DKK) 52,929.72 (DKK) Elektronikbutik
+
+Totalt indbetalt (DKK): 0.00
+Totalt udbetalt (DKK): -1,146,698.48
+Saldo (DKK): -1,096,698.48
+
+Med venlig hilsen
+
+Spar Nord Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Marie Nielsen
+Adresse: Noerreport 892, 8900 Aarhus
+
+                                             Registreringsnummer: 0011
+                                             Bank: Nykredit Bank
+                                             Bankadresse: Frederiks Alle 148A, 3000 Helsingoer
+                                             Telefon: +45 31901438
+                                             E-mail: kontakt@nykreditbank.dk
+
+Kontoudskrift for kontonr.: 918-27-95386
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2024-05-11-15.09.07.000000 Udbetaling 563,185.45 (DKK) 82,821.39 (USD) Boghandel
+2022-02-03-02.01.37.000000 Udbetaling 248,851.03 (DKK) 36,595.74 (USD) Apotek
+2025-05-21-11.54.45.000000 Udbetaling 283,989.69 (DKK) 41,763.19 (USD) Boghandel
+
+Totalt indbetalt (DKK): 0.00
+Totalt udbetalt (DKK): -1,096,026.17
+Saldo (DKK): -1,046,026.17
+
+Med venlig hilsen
+
+Nykredit Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Peter Christensen
+Adresse: Vesterbrogade 840B, 9000 Koebenhavn
+
+                                             Registreringsnummer: 0008
+                                             Bank: Jyske Bank
+                                             Bankadresse: Amagerbrogade 616, 4000 Vejle
+                                             Telefon: +45 60569096
+                                             E-mail: kontakt@jyskebank.dk
+
+Kontoudskrift for kontonr.: 616-54-61933
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2023-07-20-20.31.09.000000 Overfoersel 562,418.17 (DKK) 74,989.09 (EUR) Boghandel
+2021-11-25-20.41.18.000000 Overfoersel -74,402.95 (DKK) -74,402.95 (DKK) Cafe
+
+Totalt indbetalt (DKK): 56,2418.17
+Totalt udbetalt (DKK): -74,402.95
+Saldo (DKK): 538,015.22
+
+Med venlig hilsen
+
+Jyske Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Hanne Andersen
+Adresse: Strandvejen 242B, 6700 Vejle
+
+                                             Registreringsnummer: 0005
+                                             Bank: Nykredit Bank
+                                             Bankadresse: Strandvejen 632B, 6700 Roskilde
+                                             Telefon: +45 93226076
+                                             E-mail: kontakt@nykreditbank.dk
+
+Kontoudskrift for kontonr.: 247-75-72096
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2020-10-26-21.21.53.000000 Udbetaling 372,112.87 (DKK) 49,615.05 (EUR) Tankstation
+2025-08-07-05.01.57.000000 Indbetaling 656,860.20 (DKK) 87,581.36 (EUR) Boghandel
+
+Totalt indbetalt (DKK): 65,6860.20
+Totalt udbetalt (DKK): -372,112.87
+Saldo (DKK): 334,747.33
+
+Med venlig hilsen
+
+Nykredit Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Camilla Hansen
+Adresse: Hovedgaden 900C, 8900 Roskilde
+
+                                             Registreringsnummer: 0014
+                                             Bank: Arbejdernes Landsbank
+                                             Bankadresse: Oesterbrogade 523B, 2100 Aarhus
+                                             Telefon: +45 20025342
+                                             E-mail: kontakt@arbejderneslandsbank.dk
+
+Kontoudskrift for kontonr.: 732-24-45962
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2024-01-10-20.45.44.000000 Udbetaling 84,153.37 (DKK) 11,220.45 (EUR) Moebelbutik
+2021-12-20-08.11.06.000000 Indbetaling 66,826.63 (DKK) 66,826.63 (DKK) Restaurant
+
+Totalt indbetalt (DKK): 6,6826.63
+Totalt udbetalt (DKK): -84,153.37
+Saldo (DKK): 32,673.26
+
+Med venlig hilsen
+
+Arbejdernes Landsbank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Soeren Olsen
+Adresse: Soendergade 315C, 4700 Vejle
+
+                                             Registreringsnummer: 0007
+                                             Bank: Danske Bank
+                                             Bankadresse: Amagerbrogade 830A, 7100 Naestved
+                                             Telefon: +45 28572441
+                                             E-mail: kontakt@danskebank.dk
+
+Kontoudskrift for kontonr.: 894-41-12316
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2022-12-30-05.29.35.000000 Indbetaling 90,012.96 (DKK) 90,012.96 (DKK) Toejbutik
+2022-08-24-11.22.05.000000 Overfoersel 49,888.26 (DKK) 49,888.26 (DKK) Apotek
+2025-12-04-09.48.24.000000 Udbetaling 235,186.80 (DKK) 31,358.24 (EUR) Boghandel
+2024-06-23-05.10.14.000000 Udbetaling 214,169.26 (DKK) 31,495.48 (USD) Apotek
+
+Totalt indbetalt (DKK): 13,9901.22
+Totalt udbetalt (DKK): -449,356.06
+Saldo (DKK): -259,454.84
+
+Med venlig hilsen
+
+Danske Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Niels Hansen
+Adresse: Vesterbrogade 66A, 2100 Aarhus
+
+                                             Registreringsnummer: 0003
+                                             Bank: Arbejdernes Landsbank
+                                             Bankadresse: Vesterbrogade 507C, 5000 Aalborg
+                                             Telefon: +45 33393780
+                                             E-mail: kontakt@arbejderneslandsbank.dk
+
+Kontoudskrift for kontonr.: 614-87-10460
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2025-04-22-06.48.26.000000 Overfoersel 214,892.17 (DKK) 28,652.29 (EUR) Restaurant
+2025-03-20-19.57.24.000000 Indbetaling 23,243.59 (DKK) 23,243.59 (DKK) Bageri
+
+Totalt indbetalt (DKK): 23,8135.76
+Totalt udbetalt (DKK): 0.00
+Saldo (DKK): 288,135.76
+
+Med venlig hilsen
+
+Arbejdernes Landsbank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Marie Larsen
+Adresse: Strandvejen 748B, 3000 Randers
+
+                                             Registreringsnummer: 0005
+                                             Bank: Nykredit Bank
+                                             Bankadresse: Strandvejen 632B, 6700 Roskilde
+                                             Telefon: +45 93226076
+                                             E-mail: kontakt@nykreditbank.dk
+
+Kontoudskrift for kontonr.: 671-77-67060
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2022-03-19-07.08.24.000000 Overfoersel -475,794.98 (DKK) -69,969.85 (USD) Boghandel
+2022-03-08-10.36.08.000000 Overfoersel 133,237.65 (DKK) 17,765.02 (EUR) Restaurant
+
+Totalt indbetalt (DKK): 13,3237.65
+Totalt udbetalt (DKK): -475,794.98
+Saldo (DKK): -292,557.33
+
+Med venlig hilsen
+
+Nykredit Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Lars Olsen
+Adresse: Hovedgaden 24A, 5000 Esbjerg
+
+                                             Registreringsnummer: 0004
+                                             Bank: Nykredit Bank
+                                             Bankadresse: Soendergade 856C, 2100 Aarhus
+                                             Telefon: +45 62528907
+                                             E-mail: kontakt@nykreditbank.dk
+
+Kontoudskrift for kontonr.: 259-47-76467
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2020-12-22-08.35.40.000000 Overfoersel 90,988.27 (DKK) 90,988.27 (DKK) Tankstation
+2023-06-19-13.46.43.000000 Indbetaling 498,195.40 (DKK) 73,264.03 (USD) Moebelbutik
+2022-09-01-18.31.14.000000 Overfoersel 65,082.91 (DKK) 65,082.91 (DKK) Bageri
+2023-10-04-22.52.39.000000 Udbetaling 101,607.75 (DKK) 13,547.70 (EUR) Elektronikbutik
+
+Totalt indbetalt (DKK): 65,4266.58
+Totalt udbetalt (DKK): -101,607.75
+Saldo (DKK): 602,658.83
+
+Med venlig hilsen
+
+Nykredit Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Marie Andersen
+Adresse: Vesterbrogade 511, 6700 Aarhus
+
+                                             Registreringsnummer: 0015
+                                             Bank: Spar Nord Bank
+                                             Bankadresse: Vesterbrogade 302A, 8000 Randers
+                                             Telefon: +45 58858572
+                                             E-mail: kontakt@sparnordbank.dk
+
+Kontoudskrift for kontonr.: 708-28-99143
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2024-12-18-18.20.07.000000 Indbetaling 129,940.35 (DKK) 17,325.38 (EUR) Blomsterhandler
+2024-09-15-11.54.59.000000 Indbetaling 122,644.18 (DKK) 18,035.91 (USD) Moebelbutik
+2020-03-05-06.32.29.000000 Udbetaling 408,665.32 (DKK) 54,488.71 (EUR) Restaurant
+
+Totalt indbetalt (DKK): 25,2584.53
+Totalt udbetalt (DKK): -408,665.32
+Saldo (DKK): -106,080.79
+
+Med venlig hilsen
+
+Spar Nord Bank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Camilla Pedersen
+Adresse: Soendergade 5A, 7100 Odense
+
+                                             Registreringsnummer: 0014
+                                             Bank: Arbejdernes Landsbank
+                                             Bankadresse: Oesterbrogade 523B, 2100 Aarhus
+                                             Telefon: +45 20025342
+                                             E-mail: kontakt@arbejderneslandsbank.dk
+
+Kontoudskrift for kontonr.: 161-83-92903
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2025-07-21-12.43.03.000000 Indbetaling 84,947.77 (DKK) 84,947.77 (DKK) Blomsterhandler
+2022-09-22-06.23.50.000000 Overfoersel -46,157.99 (DKK) -6,787.94 (USD) Boghandel
+2022-12-20-00.57.41.000000 Udbetaling 630,610.24 (DKK) 92,736.80 (USD) Moebelbutik
+
+Totalt indbetalt (DKK): 8,4947.77
+Totalt udbetalt (DKK): -676,768.23
+Saldo (DKK): -541,820.46
+
+Med venlig hilsen
+
+Arbejdernes Landsbank
+
+------------------------------------------------------------------------------------------
+
+Kunde: Anne Mortensen
+Adresse: Soendergade 960, 8000 Aalborg
+
+                                             Registreringsnummer: 0004
+                                             Bank: Nykredit Bank
+                                             Bankadresse: Soendergade 856C, 2100 Aarhus
+                                             Telefon: +45 62528907
+                                             E-mail: kontakt@nykreditbank.dk
+
+Kontoudskrift for kontonr.: 617-38-92827
+
+Dato Tidspunkt Transaktionstype Beloeb (DKK) Beloeb (valuta) Butik
+2020-07-06-04.15.22.000000 Udbetaling 41,631.08 (DKK) 41,631.08 (DKK) Fitnesscenter
+2025-08-12-15.29.02.000000 Indbetaling 66,442.57 (DKK) 66,442.57 (DKK) Boghandel
+2024-09-14-22.47.25.000000 Indbetaling 353,974.81 (DKK) 52,055.12 (USD) Boghandel
+
+Totalt indbetalt (DKK): 42,0417.38
+Totalt udbetalt (DKK): -41,631.08
+Saldo (DKK): 428,786.30
+
+Med venlig hilsen
+
+Nykredit Bank
+
