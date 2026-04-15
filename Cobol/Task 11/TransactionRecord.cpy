@@ -5,5 +5,5 @@
            02 RAW-AMOUNT PIC X(17).
            02 CURRENCY-CODE PIC X(4).
            02 TRANSACTION-TYPE PIC X(20).
-           02 SHOP PIC X(20).
+           02 TRANSACTION-SHOP PIC X(20).
            02 TIME-OF-TRANSACTION PIC X(26).

@@ -3,9 +3,7 @@ Top 3 kunder baseret paa saldo:
 CPR: 230354-5176, Name: Niels Mortensen, Saldo: 1,789,964.26 DKK
 CPR: 011087-3472, Name: Lars Olsen, Saldo: 848,275.32 DKK
 CPR: 170878-2382, Name: Marie Nielsen, Saldo: 751,242.52 DKK
-
 ------------------------------------------------------------------------------------------
-
 
 Monthly statistics:
 ------------------------------------------------------------------------------------------
@@ -99,4 +97,20 @@ October        No transactions this month
 November       No transactions this month
 December       0.00                -235,186.80
 ------------------------------------------------------------------------------------------
+
+
+Statistik for butikker:
+Butik                    Antal transaktioner
+Blomsterhandler          8
+Apotek                   6
+Tankstation              4
+Elektronikbutik          3
+Toejbutik                6
+Boghandel                13
+Biograf                  1
+Moebelbutik              6
+Cafe                     4
+Bageri                   6
+Restaurant               5
+Fitnesscenter            1
 
