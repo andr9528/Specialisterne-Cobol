@@ -37,18 +37,18 @@
 
        01 TRANSACTIONS OCCURS 100 TIMES.
            COPY "TransactionRecord.cpy". 
-           02 AMOUNT PIC S9(11)V99.
-           02 AMOUNT-DISPLAY PIC -Z,ZZZ,ZZZ,ZZZ,ZZ9.99.
-           02 DKK-AMOUNT PIC S9(11)V99.
-           02 DKK-AMOUNT-DISPLAY PIC -Z,ZZZ,ZZZ,ZZZ,ZZ9.99.
+           02 AMOUNT PIC S9(12)V99.
+           02 AMOUNT-DISPLAY PIC -ZZ,ZZZ,ZZZ,ZZZ,ZZ9.99.
+           02 DKK-AMOUNT PIC S9(12)V99.
+           02 DKK-AMOUNT-DISPLAY PIC -ZZ,ZZZ,ZZZ,ZZZ,ZZ9.99.
 
       * 1 = 2020, 2 = 2021, 3 = 2022, etc...
        01 TRANSACTIONS-BY-YEAR-MONTH OCCURS 6 TIMES.
            02 MONTHS OCCURS 12 TIMES.
                03 MONTH-TRANSACTION-INDICES PIC 99 OCCURS 20 TIMES.
                03 TRANSACTIONS-MONTH-COUNT PIC 99.
-               03 TOTAL-MONTH-INCOME PIC S9(11)V99.
-               03 TOTAL-MONTH-PAYMENT PIC S9(11)V99.
+               03 TOTAL-MONTH-INCOME PIC S9(12)V99.
+               03 TOTAL-MONTH-PAYMENT PIC S9(12)V99.
        
        01 YEAR-INDEX        PIC 9.
        01 MONTH-INDEX       PIC 99.
@@ -89,14 +89,16 @@
 
        01 NEXT-TRANSACTION-SLOT PIC 99 VALUE 0.
 
-       01 OUTPUT-LINE-INDEX PIC 99 VALUE 0.
-       01 OUTPUT-LINE-COUNT PIC 99 VALUE 0.
-       01 OUTPUT-TEXT PIC X(100) OCCURS 120 TIMES.
+       01 OUTPUT-LINE-INDEX PIC 999 VALUE 0.
+       01 OUTPUT-LINE-COUNT PIC 999 VALUE 0.
+       01 OUTPUT-TEXT-LINE PIC X(100).
+       01 OUTPUT-TEXT PIC X(100) OCCURS 150 TIMES.
+       01 OUTPUT-LINE-MAX-COUNT PIC 999 VALUE 150.
        01 SEPARATOR-LINE PIC X(90) VALUE ALL "-".
 
-       01 SOURCE-AMOUNT PIC S9(11)V99.
-       01 ABS-AMOUNT PIC 9(11)V99.
-       01 FORMAT-AMOUNT-DISPLAY PIC Z,ZZZ,ZZZ,ZZ9.99.
+       01 SOURCE-AMOUNT PIC S9(12)V99.
+       01 ABS-AMOUNT PIC 9(12)V99.
+       01 FORMAT-AMOUNT-DISPLAY PIC ZZ,ZZZ,ZZZ,ZZ9.99.
        01 SIGNED-FORMAT-AMOUNT-DISPLAY PIC X(20).
        01 FORMATTED-DKK-AMOUNT-DISPLAY PIC X(20).
        01 FORMATTED-AMOUNT-DISPLAY PIC X(20).
@@ -137,8 +139,8 @@
                    UNTIL MONTH-INDEX > 12
        
                    MOVE 0 TO TRANSACTIONS-MONTH-COUNT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                       (MONTH-INDEX)
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
        
                END-PERFORM
            END-PERFORM
@@ -148,12 +150,12 @@
        POSITION-TRANSACTION-IN-MONTH.
       *> Extract year and month
                MOVE FUNCTION NUMVAL(
-                   TRANSACTION-DATETIME
+                   TIME-OF-TRANSACTION
                        OF TRANSACTIONS(TRANSACTION-INDEX)(1:4)
                ) TO TEMP-YEAR
        
                MOVE FUNCTION NUMVAL(
-                   TRANSACTION-DATETIME
+                   TIME-OF-TRANSACTION
                        OF TRANSACTIONS(TRANSACTION-INDEX)(6:2)
                ) TO TEMP-MONTH
        
@@ -169,19 +171,23 @@
        
       *> Get next slot
                    ADD 1 TO TRANSACTIONS-MONTH-COUNT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                       (MONTH-INDEX)
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX)
        
                    MOVE TRANSACTIONS-MONTH-COUNT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                       (MONTH-INDEX)
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
                        TO MONTH-SLOT
        
       *> Store transaction index
                    MOVE TRANSACTION-INDEX
                        TO MONTH-TRANSACTION-INDICES
-                          OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                          (MONTH-INDEX, MONTH-SLOT)
+                          OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX, MONTH-SLOT)
+                   DISPLAY "Assigned Transaction '" TRANSACTION-INDEX 
+                       "' to Year '" YEAR-INDEX 
+                       "'-'" MONTH-INDEX 
+                       "' on Slot '" MONTH-SLOT "'."
        
                END-IF
            
@@ -195,8 +201,8 @@
                ADD DKK-AMOUNT
                    OF TRANSACTIONS(TRANSACTION-INDEX)
                    TO TOTAL-MONTH-INCOME
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                       (MONTH-INDEX)
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
 
            ELSE IF TRANSACTION-TYPE
                        OF TRANSACTIONS(TRANSACTION-INDEX)
@@ -205,8 +211,8 @@
                SUBTRACT DKK-AMOUNT
                    OF TRANSACTIONS(TRANSACTION-INDEX)
                    FROM TOTAL-MONTH-PAYMENT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                       (MONTH-INDEX)
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
 
            ELSE IF TRANSACTION-TYPE
                        OF TRANSACTIONS(TRANSACTION-INDEX)
@@ -219,16 +225,16 @@
                    ADD DKK-AMOUNT
                        OF TRANSACTIONS(TRANSACTION-INDEX)
                        TO TOTAL-MONTH-INCOME
-                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                           (MONTH-INDEX)
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
 
                ELSE
 
                    ADD DKK-AMOUNT
                        OF TRANSACTIONS(TRANSACTION-INDEX)
                        TO TOTAL-MONTH-PAYMENT
-                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                           (MONTH-INDEX)
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
 
                END-IF
            END-IF
@@ -241,7 +247,7 @@
        
       *> Step 2: Loop transactions
            PERFORM VARYING TRANSACTION-INDEX FROM 1 BY 1
-               UNTIL TRANSACTION-INDEX > TRANSACTION-COUNT
+               UNTIL TRANSACTION-INDEX > TRANSACTIONS-COUNT
        
            PERFORM POSITION-TRANSACTION-IN-MONTH
            PERFORM ADD-TRANSACTION-TO-MONTH-TOTALS
@@ -362,94 +368,117 @@
            EXIT.
        
        ADD-MONTHLY-STATISTICS-TO-OUTPUT.
-           ADD 1 TO OUTPUT-LINE-COUNT
-           MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
 
-           ADD 1 TO OUTPUT-LINE-COUNT
            MOVE "Monthly statistics:"
-               TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+               TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
 
            PERFORM VARYING YEAR-INDEX FROM 1 BY 1
                UNTIL YEAR-INDEX > 6
 
                COMPUTE TEMP-YEAR = 2019 + YEAR-INDEX
 
-               ADD 1 TO OUTPUT-LINE-COUNT
-               MOVE SEPARATOR-LINE TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+               MOVE SEPARATOR-LINE TO OUTPUT-TEXT-LINE
+               PERFORM ADD-OUTPUT-LINE-SAFE
 
-               ADD 1 TO OUTPUT-LINE-COUNT
-               MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+               MOVE SPACES TO OUTPUT-TEXT-LINE
                STRING
                    "Year: "
                    DELIMITED BY SIZE
                    TEMP-YEAR
                    DELIMITED BY SIZE
-                   INTO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+                   INTO OUTPUT-TEXT-LINE
                END-STRING
+               PERFORM ADD-OUTPUT-LINE-SAFE
 
-               ADD 1 TO OUTPUT-LINE-COUNT
-               MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+               MOVE SPACES TO OUTPUT-TEXT-LINE
                MOVE "Month"
-                   TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(1:12)
+                   TO OUTPUT-TEXT-LINE(1:12)
                MOVE "Income (DKK)"
-                   TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(16:12)
+                   TO OUTPUT-TEXT-LINE(16:12)
                MOVE "Payments (DKK)"
-                   TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(36:14)
+                   TO OUTPUT-TEXT-LINE(36:14)
+               PERFORM ADD-OUTPUT-LINE-SAFE
 
                PERFORM VARYING MONTH-INDEX FROM 1 BY 1
                    UNTIL MONTH-INDEX > 12
 
-                   PERFORM GET-MONTH-NAME
-
-                   ADD 1 TO OUTPUT-LINE-COUNT
-                   MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
-
-                   MOVE MONTH-NAME
-                       TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(1:12)
-
-                   IF TRANSACTIONS-MONTH-COUNT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                       (MONTH-INDEX) = 0
-
-                       MOVE "No transactions this month"
-                           TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(16:26)
-
-                   ELSE
-
-                       MOVE TOTAL-MONTH-INCOME
-                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                           (MONTH-INDEX)
-                           TO FORMAT-AMOUNT-DISPLAY
-
-                       MOVE FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
-                           TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(16:18)
-
-                       MOVE TOTAL-MONTH-PAYMENT
-                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX)
-                           (MONTH-INDEX)
-                           TO SOURCE-AMOUNT
-
-                       PERFORM FORMAT-SIGNED-AMOUNT
-
-                       MOVE FUNCTION TRIM(
-                           SIGNED-FORMAT-AMOUNT-DISPLAY LEADING
-                           )
-                           TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)(36:18)
-
-                   END-IF
+               PERFORM ADD-MONTH-STATISTIC-TO-OUTPUT
 
                END-PERFORM
 
            END-PERFORM
 
-           ADD 1 TO OUTPUT-LINE-COUNT
-           MOVE SEPARATOR-LINE TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+           MOVE SEPARATOR-LINE TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
 
-           ADD 1 TO OUTPUT-LINE-COUNT
-           MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
 
            EXIT.
        
+       ADD-OUTPUT-LINE-SAFE.
+           ADD 1 TO OUTPUT-LINE-COUNT
+
+           IF OUTPUT-LINE-COUNT > OUTPUT-LINE-MAX-COUNT
+               DISPLAY "ERROR: OUTPUT-TEXT overflow"
+               DISPLAY "Line: " OUTPUT-LINE-COUNT
+               DISPLAY "Max : " OUTPUT-LINE-MAX-COUNT
+               STOP RUN
+           END-IF
+
+           MOVE OUTPUT-TEXT-LINE
+               TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+
+           EXIT.
+
+       ADD-MONTH-STATISTIC-TO-OUTPUT.
+           PERFORM GET-MONTH-NAME
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+
+           MOVE MONTH-NAME
+               TO OUTPUT-TEXT-LINE(1:12)
+
+           IF TRANSACTIONS-MONTH-COUNT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                   MONTH-INDEX) = 0
+
+               MOVE "No transactions this month"
+                   TO OUTPUT-TEXT-LINE(16:26)
+
+           ELSE               
+               MOVE TOTAL-MONTH-INCOME
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX)
+                   TO SOURCE-AMOUNT
+
+               DISPLAY "Formatting 'TOTAL-MONTH-INCOME'..."
+               PERFORM FORMAT-SIGNED-AMOUNT
+
+               MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
+                   TO OUTPUT-TEXT-LINE(16:18)    
+    
+               MOVE TOTAL-MONTH-PAYMENT
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX)
+                   TO SOURCE-AMOUNT  
+
+               DISPLAY "Formatting 'TOTAL-MONTH-PAYMENT'..."
+               PERFORM FORMAT-SIGNED-AMOUNT
+
+               MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
+                       TO OUTPUT-TEXT-LINE(36:18)
+
+           END-IF
+           
+           PERFORM ADD-OUTPUT-LINE-SAFE
+           EXIT.
+
        GET-MONTH-NAME.
            EVALUATE MONTH-INDEX
                WHEN 1
@@ -505,18 +534,17 @@
            EXIT.
        
        ADD-TOP-3-CUSTOMERS-TO-OUTPUT.
-           ADD 1 TO OUTPUT-LINE-COUNT           
-           MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
-           ADD 1 TO OUTPUT-LINE-COUNT           
-           MOVE "Top 3 kunder baseret paa saldo:" 
-               TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+           MOVE "Top 3 kunder baseret paa saldo:"
+               TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
 
            PERFORM VARYING CUSTOMER-INDEX FROM 1 BY 1
                UNTIL CUSTOMER-INDEX > 3
                    OR CUSTOMER-INDEX > CUSTOMER-COUNT
 
-               ADD 1 TO OUTPUT-LINE-COUNT
-               MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)               
+               MOVE SPACES TO OUTPUT-TEXT-LINE
                STRING
                    "CPR: "
                    DELIMITED BY SIZE
@@ -534,18 +562,18 @@
                    DELIMITED BY SPACE
                    " DKK"
                    DELIMITED BY SIZE
-                   INTO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
+                   INTO OUTPUT-TEXT-LINE
                END-STRING
+               PERFORM ADD-OUTPUT-LINE-SAFE
 
            END-PERFORM
 
-           ADD 1 TO OUTPUT-LINE-COUNT           
-           MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
-           ADD 1 TO OUTPUT-LINE-COUNT           
-           MOVE SEPARATOR-LINE TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
-           ADD 1 TO OUTPUT-LINE-COUNT
-           MOVE SPACES TO OUTPUT-TEXT(OUTPUT-LINE-COUNT)
-
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+           MOVE SEPARATOR-LINE TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
            EXIT.
 
        FORMAT-SIGNED-AMOUNT.
@@ -562,6 +590,8 @@
                    FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
                    DELIMITED BY SIZE
                    INTO SIGNED-FORMAT-AMOUNT-DISPLAY
+           ELSE IF SOURCE-AMOUNT = 0
+               MOVE "0.00" TO SIGNED-FORMAT-AMOUNT-DISPLAY           
            ELSE
                MOVE FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
                    TO SIGNED-FORMAT-AMOUNT-DISPLAY

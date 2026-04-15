@@ -1,8 +1,102 @@
 
 Top 3 kunder baseret paa saldo:
-CPR: 230354-5176, Name: Niels Mortensen, Saldo: 1,220,597.71 DKK
-CPR: 011087-3472, Name: Lars Olsen, Saldo: 786,260.41 DKK
-CPR: 170878-2382, Name: Marie Nielsen, Saldo: 750,451.12 DKK
+CPR: 230354-5176, Name: Niels Mortensen, Saldo: 1,789,964.26 DKK
+CPR: 011087-3472, Name: Lars Olsen, Saldo: 848,275.32 DKK
+CPR: 170878-2382, Name: Marie Nielsen, Saldo: 751,242.52 DKK
 
+------------------------------------------------------------------------------------------
+
+
+Monthly statistics:
+------------------------------------------------------------------------------------------
+Year: 2020
+Month          Income (DKK)        Payments (DKK)
+January        No transactions this month
+February       No transactions this month
+March          -99,999,430,633.45  -408,665.32
+April          0.00                -24,966.20
+May            No transactions this month
+June           No transactions this month
+July           0.00                -451,540.86
+August         No transactions this month
+September      No transactions this month
+October        -99,999,647,198.56  -372,112.87
+November       No transactions this month
+December       -99,999,909,011.73  0.00
+------------------------------------------------------------------------------------------
+Year: 2021
+Month          Income (DKK)        Payments (DKK)
+January        -99,999,888,218.70  0.00
+February       No transactions this month
+March          -99,999,455,378.76  0.00
+April          No transactions this month
+May            -99,999,717,092.06  0.00
+June           No transactions this month
+July           0.00                -150,285.03
+August         No transactions this month
+September      No transactions this month
+October        -99,999,977,792.31  0.00
+November       -99,999,592,982.67  -74,402.95
+December       -99,999,933,173.37  0.00
+------------------------------------------------------------------------------------------
+Year: 2022
+Month          Income (DKK)        Payments (DKK)
+January        No transactions this month
+February       0.00                -739,864.70
+March          -99,999,866,762.35  -478,810.95
+April          No transactions this month
+May            No transactions this month
+June           No transactions this month
+July           No transactions this month
+August         -99,999,950,111.74  0.00
+September      -99,999,922,436.91  -46,157.99
+October        -99,999,990,165.03  0.00
+November       No transactions this month
+December       -99,999,909,987.04  -630,610.24
+------------------------------------------------------------------------------------------
+Year: 2023
+Month          Income (DKK)        Payments (DKK)
+January        No transactions this month
+February       -99,999,959,978.13  0.00
+March          No transactions this month
+April          No transactions this month
+May            No transactions this month
+June           -99,999,501,804.60  0.00
+July           -99,999,437,581.83  0.00
+August         No transactions this month
+September      No transactions this month
+October        -99,999,854,801.78  -101,607.75
+November       No transactions this month
+December       -99,999,811,209.56  -454,005.46
+------------------------------------------------------------------------------------------
+Year: 2024
+Month          Income (DKK)        Payments (DKK)
+January        0.00                -84,153.37
+February       -99,999,404,438.88  0.00
+March          No transactions this month
+April          0.00                -52,929.72
+May            -99,999,285,947.28  -563,185.45
+June           0.00                -214,169.26
+July           No transactions this month
+August         -99,999,994,293.80  0.00
+September      -99,999,523,381.01  0.00
+October        No transactions this month
+November       No transactions this month
+December       -99,999,870,059.65  0.00
+------------------------------------------------------------------------------------------
+Year: 2025
+Month          Income (DKK)        Payments (DKK)
+January        -99,999,735,427.44  0.00
+February       No transactions this month
+March          -99,999,468,955.11  0.00
+April          -99,999,785,107.83  0.00
+May            0.00                -836,644.18
+June           0.00                -94,501.50
+July           -99,999,915,052.23  0.00
+August         -99,999,276,697.23  0.00
+September      0.00                -542,568.60
+October        No transactions this month
+November       No transactions this month
+December       0.00                -235,186.80
 ------------------------------------------------------------------------------------------
 
