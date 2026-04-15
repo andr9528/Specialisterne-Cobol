@@ -32,16 +32,16 @@
 
        WORKING-STORAGE SECTION.
        
-       01 BANKS OCCURS 25 TIMES.
+       01 BANKS OCCURS 40 TIMES.
            COPY "BankRecord.cpy".
        
-       01 BANKS-MAX-COUNT PIC 99 VALUE 25.
+       01 BANKS-MAX-COUNT PIC 99 VALUE 40.
        01 BANKS-COUNT PIC 99 VALUE 0.
        01 BANK-INDEX PIC 99 VALUE 1.
        01 BANK-MATCH-FOUND PIC X VALUE "N".
        01 MATCHED-BANK-INDEX PIC 99 VALUE 0.
 
-       01 TRANSACTIONS OCCURS 100 TIMES.
+       01 TRANSACTIONS OCCURS 600 TIMES.
            COPY "TransactionRecord.cpy". 
            02 AMOUNT PIC S9(11)V99.
            02 AMOUNT-DISPLAY PIC -Z,ZZZ,ZZZ,ZZZ,ZZ9.99.
@@ -49,13 +49,14 @@
            02 DKK-AMOUNT-DISPLAY PIC -Z,ZZZ,ZZZ,ZZZ,ZZ9.99.
        
        01 TRANSACTION-INDEX PIC 999 VALUE 1.
+       01 TRANSACTIONS-MAX-COUNT PIC 999 VALUE 600.
        01 TRANSACTIONS-COUNT PIC 999 VALUE 0.
        
 
       * 1 = 2020, 2 = 2021, 3 = 2022, etc...
        01 TRANSACTIONS-BY-YEAR-MONTH OCCURS 6 TIMES.
            02 MONTHS OCCURS 12 TIMES.
-               03 MONTH-TRANSACTION-INDICES PIC 99 OCCURS 20 TIMES.
+               03 MONTH-TRANSACTION-INDICES PIC 99 OCCURS 50 TIMES.
                03 TRANSACTIONS-MONTH-COUNT PIC 99.
                03 TOTAL-MONTH-INCOME PIC S9(11)V99 VALUE 0.
                03 TOTAL-MONTH-PAYMENT PIC S9(11)V99 VALUE 0.
@@ -67,37 +68,48 @@
        01 TEMP-MONTH        PIC 99.
        01 MONTH-NAME PIC X(12).
 
-       01 CUSTOMERS OCCURS 25 TIMES.
+       01 CUSTOMERS OCCURS 60 TIMES.
            COPY "Customer.cpy".       
-       01 CUSTOMER-MAX-COUNT PIC 99 VALUE 25.
+       01 CUSTOMER-MAX-COUNT PIC 99 VALUE 60.
+       01 CUSTOMER-TRANSACTIONS-MAX-COUNT PIC 99 VALUE 20.
 
        01 TEMP-CUSTOMER.
            COPY "Customer.cpy".
 
        01 CUSTOMER-INDEX PIC 99 VALUE 1. 
-       01 CUSTOMER-TRANSACTION-INDEX PIC 9 VALUE 1.
+       01 CUSTOMER-TRANSACTION-INDEX PIC 99 VALUE 1.
        01 CUSTOMER-COUNT PIC 99 VALUE 0.
        01 CUSTOMER-FOUND PIC X VALUE "N".
        01 MATCHED-CUSTOMER-INDEX PIC 99 VALUE 0.
 
-       01 SHOPS OCCURS 25 TIMES.
+       01 SHOPS OCCURS 60 TIMES.
            02 SHOP-NAME PIC X(20).
-           02 SHOP-TRANSACTIONS-COUNT PIC 999 VALUE 0.
-       01 SHOPS-MAX-COUNT PIC 99 VALUE 25.
+           02 TRANSACTIONS-SHOP-COUNT PIC 999 VALUE 0.
+           02 SHOP-TRANSACTION-INDICES PIC 99 OCCURS 50 TIMES.               
+           02 SHOP-REVENUE PIC S9(11)V99 VALUE 0.
+
+       01 TEMP-SHOP.
+           02 SHOP-NAME PIC X(20).
+           02 TRANSACTIONS-SHOP-COUNT PIC 999 VALUE 0.
+           02 SHOP-TRANSACTION-INDICES PIC 99 OCCURS 50 TIMES.               
+           02 SHOP-REVENUE PIC S9(11)V99 VALUE 0.
+
+       01 SHOPS-MAX-COUNT PIC 99 VALUE 60.
        01 SHOP-INDEX PIC 99 VALUE 1.
        01 SHOPS-COUNT PIC 99 VALUE 0.
        01 SHOP-MATCH-FOUND PIC X VALUE "N".
        01 MATCHED-SHOP-INDEX PIC 99 VALUE 0.
        01 SHOP-COUNT-DISPLAY PIC ZZZ.
+       01 SHOP-REVENUE-DISPLAY PIC -ZZ,ZZZ,ZZZ,ZZ9.99.
 
        01 OUTPUT-LINE-INDEX PIC 999 VALUE 0.
        01 OUTPUT-LINE-COUNT PIC 999 VALUE 0.
        01 OUTPUT-TEXT-LINE PIC X(100).
-       01 OUTPUT-TEXT PIC X(100) OCCURS 150 TIMES.
-       01 OUTPUT-LINE-MAX-COUNT PIC 999 VALUE 150.
+       01 OUTPUT-TEXT PIC X(100) OCCURS 950 TIMES.
+       01 OUTPUT-LINE-MAX-COUNT PIC 999 VALUE 950.
        
        01 END-OF-FILE PIC X VALUE "N".
-       01 LINE-INDEX PIC 99 VALUE 1. 
+       01 LINE-INDEX PIC 9999 VALUE 1. 
       
        01 SEARCH-CPR PIC X(15).
        01 CURRENT-TRANSACTION-INDEX PIC 99 VALUE 0.
@@ -105,9 +117,9 @@
        
        01 SEPARATOR-LINE PIC X(90) VALUE ALL "-".
 
-       01 I PIC 99.
-       01 J PIC 99.
-       01 J-START PIC 99.
+       01 SORT-INDEX PIC 99.
+       01 COMPARE-INDEX PIC 99.
+       01 COMPARE-INDEX-START PIC 99.
 
        01 SOURCE-AMOUNT PIC S9(11)V99.
        01 ABS-AMOUNT PIC 9(11)V99.
@@ -146,6 +158,7 @@
            EXIT.
        
        COUNT-TRANSACTIONS-PER-SHOP.
+           DISPLAY "START COUNT-TRANSACTIONS-PER-SHOP"
            PERFORM CLEAR-SHOPS-STRUCTURE
            
            PERFORM VARYING TRANSACTION-INDEX FROM 1 BY 1
@@ -154,8 +167,16 @@
                PERFORM FIND-SHOP-BY-NAME
        
                IF SHOP-MATCH-FOUND = "Y"
-                   ADD 1 TO SHOP-TRANSACTIONS-COUNT
+                   ADD 1 TO TRANSACTIONS-SHOP-COUNT
                        OF SHOPS(MATCHED-SHOP-INDEX)
+                   PERFORM ADD-TRANSACTION-TO-SHOP-REVENUE
+                   MOVE TRANSACTIONS-SHOP-COUNT 
+                           OF SHOPS(MATCHED-SHOP-INDEX)
+                           TO NEXT-TRANSACTION-SLOT
+                   MOVE TRANSACTION-INDEX
+                       TO SHOP-TRANSACTION-INDICES
+                       OF SHOPS(MATCHED-SHOP-INDEX, 
+                           NEXT-TRANSACTION-SLOT)
                ELSE IF SHOPS-COUNT < SHOPS-MAX-COUNT
                    ADD 1 TO SHOPS-COUNT
               
@@ -164,17 +185,72 @@
                        TO SHOP-NAME OF SHOPS(SHOPS-COUNT)
                    
                    MOVE 1
-                       TO SHOP-TRANSACTIONS-COUNT 
+                       TO TRANSACTIONS-SHOP-COUNT 
                            OF SHOPS(SHOPS-COUNT)
+                   MOVE TRANSACTION-INDEX
+                       TO SHOP-TRANSACTION-INDICES
+                           OF SHOPS(SHOPS-COUNT, 1)
+                   
+                   MOVE SHOPS-COUNT TO MATCHED-SHOP-INDEX
+                   
+                   PERFORM ADD-TRANSACTION-TO-SHOP-REVENUE
                ELSE
                    DISPLAY "WARNING: SHOPS array is full. " 
                    "Could not add shop '" TRANSACTION-SHOP 
                        OF TRANSACTIONS(TRANSACTION-INDEX)
                    "'."
+                   EXIT PARAGRAPH
                END-IF
        
            END-PERFORM
+
+           PERFORM SORT-SHOPS-BY-REVENUE
+           DISPLAY "END COUNT-TRANSACTIONS-PER-SHOP. SHOPS-COUNT = "
+               SHOPS-COUNT
+           EXIT.
+
+       ADD-TRANSACTION-TO-SHOP-REVENUE.
+           IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Udbetaling"
        
+               SUBTRACT DKK-AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   FROM SHOP-REVENUE OF SHOPS(MATCHED-SHOP-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Indbetaling"
+               OR TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Overfoersel"
+               
+               ADD DKK-AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   TO SHOP-REVENUE OF SHOPS(MATCHED-SHOP-INDEX)
+           END-IF
+       
+           EXIT.
+
+       SORT-SHOPS-BY-REVENUE.
+           DISPLAY "START SORT-SHOPS-BY-REVENUE"
+           PERFORM VARYING SORT-INDEX FROM 1 BY 1
+               UNTIL SORT-INDEX >= SHOPS-COUNT
+       
+               ADD 1 TO SORT-INDEX GIVING COMPARE-INDEX-START
+               PERFORM VARYING COMPARE-INDEX
+                   FROM COMPARE-INDEX-START BY 1
+                   UNTIL COMPARE-INDEX > SHOPS-COUNT
+       
+                   IF SHOP-REVENUE OF SHOPS(COMPARE-INDEX)
+                       > SHOP-REVENUE OF SHOPS(SORT-INDEX)
+       
+                       MOVE SHOPS(SORT-INDEX) TO TEMP-SHOP
+                       MOVE SHOPS(COMPARE-INDEX)
+                           TO SHOPS(SORT-INDEX)
+                       MOVE TEMP-SHOP TO SHOPS(COMPARE-INDEX)
+       
+                   END-IF
+       
+               END-PERFORM
+       
+           END-PERFORM
+           DISPLAY "END SORT-SHOPS-BY-REVENUE"
            EXIT.
 
        CLEAR-SHOPS-STRUCTURE.
@@ -184,7 +260,7 @@
                UNTIL SHOP-INDEX > SHOPS-MAX-COUNT
        
                MOVE SPACES TO SHOP-NAME OF SHOPS(SHOP-INDEX)
-               MOVE 0 TO SHOP-TRANSACTIONS-COUNT OF SHOPS(SHOP-INDEX)
+               MOVE 0 TO TRANSACTIONS-SHOP-COUNT OF SHOPS(SHOP-INDEX)
        
            END-PERFORM
        
@@ -225,48 +301,42 @@
            EXIT.
 
        POSITION-TRANSACTION-IN-MONTH.
-      *> Extract year and month
-               MOVE FUNCTION NUMVAL(
-                   TIME-OF-TRANSACTION
-                       OF TRANSACTIONS(TRANSACTION-INDEX)(1:4)
-               ) TO TEMP-YEAR
+           MOVE FUNCTION NUMVAL(
+               TIME-OF-TRANSACTION
+                   OF TRANSACTIONS(TRANSACTION-INDEX)(1:4)
+           ) TO TEMP-YEAR
        
-               MOVE FUNCTION NUMVAL(
-                   TIME-OF-TRANSACTION
-                       OF TRANSACTIONS(TRANSACTION-INDEX)(6:2)
-               ) TO TEMP-MONTH
+           MOVE FUNCTION NUMVAL(
+               TIME-OF-TRANSACTION
+                   OF TRANSACTIONS(TRANSACTION-INDEX)(6:2)
+           ) TO TEMP-MONTH
        
-      *> Convert year to index (2020 → 1)
-               COMPUTE YEAR-INDEX = TEMP-YEAR - 2019
+           COMPUTE YEAR-INDEX = TEMP-YEAR - 2019
        
-      *> Month is already 1–12
-               MOVE TEMP-MONTH TO MONTH-INDEX
+           MOVE TEMP-MONTH TO MONTH-INDEX
        
-      *> Safety check (optional but good)
-               IF YEAR-INDEX >= 1 AND YEAR-INDEX <= 6
-                  AND MONTH-INDEX >= 1 AND MONTH-INDEX <= 12
+           IF YEAR-INDEX >= 1 AND YEAR-INDEX <= 6
+              AND MONTH-INDEX >= 1 AND MONTH-INDEX <= 12
        
-      *> Get next slot
-                   ADD 1 TO TRANSACTIONS-MONTH-COUNT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+               ADD 1 TO TRANSACTIONS-MONTH-COUNT
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                   MONTH-INDEX)
+       
+               MOVE TRANSACTIONS-MONTH-COUNT
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
                        MONTH-INDEX)
+                   TO MONTH-SLOT
        
-                   MOVE TRANSACTIONS-MONTH-COUNT
-                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
-                           MONTH-INDEX)
-                       TO MONTH-SLOT
+               MOVE TRANSACTION-INDEX
+                   TO MONTH-TRANSACTION-INDICES
+                      OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX, MONTH-SLOT)
+               DISPLAY "Assigned Transaction '" TRANSACTION-INDEX 
+                   "' to Year '" YEAR-INDEX 
+                   "'-'" MONTH-INDEX 
+                   "' on Slot '" MONTH-SLOT "'."
        
-      *> Store transaction index
-                   MOVE TRANSACTION-INDEX
-                       TO MONTH-TRANSACTION-INDICES
-                          OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
-                           MONTH-INDEX, MONTH-SLOT)
-                   DISPLAY "Assigned Transaction '" TRANSACTION-INDEX 
-                       "' to Year '" YEAR-INDEX 
-                       "'-'" MONTH-INDEX 
-                       "' on Slot '" MONTH-SLOT "'."
-       
-               END-IF
+           END-IF
            
            EXIT.
 
@@ -319,10 +389,8 @@
            EXIT.
 
        SORT-TRANSACTIONS-TO-MONTHS.
-      *> Step 1: Clear structure
            PERFORM CLEAR-TRANSACTIONS-TO-MONTHS-STRUCTURE
        
-      *> Step 2: Loop transactions
            PERFORM VARYING TRANSACTION-INDEX FROM 1 BY 1
                UNTIL TRANSACTION-INDEX > TRANSACTIONS-COUNT
        
@@ -337,7 +405,6 @@
            PERFORM VARYING TRANSACTION-INDEX FROM 1 BY 1
                UNTIL TRANSACTION-INDEX > TRANSACTIONS-COUNT
            
-      *    DISPLAY TRANSACTIONS(TRANSACTION-INDEX)
            MOVE CPR OF TRANSACTIONS(TRANSACTION-INDEX)
                TO SEARCH-CPR
            PERFORM CHECK-CUSTOMER-EXISTS
@@ -357,21 +424,35 @@
                FUNCTION TRIM(CPR 
                    OF TRANSACTIONS(TRANSACTION-INDEX) TRAILING)
                "'."
-
-           ADD 1 TO CUSTOMER-TRANSACTIONS-COUNT
+           IF CUSTOMER-TRANSACTIONS-COUNT 
                OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)
-           DISPLAY "Added '1' to Customer Transactions Count. " 
-               "It is now: " CUSTOMER-TRANSACTIONS-COUNT
+                   >= CUSTOMER-TRANSACTIONS-MAX-COUNT
+           
+               DISPLAY "ERROR: Customer transaction limit reached."
+               DISPLAY "CPR: "
+                   CPR OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)
+               DISPLAY "TRANSACTION-INDEX: " TRANSACTION-INDEX
+               DISPLAY "CURRENT COUNT: "
+                   CUSTOMER-TRANSACTIONS-COUNT
+                       OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)
+               DISPLAY "MAX COUNT: "
+                   CUSTOMER-TRANSACTIONS-MAX-COUNT
+           ELSE
+               ADD 1 TO CUSTOMER-TRANSACTIONS-COUNT
+                   OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)               
+    
+               MOVE CUSTOMER-TRANSACTIONS-COUNT
                    OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)
+                   TO NEXT-TRANSACTION-SLOT
+    
+               MOVE TRANSACTION-INDEX
+                   TO TRANSACTION-INDICES OF CUSTOMERS
+                      (MATCHED-CUSTOMER-INDEX, NEXT-TRANSACTION-SLOT)
 
-           MOVE CUSTOMER-TRANSACTIONS-COUNT
-               OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)
-               TO NEXT-TRANSACTION-SLOT
-
-           MOVE TRANSACTION-INDEX
-               TO TRANSACTION-INDICES OF CUSTOMERS
-                  (MATCHED-CUSTOMER-INDEX, NEXT-TRANSACTION-SLOT)
-
+               DISPLAY "Added '1' to Customer Transactions Count. " 
+                   "It is now: " CUSTOMER-TRANSACTIONS-COUNT
+                       OF CUSTOMERS(MATCHED-CUSTOMER-INDEX)
+           END-IF
            EXIT.
 
        ADD-NEW-CUSTOMER-TO-ARRAY.
@@ -431,9 +512,12 @@
            EXIT.
        
        BUILD-REPORT.
+           DISPLAY "START BUILD-REPORT"
            PERFORM VARYING CUSTOMER-INDEX FROM 1 BY 1
                UNTIL CUSTOMER-INDEX > CUSTOMER-COUNT
-                      
+           DISPLAY "Computing Totals for Customer '" 
+               FUNCTION TRIM(CUSTOMER-NAME 
+                       OF CUSTOMERS(CUSTOMER-INDEX) TRAILING) "'."
            PERFORM COMPUTE-CUSTOMER-TOTALS
 
            END-PERFORM
@@ -442,10 +526,11 @@
            PERFORM ADD-TOP-3-CUSTOMERS-TO-OUTPUT
            PERFORM ADD-MONTHLY-STATISTICS-TO-OUTPUT
            PERFORM ADD-SHOP-STATISTICS-TO-OUTPUT
-
+           DISPLAY "END BUILD-REPORT"
            EXIT.
        
        ADD-SHOP-STATISTICS-TO-OUTPUT.
+           DISPLAY "START ADD-SHOP-STATISTICS-TO-OUTPUT"
            MOVE SPACES TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
        
@@ -456,21 +541,30 @@
            MOVE SPACES TO OUTPUT-TEXT-LINE
            MOVE "Butik" TO OUTPUT-TEXT-LINE(1:20)
            MOVE "Antal transaktioner" TO OUTPUT-TEXT-LINE(26:19)
+           MOVE "Omsaetning (DKK)" TO OUTPUT-TEXT-LINE(50:16)
            PERFORM ADD-OUTPUT-LINE-SAFE
        
            PERFORM VARYING SHOP-INDEX FROM 1 BY 1
                UNTIL SHOP-INDEX > SHOPS-COUNT
-       
+               DISPLAY "Processing SHOP-INDEX: " SHOP-INDEX
+               " Name: '" SHOP-NAME OF SHOPS(SHOP-INDEX) "'"
                MOVE SPACES TO OUTPUT-TEXT-LINE
        
                MOVE SHOP-NAME OF SHOPS(SHOP-INDEX)
                    TO OUTPUT-TEXT-LINE(1:20)
        
-               MOVE SHOP-TRANSACTIONS-COUNT OF SHOPS(SHOP-INDEX)
+               MOVE TRANSACTIONS-SHOP-COUNT OF SHOPS(SHOP-INDEX)
                    TO SHOP-COUNT-DISPLAY
                
                MOVE FUNCTION TRIM(SHOP-COUNT-DISPLAY LEADING)
                    TO OUTPUT-TEXT-LINE(26:3)
+
+               MOVE SHOP-REVENUE OF SHOPS(SHOP-INDEX)
+                   TO SOURCE-AMOUNT
+               PERFORM FORMAT-SIGNED-AMOUNT
+               
+               MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
+                   TO OUTPUT-TEXT-LINE(50:16)
        
                PERFORM ADD-OUTPUT-LINE-SAFE
        
@@ -478,10 +572,11 @@
        
            MOVE SPACES TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
-       
+           DISPLAY "END ADD-SHOP-STATISTICS-TO-OUTPUT"
            EXIT.
 
        ADD-MONTHLY-STATISTICS-TO-OUTPUT.
+           DISPLAY "START ADD-MONTHLY-STATISTICS-TO-OUTPUT"
            MOVE SPACES TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
 
@@ -491,6 +586,7 @@
 
            PERFORM VARYING YEAR-INDEX FROM 1 BY 1
                UNTIL YEAR-INDEX > 6
+               DISPLAY "Processing YEAR-INDEX: " YEAR-INDEX
 
                COMPUTE TEMP-YEAR = 2019 + YEAR-INDEX
 
@@ -518,7 +614,7 @@
 
                PERFORM VARYING MONTH-INDEX FROM 1 BY 1
                    UNTIL MONTH-INDEX > 12
-
+               DISPLAY "  Processing MONTH-INDEX: " MONTH-INDEX
                PERFORM ADD-MONTH-STATISTIC-TO-OUTPUT
 
                END-PERFORM
@@ -530,7 +626,7 @@
 
            MOVE SPACES TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
-
+           DISPLAY "END ADD-MONTHLY-STATISTICS-TO-OUTPUT"
            EXIT.
        
        ADD-OUTPUT-LINE-SAFE.
@@ -540,6 +636,7 @@
                DISPLAY "ERROR: OUTPUT-TEXT overflow"
                DISPLAY "Line: " OUTPUT-LINE-COUNT
                DISPLAY "Max : " OUTPUT-LINE-MAX-COUNT
+               EXIT PARAGRAPH
            END-IF
 
            MOVE OUTPUT-TEXT-LINE
@@ -625,28 +722,32 @@
            EXIT.
 
        SORT-CUSTOMERS-BY-SALDO.
-           PERFORM VARYING I FROM 1 BY 1
-               UNTIL I >= CUSTOMER-COUNT
+           DISPLAY "START SORT-CUSTOMERS-BY-SALDO"
+           PERFORM VARYING SORT-INDEX FROM 1 BY 1
+               UNTIL SORT-INDEX >= CUSTOMER-COUNT
        
-               ADD 1 TO I GIVING J-START
-               PERFORM VARYING J FROM J-START BY 1
-                   UNTIL J > CUSTOMER-COUNT
+               ADD 1 TO SORT-INDEX GIVING COMPARE-INDEX-START
+               PERFORM VARYING COMPARE-INDEX 
+                   FROM COMPARE-INDEX-START BY 1
+                   UNTIL COMPARE-INDEX > CUSTOMER-COUNT
        
-                   IF DKK-SALDO OF CUSTOMERS(I)
-                      < DKK-SALDO OF CUSTOMERS(J)
+                   IF DKK-SALDO OF CUSTOMERS(SORT-INDEX)
+                      < DKK-SALDO OF CUSTOMERS(COMPARE-INDEX)
        
-                       MOVE CUSTOMERS(I) TO TEMP-CUSTOMER
-                       MOVE CUSTOMERS(J) TO CUSTOMERS(I)
-                       MOVE TEMP-CUSTOMER TO CUSTOMERS(J)
+                       MOVE CUSTOMERS(SORT-INDEX) TO TEMP-CUSTOMER
+                       MOVE CUSTOMERS(COMPARE-INDEX) 
+                           TO CUSTOMERS(SORT-INDEX)
+                       MOVE TEMP-CUSTOMER TO CUSTOMERS(COMPARE-INDEX)
        
                    END-IF
        
                END-PERFORM
            END-PERFORM
-       
+           DISPLAY "END SORT-CUSTOMERS-BY-SALDO"
            EXIT.
        
        ADD-TOP-3-CUSTOMERS-TO-OUTPUT.
+           DISPLAY "START ADD-TOP-3-CUSTOMERS-TO-OUTPUT"           
            MOVE SPACES TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
            MOVE "Top 3 kunder baseret paa saldo:"
@@ -683,7 +784,7 @@
 
            MOVE SEPARATOR-LINE TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
-
+           DISPLAY "END ADD-TOP-3-CUSTOMERS-TO-OUTPUT"
            EXIT.
 
        FORMAT-SIGNED-AMOUNT.
@@ -818,16 +919,24 @@
            OPEN INPUT IN-TRANSACTIONS-FILE
            PERFORM UNTIL END-OF-FILE = "Y"
                READ IN-TRANSACTIONS-FILE INTO IN-TRANSACTION-RECORD
-                   AT END
-                       DISPLAY "Found End of Transactions "
-                       "Information file on line: " LINE-INDEX
+               AT END
+                   DISPLAY "Found End of Transactions "
+                   "Information file on line: " LINE-INDEX
+                   MOVE "Y" TO END-OF-FILE
+               NOT AT END
+                   IF TRANSACTIONS-COUNT > TRANSACTIONS-MAX-COUNT
+                       DISPLAY "ERROR: LOAD-TRANSACTIONS-DATA-TO-ARRAY "
+                       "attempted to write outside TRANSACTIONS array."
+                       DISPLAY "File line: " LINE-INDEX
+                       DISPLAY "TRANSACTIONS-MAX-COUNT: "
+                           TRANSACTIONS-MAX-COUNT
                        MOVE "Y" TO END-OF-FILE
-                   NOT AT END                       
-                       PERFORM MOVE-TRANSACTION-RECORD-TO-ARRAY
-      *                DISPLAY IN-TRANSACTION-RECORD
-                       DISPLAY "Not At End Index: " LINE-INDEX
-                       ADD 1 TO LINE-INDEX
-                       ADD 1 TO TRANSACTIONS-COUNT
+                       EXIT PARAGRAPH
+                   END-IF                       
+                   PERFORM MOVE-TRANSACTION-RECORD-TO-ARRAY
+                   DISPLAY "Not At End Index: " LINE-INDEX
+                   ADD 1 TO LINE-INDEX
+                   ADD 1 TO TRANSACTIONS-COUNT
                END-READ
            END-PERFORM
            DISPLAY "END LOAD-TRANSACTIONS, LINE-INDEX = " LINE-INDEX
@@ -912,16 +1021,23 @@
            OPEN INPUT IN-BANKS-FILE
            PERFORM UNTIL END-OF-FILE = "Y"
                READ IN-BANKS-FILE INTO IN-BANK-RECORD
-                   AT END
-                       DISPLAY "Found End of Banks "
-                       "Information file on line: " LINE-INDEX
+               AT END
+                   DISPLAY "Found End of Banks "
+                   "Information file on line: " LINE-INDEX
+                   MOVE "Y" TO END-OF-FILE
+               NOT AT END
+                   IF BANKS-COUNT > BANKS-MAX-COUNT
+                       DISPLAY "ERROR: LOAD-BANKS-DATA-TO-ARRAY "
+                       "attempted to write outside BANKS array."
+                       DISPLAY "File line: " LINE-INDEX
+                       DISPLAY "BANKS-MAX-COUNT: " BANKS-MAX-COUNT
                        MOVE "Y" TO END-OF-FILE
-                   NOT AT END                       
-                       PERFORM MOVE-BANK-RECORD-TO-ARRAY
-      *                DISPLAY IN-BANK-RECORD
-                       DISPLAY "Not At End Index: " LINE-INDEX
-                       ADD 1 TO LINE-INDEX
-                       ADD 1 TO BANKS-COUNT
+                       EXIT PARAGRAPH
+                   END-IF
+                   PERFORM MOVE-BANK-RECORD-TO-ARRAY
+                   DISPLAY "Not At End Index: " LINE-INDEX
+                   ADD 1 TO LINE-INDEX
+                   ADD 1 TO BANKS-COUNT
                END-READ
            END-PERFORM
            DISPLAY "END LOAD-BANKS, LINE-INDEX = " LINE-INDEX

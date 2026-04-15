@@ -1,116 +1,117 @@
 
 Top 3 kunder baseret paa saldo:
-CPR: 230354-5176, Name: Niels Mortensen, Saldo: 1,789,964.26 DKK
-CPR: 011087-3472, Name: Lars Olsen, Saldo: 848,275.32 DKK
-CPR: 170878-2382, Name: Marie Nielsen, Saldo: 751,242.52 DKK
+CPR: 211295-8448, Name: Hanne Nielsen, Saldo: 1,686,529.72 DKK
+CPR: 270682-6482, Name: Hanne Jensen, Saldo: 1,672,219.15 DKK
+CPR: 010284-6416, Name: Anne Nielsen, Saldo: 1,370,455.97 DKK
 ------------------------------------------------------------------------------------------
 
 Monthly statistics:
 ------------------------------------------------------------------------------------------
 Year: 2020
 Month          Income (DKK)        Payments (DKK)
-January        No transactions this month
-February       No transactions this month
-March          569,366.55          -408,665.32
-April          0.00                -24,966.20
-May            No transactions this month
-June           No transactions this month
-July           0.00                -451,540.86
-August         No transactions this month
-September      No transactions this month
-October        352,801.44          -372,112.87
-November       No transactions this month
-December       90,988.27           0.00
+January        33,630.96           -504,083.76
+February       242,574.49          -442,271.99
+March          169,614.37          -920,446.15
+April          651,879.75          -190,434.00
+May            1,104,366.39        -683,580.51
+June           957,280.83          -665,290.10
+July           832,805.50          -822,542.92
+August         133,622.77          0.00
+September      499,234.90          -36,433.26
+October        89,726.84           -1,065,235.02
+November       399,344.70          0.00
+December       741,176.44          -59,786.14
 ------------------------------------------------------------------------------------------
 Year: 2021
 Month          Income (DKK)        Payments (DKK)
-January        111,781.30          0.00
-February       No transactions this month
-March          544,621.24          0.00
-April          No transactions this month
-May            282,907.94          0.00
-June           No transactions this month
-July           0.00                -150,285.03
-August         No transactions this month
-September      No transactions this month
-October        22,207.69           0.00
-November       407,017.33          -74,402.95
-December       66,826.63           0.00
+January        1,960,064.69        0.00
+February       165,753.40          -1,393,652.99
+March          414,255.66          0.00
+April          0.00                -168,985.03
+May            0.00                -94,996.81
+June           411,048.10          -497,261.29
+July           1,174,358.04        -66,677.12
+August         457,914.58          -398,939.81
+September      1,335,286.41        -37,623.06
+October        684,269.87          0.00
+November       368,857.08          0.00
+December       1,321,684.50        -1,132,757.36
 ------------------------------------------------------------------------------------------
 Year: 2022
 Month          Income (DKK)        Payments (DKK)
-January        No transactions this month
-February       0.00                -739,864.70
-March          133,237.65          -478,810.95
-April          No transactions this month
-May            No transactions this month
-June           No transactions this month
-July           No transactions this month
-August         49,888.26           0.00
-September      77,563.09           -46,157.99
-October        9,834.97            0.00
-November       No transactions this month
-December       90,012.96           -630,610.24
+January        859,490.61          -469,894.68
+February       1,064,396.44        0.00
+March          531,729.80          -87,384.12
+April          581,341.18          -1,836,013.18
+May            19,760.89           -362,530.23
+June           1,041,696.13        0.00
+July           349,279.00          -1,276,981.24
+August         680,121.92          -2,545,646.63
+September      367,169.33          -1,128,431.02
+October        No transactions this month
+November       718,558.77          -642,789.26
+December       215,267.93          -84,899.01
 ------------------------------------------------------------------------------------------
 Year: 2023
 Month          Income (DKK)        Payments (DKK)
-January        No transactions this month
-February       40,021.87           0.00
-March          No transactions this month
-April          No transactions this month
-May            No transactions this month
-June           498,195.40          0.00
-July           562,418.17          0.00
-August         No transactions this month
-September      No transactions this month
-October        145,198.22          -101,607.75
-November       No transactions this month
-December       188,790.44          -454,005.46
+January        420,774.75          -67,302.63
+February       627,766.56          -74,501.77
+March          87,571.25           0.00
+April          0.00                -619,459.72
+May            25,479.75           -468,616.08
+June           412,561.44          -1,240,979.12
+July           673,171.23          0.00
+August         127,443.45          -24,067.72
+September      699,436.25          -240,421.75
+October        73,784.66           -255,026.24
+November       1,467,794.32        -1,058,114.69
+December       1,390,505.71        -224,420.56
 ------------------------------------------------------------------------------------------
 Year: 2024
 Month          Income (DKK)        Payments (DKK)
-January        0.00                -84,153.37
-February       595,561.12          0.00
-March          No transactions this month
-April          0.00                -52,929.72
-May            714,052.72          -563,185.45
-June           0.00                -214,169.26
-July           No transactions this month
-August         5,706.20            0.00
-September      476,618.99          0.00
-October        No transactions this month
-November       No transactions this month
-December       129,940.35          0.00
+January        610,983.30          -558,215.43
+February       484,886.55          -1,581,534.29
+March          765,482.88          -686,418.67
+April          960,840.19          -1,363,433.24
+May            989,262.22          -606,602.25
+June           1,526,129.53        -207,897.28
+July           1,299,772.68        0.00
+August         0.00                -113,092.10
+September      65,548.69           -439,863.63
+October        1,152,109.08        -152,742.28
+November       58,312.38           -634,487.40
+December       421,650.89          -1,118,007.87
 ------------------------------------------------------------------------------------------
 Year: 2025
 Month          Income (DKK)        Payments (DKK)
-January        264,572.56          0.00
-February       No transactions this month
-March          531,044.89          0.00
-April          214,892.17          0.00
-May            0.00                -836,644.18
-June           0.00                -94,501.50
-July           84,947.77           0.00
-August         723,302.77          0.00
-September      0.00                -542,568.60
-October        No transactions this month
-November       No transactions this month
-December       0.00                -235,186.80
+January        870,192.22          -730,175.97
+February       603,829.65          -12,142.52
+March          673,404.61          -227,165.72
+April          635,111.86          -911,418.25
+May            1,281,353.91        -158,773.75
+June           390,810.99          -109,764.03
+July           66,036.56           -384,216.72
+August         383,701.57          -646,981.27
+September      108,908.39          -638,985.20
+October        243,236.97          -867,179.65
+November       0.00                -87,768.68
+December       88,812.98           -605,088.05
 ------------------------------------------------------------------------------------------
 
 
 Statistik for butikker:
-Butik                    Antal transaktioner
-Blomsterhandler          8
-Apotek                   6
-Tankstation              4
-Elektronikbutik          3
-Toejbutik                6
-Boghandel                13
-Biograf                  1
-Moebelbutik              6
-Cafe                     4
-Bageri                   6
-Restaurant               5
-Fitnesscenter            1
+Butik                    Antal transaktioner     Omsaetning (DKK)
+Blomsterhandler          24                      3,272,674.66
+Apotek                   24                      3,086,253.19
+Elektronikbutik          16                      1,900,082.83
+Tankstation              18                      1,213,151.28
+Biograf                  21                      1,180,038.29
+Toejbutik                18                      999,836.35
+Fitnesscenter            20                      974,608.48
+Cafe                     18                      430,220.14
+Bageri                   22                      -264,142.19
+Supermarked              19                      -558,778.41
+Restaurant               33                      -836,088.88
+Moebelbutik              25                      -1,929,491.59
+Boghandel                20                      -3,934,565.63
 

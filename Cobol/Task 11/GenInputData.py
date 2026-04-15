@@ -2,13 +2,13 @@ import random
 import datetime
 
 # Antal kunder i dataset
-NUM_CUSTOMERS = 20
+NUM_CUSTOMERS = 50
 
 # Maks antal transaktioner pr. kunde
-MAX_TRANSACTIONS_PER_CUSTOMER = 5
+MAX_TRANSACTIONS_PER_CUSTOMER = 10
 
 # Antal banker
-NUM_BANKS = 15
+NUM_BANKS = 30
 
 # Filnavne til outputfiler
 TRANSACTION_FILE = "Transactions.txt"
