@@ -28,7 +28,7 @@
            COPY "TransactionRecord.cpy".
 
        FD OUT-REPORT-FILE.
-       01 OUT-REPORT-RECORD PIC X(100).
+       01 OUT-REPORT-RECORD PIC X(120).
 
        WORKING-STORAGE SECTION.
        
@@ -60,6 +60,15 @@
                03 TRANSACTIONS-MONTH-COUNT PIC 99.
                03 TOTAL-MONTH-INCOME PIC S9(11)V99 VALUE 0.
                03 TOTAL-MONTH-PAYMENT PIC S9(11)V99 VALUE 0.
+               03 DKK-INCOME PIC S9(11)V99 VALUE 0.
+               03 DKK-PAYMENT PIC S9(11)V99 VALUE 0.
+               03 EUR-INCOME PIC S9(11)V99 VALUE 0.
+               03 EUR-PAYMENT PIC S9(11)V99 VALUE 0.
+               03 USD-INCOME PIC S9(11)V99 VALUE 0.
+               03 USD-PAYMENT PIC S9(11)V99 VALUE 0.
+               03 INCOME-COUNT PIC 99 VALUE 0.
+               03 PAYMENT-COUNT PIC 99 VALUE 0.
+               03 TRANSFER-COUNT PIC 99 VALUE 0.
 
        01 YEAR-INDEX        PIC 9.
        01 MONTH-INDEX       PIC 99.
@@ -99,13 +108,13 @@
        01 SHOPS-COUNT PIC 99 VALUE 0.
        01 SHOP-MATCH-FOUND PIC X VALUE "N".
        01 MATCHED-SHOP-INDEX PIC 99 VALUE 0.
-       01 SHOP-COUNT-DISPLAY PIC ZZZ.
+     
        01 SHOP-REVENUE-DISPLAY PIC -ZZ,ZZZ,ZZZ,ZZ9.99.
 
        01 OUTPUT-LINE-INDEX PIC 999 VALUE 0.
        01 OUTPUT-LINE-COUNT PIC 999 VALUE 0.
-       01 OUTPUT-TEXT-LINE PIC X(100).
-       01 OUTPUT-TEXT PIC X(100) OCCURS 950 TIMES.
+       01 OUTPUT-TEXT-LINE PIC X(120).
+       01 OUTPUT-TEXT PIC X(120) OCCURS 700 TIMES.
        01 OUTPUT-LINE-MAX-COUNT PIC 999 VALUE 950.
        
        01 END-OF-FILE PIC X VALUE "N".
@@ -120,6 +129,7 @@
        01 SORT-INDEX PIC 99.
        01 COMPARE-INDEX PIC 99.
        01 COMPARE-INDEX-START PIC 99.
+       01 COUNT-DISPLAY PIC ZZ9.
 
        01 SOURCE-AMOUNT PIC S9(11)V99.
        01 ABS-AMOUNT PIC 9(11)V99.
@@ -294,6 +304,39 @@
                    MOVE 0 TO TRANSACTIONS-MONTH-COUNT
                        OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
                            MONTH-INDEX)
+
+                   MOVE 0 TO INCOME-COUNT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+
+                   MOVE 0 TO PAYMENT-COUNT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+                   
+                   MOVE 0 TO TRANSFER-COUNT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+
+                   MOVE 0 TO DKK-INCOME
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+                   MOVE 0 TO DKK-PAYMENT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+                   
+                   MOVE 0 TO EUR-INCOME
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+                   MOVE 0 TO EUR-PAYMENT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+                   
+                   MOVE 0 TO USD-INCOME
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+                   MOVE 0 TO USD-PAYMENT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
        
                END-PERFORM
            END-PERFORM
@@ -350,6 +393,9 @@
                    TO TOTAL-MONTH-INCOME
                        OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
                            MONTH-INDEX)
+               ADD 1 TO INCOME-COUNT
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX)
 
            ELSE IF TRANSACTION-TYPE
                        OF TRANSACTIONS(TRANSACTION-INDEX)
@@ -360,10 +406,17 @@
                    FROM TOTAL-MONTH-PAYMENT
                        OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
                            MONTH-INDEX)
+               ADD 1 TO PAYMENT-COUNT
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX)
 
            ELSE IF TRANSACTION-TYPE
                        OF TRANSACTIONS(TRANSACTION-INDEX)
                        = "Overfoersel"
+               
+               ADD 1 TO TRANSFER-COUNT
+                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                       MONTH-INDEX)
 
                IF DKK-AMOUNT
                    OF TRANSACTIONS(TRANSACTION-INDEX)
@@ -396,8 +449,126 @@
        
            PERFORM POSITION-TRANSACTION-IN-MONTH
            PERFORM ADD-TRANSACTION-TO-MONTH-TOTALS
+           PERFORM ADD-TRANSACTION-TO-MONTH-CURRENCY-TOTALS
        
            END-PERFORM
+       
+           EXIT.
+       ADD-TRANSACTION-TO-MONTH-CURRENCY-TOTALS.
+           IF CURRENCY-CODE OF TRANSACTIONS(TRANSACTION-INDEX) = "DKK"
+               PERFORM ADD-TRANSACTION-TO-MONTH-DKK-TOTALS
+           ELSE IF CURRENCY-CODE OF TRANSACTIONS(TRANSACTION-INDEX) 
+               = "EUR"
+               PERFORM ADD-TRANSACTION-TO-MONTH-EUR-TOTALS
+           ELSE IF CURRENCY-CODE OF TRANSACTIONS(TRANSACTION-INDEX) 
+               = "USD"
+               PERFORM ADD-TRANSACTION-TO-MONTH-USD-TOTALS
+           END-IF
+       
+           EXIT.
+
+       ADD-TRANSACTION-TO-MONTH-DKK-TOTALS.
+           IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Indbetaling"
+       
+               ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   TO DKK-INCOME
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Udbetaling"
+       
+               SUBTRACT AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   FROM DKK-PAYMENT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Overfoersel"
+       
+               IF AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX) >= 0
+                   ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                       TO DKK-INCOME
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
+               ELSE
+                   ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                       TO DKK-PAYMENT
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
+               END-IF
+           END-IF
+       
+           EXIT.
+
+       ADD-TRANSACTION-TO-MONTH-EUR-TOTALS.
+           IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Indbetaling"
+       
+               ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   TO EUR-INCOME
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Udbetaling"
+       
+               SUBTRACT AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   FROM EUR-PAYMENT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Overfoersel"
+       
+               IF AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX) >= 0
+                   ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                       TO EUR-INCOME
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
+               ELSE
+                   ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                       TO EUR-PAYMENT
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
+               END-IF
+           END-IF
+       
+           EXIT.
+
+       ADD-TRANSACTION-TO-MONTH-USD-TOTALS.
+           IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Indbetaling"
+       
+               ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   TO USD-INCOME
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Udbetaling"
+       
+               SUBTRACT AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                   FROM USD-PAYMENT
+                       OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                           MONTH-INDEX)
+       
+           ELSE IF TRANSACTION-TYPE OF TRANSACTIONS(TRANSACTION-INDEX)
+               = "Overfoersel"
+       
+               IF AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX) >= 0
+                   ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                       TO USD-INCOME
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
+               ELSE
+                   ADD AMOUNT OF TRANSACTIONS(TRANSACTION-INDEX)
+                       TO USD-PAYMENT
+                           OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                               MONTH-INDEX)
+               END-IF
+           END-IF
        
            EXIT.
 
@@ -554,9 +725,9 @@
                    TO OUTPUT-TEXT-LINE(1:20)
        
                MOVE TRANSACTIONS-SHOP-COUNT OF SHOPS(SHOP-INDEX)
-                   TO SHOP-COUNT-DISPLAY
+                   TO COUNT-DISPLAY
                
-               MOVE FUNCTION TRIM(SHOP-COUNT-DISPLAY LEADING)
+               MOVE FUNCTION TRIM(COUNT-DISPLAY LEADING)
                    TO OUTPUT-TEXT-LINE(26:3)
 
                MOVE SHOP-REVENUE OF SHOPS(SHOP-INDEX)
@@ -606,10 +777,16 @@
                MOVE SPACES TO OUTPUT-TEXT-LINE
                MOVE "Month"
                    TO OUTPUT-TEXT-LINE(1:12)
-               MOVE "Income (DKK)"
-                   TO OUTPUT-TEXT-LINE(16:12)
-               MOVE "Payments (DKK)"
-                   TO OUTPUT-TEXT-LINE(36:14)
+               MOVE "Income"
+                   TO OUTPUT-TEXT-LINE(18:6)
+               MOVE "Payments"
+                   TO OUTPUT-TEXT-LINE(42:8)
+               MOVE "Income Count"
+                   TO OUTPUT-TEXT-LINE(64:12)
+               MOVE "Payment Count"
+                   TO OUTPUT-TEXT-LINE(78:13)
+               MOVE "Transfer Count"
+                   TO OUTPUT-TEXT-LINE(93:14)
                PERFORM ADD-OUTPUT-LINE-SAFE
 
                PERFORM VARYING MONTH-INDEX FROM 1 BY 1
@@ -662,31 +839,167 @@
                    TO OUTPUT-TEXT-LINE(16:26)
 
            ELSE               
-               MOVE TOTAL-MONTH-INCOME
-                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
-                       MONTH-INDEX)
-                   TO SOURCE-AMOUNT
-
-               DISPLAY "Formatting 'TOTAL-MONTH-INCOME'..."
-               PERFORM FORMAT-SIGNED-AMOUNT
-
-               MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
-                   TO OUTPUT-TEXT-LINE(16:18)    
-    
-               MOVE TOTAL-MONTH-PAYMENT
-                   OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
-                       MONTH-INDEX)
-                   TO SOURCE-AMOUNT  
-
-               DISPLAY "Formatting 'TOTAL-MONTH-PAYMENT'..."
-               PERFORM FORMAT-SIGNED-AMOUNT
-
-               MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
-                       TO OUTPUT-TEXT-LINE(36:18)
-
+               PERFORM ADD-MAIN-MONTH-LINE
+               PERFORM ADD-DKK-MONTH-LINE
+               PERFORM ADD-EUR-MONTH-LINE
+               PERFORM ADD-USD-MONTH-LINE
            END-IF
            
+           EXIT.
+       
+       ADD-DKK-MONTH-LINE.
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           MOVE "DKK" TO OUTPUT-TEXT-LINE(14:3)
+
+           MOVE DKK-INCOME
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'DKK-INCOME'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+               TO OUTPUT-TEXT-LINE(18:18)
+
+           MOVE "DKK" TO OUTPUT-TEXT-LINE(38:3)
+
+           MOVE DKK-PAYMENT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'DKK-PAYMENT'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+               TO OUTPUT-TEXT-LINE(42:18)
+
            PERFORM ADD-OUTPUT-LINE-SAFE
+
+           EXIT.
+
+       ADD-EUR-MONTH-LINE.
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           MOVE "EUR" TO OUTPUT-TEXT-LINE(14:3)
+
+           MOVE EUR-INCOME
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'EUR-INCOME'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+               TO OUTPUT-TEXT-LINE(18:18)
+
+           MOVE "EUR" TO OUTPUT-TEXT-LINE(38:3)
+
+           MOVE EUR-PAYMENT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'EUR-PAYMENT'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+               TO OUTPUT-TEXT-LINE(42:18)
+
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           EXIT.
+
+       ADD-USD-MONTH-LINE.
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           MOVE "USD" TO OUTPUT-TEXT-LINE(14:3)
+
+           MOVE USD-INCOME
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'USD-INCOME'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+               TO OUTPUT-TEXT-LINE(18:18)
+
+           MOVE "USD" TO OUTPUT-TEXT-LINE(38:3)
+
+           MOVE USD-PAYMENT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'USD-PAYMENT'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE SIGNED-FORMAT-AMOUNT-DISPLAY
+               TO OUTPUT-TEXT-LINE(42:18)
+
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           EXIT.
+
+       ADD-MAIN-MONTH-LINE.
+           MOVE "DKK"
+               TO OUTPUT-TEXT-LINE(14:3)
+
+           MOVE TOTAL-MONTH-INCOME
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT
+
+           DISPLAY "Formatting 'TOTAL-MONTH-INCOME'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
+                   TO OUTPUT-TEXT-LINE(18:18)
+
+           MOVE "DKK"
+               TO OUTPUT-TEXT-LINE(38:3)
+
+    
+           MOVE TOTAL-MONTH-PAYMENT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX, 
+                   MONTH-INDEX)
+               TO SOURCE-AMOUNT  
+
+           DISPLAY "Formatting 'TOTAL-MONTH-PAYMENT'..."
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           MOVE FUNCTION TRIM(SIGNED-FORMAT-AMOUNT-DISPLAY LEADING)
+                   TO OUTPUT-TEXT-LINE(42:18)
+
+           PERFORM ADD-MONTH-COUNT-PARTS
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+       EXIT.
+
+       ADD-MONTH-COUNT-PARTS.
+           MOVE INCOME-COUNT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO COUNT-DISPLAY
+           MOVE FUNCTION TRIM(COUNT-DISPLAY, LEADING)
+               TO OUTPUT-TEXT-LINE(74:3)
+
+           MOVE PAYMENT-COUNT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO COUNT-DISPLAY
+           MOVE FUNCTION TRIM(COUNT-DISPLAY, LEADING)
+               TO OUTPUT-TEXT-LINE(88:3)
+
+           MOVE TRANSFER-COUNT
+               OF TRANSACTIONS-BY-YEAR-MONTH(YEAR-INDEX,
+                   MONTH-INDEX)
+               TO COUNT-DISPLAY
+           MOVE FUNCTION TRIM(COUNT-DISPLAY, LEADING)
+               TO OUTPUT-TEXT-LINE(104:3)
+
            EXIT.
 
        GET-MONTH-NAME.

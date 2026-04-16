@@ -8,94 +8,306 @@ CPR: 010284-6416, Name: Anne Nielsen, Saldo: 1,370,455.97 DKK
 Monthly statistics:
 ------------------------------------------------------------------------------------------
 Year: 2020
-Month          Income (DKK)        Payments (DKK)
-January        33,630.96           -504,083.76
-February       242,574.49          -442,271.99
-March          169,614.37          -920,446.15
-April          651,879.75          -190,434.00
-May            1,104,366.39        -683,580.51
-June           957,280.83          -665,290.10
-July           832,805.50          -822,542.92
-August         133,622.77          0.00
-September      499,234.90          -36,433.26
-October        89,726.84           -1,065,235.02
-November       399,344.70          0.00
-December       741,176.44          -59,786.14
+Month            Income                  Payments              Income Count  Payment Count  Transfer Count
+January      DKK 33,630.96           DKK -504,083.76                     0             3               1
+             DKK 0.00                DKK -57,961.05
+             EUR 0.00                EUR -48,947.39
+             USD 4,945.73            USD -11,620.19
+February     DKK 242,574.49          DKK -442,271.99                     2             2               0
+             DKK 9,475.59            DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 34,279.25           USD -65,040.00
+March        DKK 169,614.37          DKK -920,446.15                     1             2               0
+             DKK 0.00                DKK 0.00
+             EUR 22,615.25           EUR -33,363.12
+             USD 0.00                USD -98,562.17
+April        DKK 651,879.75          DKK -190,434.00                     1             0               1
+             DKK 0.00                DKK 0.00
+             EUR 86,917.30           EUR -25,391.20
+             USD 0.00                USD 0.00
+May          DKK 1,104,366.39        DKK -683,580.51                     2             1               4
+             DKK 92,911.96           DKK 0.00
+             EUR 2,033.11            EUR -65,612.01
+             USD 146,500.90          USD -28,160.36
+June         DKK 957,280.83          DKK -665,290.10                     4             4               0
+             DKK 89,813.20           DKK -92,120.91
+             EUR 89,550.17           EUR -75,291.91
+             USD 28,800.20           USD -1,247.04
+July         DKK 832,805.50          DKK -822,542.92                     2             1               1
+             DKK 0.00                DKK 0.00
+             EUR 29,592.90           EUR -109,672.39
+             USD 89,832.17           USD 0.00
+August       DKK 133,622.77          DKK 0.00                            1             0               1
+             DKK 24,942.00           DKK 0.00
+             EUR 14,490.77           EUR 0.00
+             USD 0.00                USD 0.00
+September    DKK 499,234.90          DKK -36,433.26                      5             1               0
+             DKK 37,134.80           DKK -36,433.26
+             EUR 58,186.61           EUR 0.00
+             USD 3,779.49            USD 0.00
+October      DKK 89,726.84           DKK -1,065,235.02                   2             2               0
+             DKK 0.00                DKK 0.00
+             EUR 2,338.47            EUR 0.00
+             USD 10,615.93           USD -156,652.21
+November     DKK 399,344.70          DKK 0.00                            1             0               0
+             DKK 0.00                DKK 0.00
+             EUR 53,245.96           EUR 0.00
+             USD 0.00                USD 0.00
+December     DKK 741,176.44          DKK -59,786.14                      2             1               1
+             DKK 138,469.24          DKK -59,786.14
+             EUR 80,360.96           EUR 0.00
+             USD 0.00                USD 0.00
 ------------------------------------------------------------------------------------------
 Year: 2021
-Month          Income (DKK)        Payments (DKK)
-January        1,960,064.69        0.00
-February       165,753.40          -1,393,652.99
-March          414,255.66          0.00
-April          0.00                -168,985.03
-May            0.00                -94,996.81
-June           411,048.10          -497,261.29
-July           1,174,358.04        -66,677.12
-August         457,914.58          -398,939.81
-September      1,335,286.41        -37,623.06
-October        684,269.87          0.00
-November       368,857.08          0.00
-December       1,321,684.50        -1,132,757.36
+Month            Income                  Payments              Income Count  Payment Count  Transfer Count
+January      DKK 1,960,064.69        DKK 0.00                            4             0               0
+             DKK 0.00                DKK 0.00
+             EUR 180,631.59          EUR 0.00
+             USD 89,018.79           USD 0.00
+February     DKK 165,753.40          DKK -1,393,652.99                   1             3               2
+             DKK 0.00                DKK -93,496.13
+             EUR 0.00                EUR -53,097.32
+             USD 24,375.50           USD -132,636.32
+March        DKK 414,255.66          DKK 0.00                            2             0               0
+             DKK 46,582.52           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 54,069.58           USD 0.00
+April        DKK 0.00                DKK -168,985.03                     0             1               0
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -24,850.74
+May          DKK 0.00                DKK -94,996.81                      0             0               1
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -13,970.12
+June         DKK 411,048.10          DKK -497,261.29                     1             2               1
+             DKK 0.00                DKK 0.00
+             EUR 37,272.94           EUR -27,594.71
+             USD 19,338.39           USD -42,691.32
+July         DKK 1,174,358.04        DKK -66,677.12                      2             0               2
+             DKK 60,922.03           DKK -66,677.12
+             EUR 0.00                EUR 0.00
+             USD 163,740.59          USD 0.00
+August       DKK 457,914.58          DKK -398,939.81                     0             2               1
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 67,340.38           USD -58,667.62
+September    DKK 1,335,286.41        DKK -37,623.06                      2             1               1
+             DKK 13,052.01           DKK -37,623.06
+             EUR 176,297.92          EUR 0.00
+             USD 0.00                USD 0.00
+October      DKK 684,269.87          DKK 0.00                            1             0               1
+             DKK 40,441.79           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 94,680.60           USD 0.00
+November     DKK 368,857.08          DKK 0.00                            1             0               1
+             DKK 7,757.91            DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 53,102.82           USD 0.00
+December     DKK 1,321,684.50        DKK -1,132,757.36                   3             2               2
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR -109,796.07
+             USD 194,365.37          USD -45,483.36
 ------------------------------------------------------------------------------------------
 Year: 2022
-Month          Income (DKK)        Payments (DKK)
-January        859,490.61          -469,894.68
-February       1,064,396.44        0.00
-March          531,729.80          -87,384.12
-April          581,341.18          -1,836,013.18
-May            19,760.89           -362,530.23
-June           1,041,696.13        0.00
-July           349,279.00          -1,276,981.24
-August         680,121.92          -2,545,646.63
-September      367,169.33          -1,128,431.02
-October        No transactions this month
-November       718,558.77          -642,789.26
-December       215,267.93          -84,899.01
+Month            Income                  Payments              Income Count  Payment Count  Transfer Count
+January      DKK 859,490.61          DKK -469,894.68                     2             2               2
+             DKK 0.00                DKK -132,394.16
+             EUR 93,808.24           EUR -45,000.07
+             USD 22,930.71           USD 0.00
+February     DKK 1,064,396.44        DKK 0.00                            3             0               0
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 156,528.89          USD 0.00
+March        DKK 531,729.80          DKK -87,384.12                      0             0               2
+             DKK 0.00                DKK -87,384.12
+             EUR 0.00                EUR 0.00
+             USD 78,195.56           USD 0.00
+April        DKK 581,341.18          DKK -1,836,013.18                   1             2               1
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 85,491.35           USD -270,001.94
+May          DKK 19,760.89           DKK -362,530.23                     1             1               0
+             DKK 19,760.89           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -53,313.27
+June         DKK 1,041,696.13        DKK 0.00                            2             0               1
+             DKK 83,176.10           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 140,958.83          USD 0.00
+July         DKK 349,279.00          DKK -1,276,981.24                   1             4               2
+             DKK 0.00                DKK -88,997.29
+             EUR 0.00                EUR -89,265.78
+             USD 51,364.56           USD -76,248.62
+August       DKK 680,121.92          DKK -2,545,646.63                   2             6               2
+             DKK 3,177.54            DKK -68,780.31
+             EUR 62,169.24           EUR -76,638.05
+             USD 30,981.63           USD -279,717.79
+September    DKK 367,169.33          DKK -1,128,431.02                   1             3               0
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR -95,618.49
+             USD 53,995.49           USD -60,484.17
+November     DKK 718,558.77          DKK -642,789.26                     1             3               4
+             DKK 50,857.53           DKK -155,863.01
+             EUR 0.00                EUR -64,923.50
+             USD 98,191.36           USD 0.00
+December     DKK 215,267.93          DKK -84,899.01                      2             0               1
+             DKK 0.00                DKK -84,899.01
+             EUR 0.00                EUR 0.00
+             USD 31,657.05           USD 0.00
 ------------------------------------------------------------------------------------------
 Year: 2023
-Month          Income (DKK)        Payments (DKK)
-January        420,774.75          -67,302.63
-February       627,766.56          -74,501.77
-March          87,571.25           0.00
-April          0.00                -619,459.72
-May            25,479.75           -468,616.08
-June           412,561.44          -1,240,979.12
-July           673,171.23          0.00
-August         127,443.45          -24,067.72
-September      699,436.25          -240,421.75
-October        73,784.66           -255,026.24
-November       1,467,794.32        -1,058,114.69
-December       1,390,505.71        -224,420.56
+Month            Income                  Payments              Income Count  Payment Count  Transfer Count
+January      DKK 420,774.75          DKK -67,302.63                      0             1               1
+             DKK 0.00                DKK -67,302.63
+             EUR 0.00                EUR 0.00
+             USD 61,878.64           USD 0.00
+February     DKK 627,766.56          DKK -74,501.77                      0             1               2
+             DKK 15,750.99           DKK -74,501.77
+             EUR 0.00                EUR 0.00
+             USD 90,002.29           USD 0.00
+March        DKK 87,571.25           DKK 0.00                            1             0               0
+             DKK 87,571.25           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD 0.00
+April        DKK 0.00                DKK -619,459.72                     0             1               0
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR -82,594.63
+             USD 0.00                USD 0.00
+May          DKK 25,479.75           DKK -468,616.08                     0             1               1
+             DKK 0.00                DKK 0.00
+             EUR 3,397.30            EUR 0.00
+             USD 0.00                USD -68,914.13
+June         DKK 412,561.44          DKK -1,240,979.12                   1             1               1
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 60,670.80           USD -182,496.93
+July         DKK 673,171.23          DKK 0.00                            1             0               0
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 98,995.77           USD 0.00
+August       DKK 127,443.45          DKK -24,067.72                      0             0               2
+             DKK 0.00                DKK 0.00
+             EUR 16,992.46           EUR -3,209.03
+             USD 0.00                USD 0.00
+September    DKK 699,436.25          DKK -240,421.75                     2             2               1
+             DKK 89,816.87           DKK -86,118.63
+             EUR 0.00                EUR -20,573.75
+             USD 89,649.91           USD 0.00
+October      DKK 73,784.66           DKK -255,026.24                     0             0               3
+             DKK 73,784.66           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -37,503.86
+November     DKK 1,467,794.32        DKK -1,058,114.69                   3             1               2
+             DKK 0.00                DKK -40,987.36
+             EUR 195,705.91          EUR 0.00
+             USD 0.00                USD -149,577.55
+December     DKK 1,390,505.71        DKK -224,420.56                     5             1               4
+             DKK 166,479.87          DKK -77,747.49
+             EUR 162,895.49          EUR 0.00
+             USD 339.66              USD -21,569.57
 ------------------------------------------------------------------------------------------
 Year: 2024
-Month          Income (DKK)        Payments (DKK)
-January        610,983.30          -558,215.43
-February       484,886.55          -1,581,534.29
-March          765,482.88          -686,418.67
-April          960,840.19          -1,363,433.24
-May            989,262.22          -606,602.25
-June           1,526,129.53        -207,897.28
-July           1,299,772.68        0.00
-August         0.00                -113,092.10
-September      65,548.69           -439,863.63
-October        1,152,109.08        -152,742.28
-November       58,312.38           -634,487.40
-December       421,650.89          -1,118,007.87
+Month            Income                  Payments              Income Count  Payment Count  Transfer Count
+January      DKK 610,983.30          DKK -558,215.43                     1             2               0
+             DKK 0.00                DKK -41,836.31
+             EUR 81,464.44           EUR -68,850.55
+             USD 0.00                USD 0.00
+February     DKK 484,886.55          DKK -1,581,534.29                   0             2               2
+             DKK 0.00                DKK 0.00
+             EUR 64,651.54           EUR -95,398.98
+             USD 0.00                USD -127,359.11
+March        DKK 765,482.88          DKK -686,418.67                     2             0               2
+             DKK 0.00                DKK -26,286.67
+             EUR 55,133.85           EUR -88,017.60
+             USD 51,761.62           USD 0.00
+April        DKK 960,840.19          DKK -1,363,433.24                   1             3               3
+             DKK 112,632.61          DKK 0.00
+             EUR 0.00                EUR -81,929.90
+             USD 124,736.41          USD -110,141.03
+May          DKK 989,262.22          DKK -606,602.25                     2             1               1
+             DKK 0.00                DKK 0.00
+             EUR 55,440.59           EUR -80,880.30
+             USD 84,332.03           USD 0.00
+June         DKK 1,526,129.53        DKK -207,897.28                     3             2               2
+             DKK 57,582.67           DKK -207,897.28
+             EUR 94,059.21           EUR 0.00
+             USD 112,221.00          USD 0.00
+July         DKK 1,299,772.68        DKK 0.00                            2             0               2
+             DKK 33,199.90           DKK 0.00
+             EUR 87,062.97           EUR 0.00
+             USD 90,235.37           USD 0.00
+August       DKK 0.00                DKK -113,092.10                     0             0               2
+             DKK 0.00                DKK -13,997.27
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -14,572.77
+September    DKK 65,548.69           DKK -439,863.63                     0             1               2
+             DKK 65,548.69           DKK -57,846.43
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -56,179.00
+October      DKK 1,152,109.08        DKK -152,742.28                     4             2               1
+             DKK 122,652.51          DKK -152,742.28
+             EUR 64,493.56           EUR 0.00
+             USD 80,258.07           USD 0.00
+November     DKK 58,312.38           DKK -634,487.40                     1             1               1
+             DKK 58,312.38           DKK -7,442.95
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -92,212.42
+December     DKK 421,650.89          DKK -1,118,007.87                   2             3               1
+             DKK 13,175.91           DKK 0.00
+             EUR 0.00                EUR -40,317.43
+             USD 60,069.85           USD -119,945.17
 ------------------------------------------------------------------------------------------
 Year: 2025
-Month          Income (DKK)        Payments (DKK)
-January        870,192.22          -730,175.97
-February       603,829.65          -12,142.52
-March          673,404.61          -227,165.72
-April          635,111.86          -911,418.25
-May            1,281,353.91        -158,773.75
-June           390,810.99          -109,764.03
-July           66,036.56           -384,216.72
-August         383,701.57          -646,981.27
-September      108,908.39          -638,985.20
-October        243,236.97          -867,179.65
-November       0.00                -87,768.68
-December       88,812.98           -605,088.05
+Month            Income                  Payments              Income Count  Payment Count  Transfer Count
+January      DKK 870,192.22          DKK -730,175.97                     1             2               2
+             DKK 0.00                DKK -40,672.30
+             EUR 116,025.63          EUR 0.00
+             USD 0.00                USD -101,397.60
+February     DKK 603,829.65          DKK -12,142.52                      1             1               1
+             DKK 0.00                DKK -12,142.52
+             EUR 0.00                EUR 0.00
+             USD 88,798.48           USD 0.00
+March        DKK 673,404.61          DKK -227,165.72                     0             4               1
+             DKK 0.00                DKK -19,538.01
+             EUR 0.00                EUR -7,021.76
+             USD 99,030.09           USD -22,788.90
+April        DKK 635,111.86          DKK -911,418.25                     2             1               3
+             DKK 53,710.37           DKK -89,159.35
+             EUR 0.00                EUR -6,327.08
+             USD 85,500.22           USD -113,942.03
+May          DKK 1,281,353.91        DKK -158,773.75                     0             2               3
+             DKK 0.00                DKK -111,963.93
+             EUR 95,766.82           EUR -6,241.31
+             USD 82,809.23           USD 0.00
+June         DKK 390,810.99          DKK -109,764.03                     1             2               1
+             DKK 5,399.04            DKK 0.00
+             EUR 51,388.26           EUR -7,784.74
+             USD 0.00                USD -7,555.66
+July         DKK 66,036.56           DKK -384,216.72                     0             1               1
+             DKK 66,036.56           DKK 0.00
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD -56,502.46
+August       DKK 383,701.57          DKK -646,981.27                     1             1               0
+             DKK 0.00                DKK 0.00
+             EUR 51,160.21           EUR -86,264.17
+             USD 0.00                USD 0.00
+September    DKK 108,908.39          DKK -638,985.20                     0             0               3
+             DKK 0.00                DKK 0.00
+             EUR 0.00                EUR -34,118.92
+             USD 16,015.94           USD -56,337.25
+October      DKK 243,236.97          DKK -867,179.65                     1             1               2
+             DKK 0.00                DKK 0.00
+             EUR 12,025.93           EUR 0.00
+             USD 22,506.25           USD -127,526.42
+November     DKK 0.00                DKK -87,768.68                      0             1               0
+             DKK 0.00                DKK -87,768.68
+             EUR 0.00                EUR 0.00
+             USD 0.00                USD 0.00
+December     DKK 88,812.98           DKK -605,088.05                     1             2               1
+             DKK 88,812.98           DKK -45,662.91
+             EUR 0.00                EUR -74,590.02
+             USD 0.00                USD 0.00
 ------------------------------------------------------------------------------------------
 
 
