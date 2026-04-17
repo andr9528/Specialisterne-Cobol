@@ -1,2 +1,2 @@
-       02 REGISTRATION-NUMBER PIC X(4).       
+       03 REGISTRATION-NUMBER PIC X(4).       
        

@@ -1,9 +1,9 @@
            COPY "CustomerInfo.cpy".   
-           02 BIRTHDAY PIC X(11).
-           02 ACCOUNT-IDENTIFICATION PIC X(14).           
+           03 BIRTHDAY PIC X(11).
+           03 ACCOUNT-IDENTIFICATION PIC X(14).           
            COPY "Identification.cpy".
-           02 RAW-AMOUNT PIC X(17).
-           02 CURRENCY-CODE PIC X(4).
-           02 TRANSACTION-TYPE PIC X(20).
-           02 TRANSACTION-SHOP PIC X(20).
-           02 TIME-OF-TRANSACTION PIC X(26).
+           03 RAW-AMOUNT PIC X(17).
+           03 CURRENCY-CODE PIC X(4).
+           03 TRANSACTION-TYPE PIC X(20).
+           03 TRANSACTION-SHOP PIC X(20).
+           03 TIME-OF-TRANSACTION PIC X(26).

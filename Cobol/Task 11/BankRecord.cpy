@@ -1,5 +1,5 @@
            COPY "Identification.cpy".
-           02 BANK-NAME PIC X(30).       
-           02 BANK-ADDRESS PIC X(50).       
-           02 TELEFON PIC X(15).
-           02 EMAIL PIC X(31).
+           03 BANK-NAME PIC X(30).       
+           03 BANK-ADDRESS PIC X(50).       
+           03 TELEFON PIC X(15).
+           03 EMAIL PIC X(31).
