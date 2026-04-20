@@ -1,0 +1,200 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. INPUTLOADER.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT IN-CUSTOMERINFO-FILE
+               ASSIGN TO "Customerinfo.txt"
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+           SELECT IN-SANCTIONS-FILE
+               ASSIGN TO "SanctionsList.txt"
+               ORGANIZATION IS LINE SEQUENTIAL.
+
+       DATA DIVISION.
+       FILE SECTION.
+
+       FD IN-SANCTIONS-FILE.
+       01 IN-SANCTIONS-RECORD.
+           COPY "SanctionRecord.cpy".
+
+       FD IN-CUSTOMERINFO-FILE.
+       01 IN-CUSTOMERINFO-RECORD.
+           COPY "CustomerRecord.cpy".
+
+       WORKING-STORAGE SECTION.
+       01 END-OF-FILE PIC X VALUE "N".
+       01 LINE-INDEX PIC 9999 VALUE 1.
+
+       LINKAGE SECTION.
+       01 LINK-CUSTOMERS-WRAPPER.
+           COPY "CustomersWrapper.cpy".
+
+       01 LINK-SANCTIONS-WRAPPER.
+           COPY "SanctionsWrapper.cpy".
+
+       PROCEDURE DIVISION USING
+           LINK-CUSTOMERS-WRAPPER
+           LINK-SANCTIONS-WRAPPER.
+
+           PERFORM LOAD-CUSTOMERS-DATA-TO-ARRAY
+           PERFORM RESET-LOOP-VARIABLES
+           PERFORM LOAD-SANCTIONS-DATA-TO-ARRAY
+
+       GOBACK.
+
+       LOAD-CUSTOMERS-DATA-TO-ARRAY.
+           OPEN INPUT IN-CUSTOMERINFO-FILE
+           PERFORM UNTIL END-OF-FILE = "Y"
+               READ IN-CUSTOMERINFO-FILE INTO IN-CUSTOMERINFO-RECORD
+               AT END
+                   DISPLAY "Found End of Customers "
+                   "Information file on line: " LINE-INDEX
+                   MOVE "Y" TO END-OF-FILE
+               NOT AT END
+                   IF CUSTOMERS-COUNT >= CUSTOMERS-MAX-COUNT
+                       DISPLAY "ERROR: LOAD-CUSTOMERS-DATA-TO-ARRAY "
+                       "attempted to write outside CUSTOMERS array."
+                       DISPLAY "File line: " LINE-INDEX
+                       DISPLAY "CUSTOMERS-MAX-COUNT: "
+                           CUSTOMERS-MAX-COUNT
+                       MOVE "Y" TO END-OF-FILE
+                       EXIT PARAGRAPH
+                   END-IF
+                   PERFORM MOVE-CUSTOMER-RECORD-TO-ARRAY
+                   DISPLAY "Not At End Index: " LINE-INDEX
+                   ADD 1 TO LINE-INDEX
+                   ADD 1 TO CUSTOMERS-COUNT
+               END-READ
+           END-PERFORM
+           DISPLAY "END LOAD-TRANSACTIONS, LINE-INDEX = " LINE-INDEX
+           CLOSE IN-CUSTOMERINFO-FILE
+       EXIT.
+
+       MOVE-CUSTOMER-RECORD-TO-ARRAY.
+           MOVE CUSTOMER-ID OF IN-CUSTOMERINFO-RECORD
+               TO CUSTOMER-ID OF CUSTOMERS(LINE-INDEX)
+    
+           MOVE CUSTOMER-NAME OF IN-CUSTOMERINFO-RECORD
+               TO CUSTOMER-NAME OF CUSTOMERS(LINE-INDEX)
+    
+           MOVE CUSTOMER-BIRTHDATE OF IN-CUSTOMERINFO-RECORD
+               TO CUSTOMER-BIRTHDATE OF CUSTOMERS(LINE-INDEX)
+    
+           MOVE CUSTOMER-ADDRESS OF IN-CUSTOMERINFO-RECORD
+               TO CUSTOMER-ADDRESS OF CUSTOMERS(LINE-INDEX)
+    
+           MOVE CUSTOMER-COUNTRY OF IN-CUSTOMERINFO-RECORD
+               TO CUSTOMER-COUNTRY OF CUSTOMERS(LINE-INDEX)
+    
+           PERFORM FILL-CUSTOMER-DERIVED-FIELDS
+       EXIT.
+
+       FILL-CUSTOMER-DERIVED-FIELDS.
+           PERFORM FILL-CUSTOMER-SANCTION-FORMATTED-BIRTHDAY
+       EXIT.
+
+       FILL-CUSTOMER-SANCTION-FORMATTED-BIRTHDAY.
+           IF CUSTOMER-BIRTHDATE OF CUSTOMERS(LINE-INDEX)(5:2) >= "46"
+               MOVE "19"
+                   TO SANCTION-FORMATTED-BIRTHDAY
+                   OF CUSTOMERS(LINE-INDEX)(1:2)
+           ELSE
+               MOVE "20"
+                   TO SANCTION-FORMATTED-BIRTHDAY
+                   OF CUSTOMERS(LINE-INDEX)(1:2)
+           END-IF
+
+           MOVE CUSTOMER-BIRTHDATE OF CUSTOMERS(LINE-INDEX)(5:2)
+               TO SANCTION-FORMATTED-BIRTHDAY
+               OF CUSTOMERS(LINE-INDEX)(3:2)
+
+           MOVE "-"
+               TO SANCTION-FORMATTED-BIRTHDAY
+               OF CUSTOMERS(LINE-INDEX)(5:1)
+
+           MOVE CUSTOMER-BIRTHDATE OF CUSTOMERS(LINE-INDEX)(3:2)
+               TO SANCTION-FORMATTED-BIRTHDAY
+               OF CUSTOMERS(LINE-INDEX)(6:2)
+
+           MOVE "-"
+               TO SANCTION-FORMATTED-BIRTHDAY
+               OF CUSTOMERS(LINE-INDEX)(8:1)
+
+           MOVE CUSTOMER-BIRTHDATE OF CUSTOMERS(LINE-INDEX)(1:2)
+               TO SANCTION-FORMATTED-BIRTHDAY
+               OF CUSTOMERS(LINE-INDEX)(9:2)
+
+       EXIT.
+
+       LOAD-SANCTIONS-DATA-TO-ARRAY.
+           DISPLAY "START LOAD-BANKS, LINE-INDEX = " LINE-INDEX
+           OPEN INPUT IN-SANCTIONS-FILE
+           PERFORM UNTIL END-OF-FILE = "Y"
+               READ IN-SANCTIONS-FILE INTO IN-SANCTIONS-RECORD
+               AT END
+                   DISPLAY "Found End of Banks "
+                   "Information file on line: " LINE-INDEX
+                   MOVE "Y" TO END-OF-FILE
+               NOT AT END
+                   IF SANCTIONS-COUNT >= SANCTIONS-MAX-COUNT
+                       DISPLAY "ERROR: LOAD-SANCTIONS-DATA-TO-ARRAY "
+                       "attempted to write outside SANCTIONS array."
+                       DISPLAY "File line: " LINE-INDEX
+                       DISPLAY "SANCTIONS-MAX-COUNT: " 
+                           SANCTIONS-MAX-COUNT
+                       MOVE "Y" TO END-OF-FILE
+                       EXIT PARAGRAPH
+                   END-IF
+                   PERFORM MOVE-SANCTION-RECORD-TO-ARRAY
+                   DISPLAY "Not At End Index: " LINE-INDEX
+                   ADD 1 TO LINE-INDEX
+                   ADD 1 TO SANCTIONS-COUNT
+               END-READ
+           END-PERFORM
+           DISPLAY "END LOAD-BANKS, LINE-INDEX = " LINE-INDEX
+           CLOSE IN-SANCTIONS-FILE
+       EXIT.
+
+       MOVE-SANCTION-RECORD-TO-ARRAY.
+           MOVE SANCTION-ID OF IN-SANCTIONS-RECORD
+               TO SANCTION-ID OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-NAME OF IN-SANCTIONS-RECORD
+               TO SANCTION-NAME OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-ALIAS-1 OF IN-SANCTIONS-RECORD
+               TO SANCTION-ALIAS-1 OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-ALIAS-2 OF IN-SANCTIONS-RECORD
+               TO SANCTION-ALIAS-2 OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-ALIAS-3 OF IN-SANCTIONS-RECORD
+               TO SANCTION-ALIAS-3 OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-ALIAS-4 OF IN-SANCTIONS-RECORD
+               TO SANCTION-ALIAS-4 OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-ALIAS-5 OF IN-SANCTIONS-RECORD
+               TO SANCTION-ALIAS-5 OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-BIRTHDATE OF IN-SANCTIONS-RECORD
+               TO SANCTION-BIRTHDATE OF SANCTIONS(LINE-INDEX)
+    
+           MOVE SANCTION-COUNTRY OF IN-SANCTIONS-RECORD
+               TO SANCTION-COUNTRY OF SANCTIONS(LINE-INDEX)
+    
+           PERFORM FILL-SANCTION-DERIVED-FIELDS
+       EXIT.
+       
+       FILL-SANCTION-DERIVED-FIELDS.
+       EXIT.
+
+       RESET-LOOP-VARIABLES.
+           DISPLAY "RESETTING LOOP VARIABLES. LINE-INDEX BEFORE = "
+               LINE-INDEX
+           MOVE 1 TO LINE-INDEX
+           MOVE "N" TO END-OF-FILE
+           DISPLAY "RESET DONE. LINE-INDEX AFTER = " LINE-INDEX
+       EXIT.

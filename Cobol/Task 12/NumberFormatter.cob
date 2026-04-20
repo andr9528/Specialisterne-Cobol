@@ -1,0 +1,48 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FORMATTER.
+
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+
+       DATA DIVISION.
+       FILE SECTION.
+
+       WORKING-STORAGE SECTION.
+       02 ABS-AMOUNT PIC 9(11)V99.
+       02 FORMAT-AMOUNT-DISPLAY PIC Z,ZZZ,ZZZ,ZZ9.99.
+
+       LINKAGE SECTION.
+       01 LINK-FORMATTER-WRAPPER.
+           COPY "FormatterWrapper.cpy".    
+
+       PROCEDURE DIVISION USING
+           LINK-FORMATTER-WRAPPER.           
+
+           PERFORM FORMAT-SIGNED-AMOUNT
+
+           GOBACK.
+
+       FORMAT-SIGNED-AMOUNT.
+           MOVE SPACES TO SIGNED-FORMAT-AMOUNT-DISPLAY
+           MOVE FUNCTION ABS(SOURCE-AMOUNT) TO ABS-AMOUNT
+           MOVE ABS-AMOUNT TO FORMAT-AMOUNT-DISPLAY
+
+           DISPLAY "Formatting... '" SOURCE-AMOUNT "'."
+       
+           IF SOURCE-AMOUNT < 0
+               STRING
+                   "-"
+                   DELIMITED BY SIZE
+                   FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
+                   DELIMITED BY SIZE
+                   INTO SIGNED-FORMAT-AMOUNT-DISPLAY
+           ELSE IF SOURCE-AMOUNT = 0
+               MOVE "0.00" TO SIGNED-FORMAT-AMOUNT-DISPLAY           
+           ELSE
+               MOVE FUNCTION TRIM(FORMAT-AMOUNT-DISPLAY LEADING)
+                   TO SIGNED-FORMAT-AMOUNT-DISPLAY
+           END-IF
+       
+           EXIT.
+
