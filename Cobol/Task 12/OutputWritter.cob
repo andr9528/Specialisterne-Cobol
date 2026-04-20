@@ -45,4 +45,3 @@
            CLOSE OUT-REPORT-FILE
 
            EXIT.
-

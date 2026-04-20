@@ -7,3 +7,4 @@
            03 SANCTION-ALIAS-5      PIC X(20).
            03 SANCTION-BIRTHDATE    PIC X(10).
            03 SANCTION-COUNTRY      PIC X(2).
+           

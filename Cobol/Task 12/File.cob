@@ -19,26 +19,27 @@
            COPY "OutputWrapper.cpy".
 
        01 OUTPUT-HELPER.
-       02 OUTPUT-TEXT-LINE PIC X(120).
-       02 SEPARATOR-LINE PIC X(90) VALUE ALL "-".
+           02 OUTPUT-TEXT-LINE PIC X(120).
 
-       01 MATCH-WORK.
-           02 NAME-MATCH-PERCENT            PIC 9(3)V99 VALUE 0.
-           02 NAME-SCORE                    PIC 9(3)V99 VALUE 0.
-           02 ALIAS-SCORE                   PIC 9(3)V99 VALUE 0.
-           02 BIRTHDAY-SCORE                PIC 9(3)V99 VALUE 0.
-           02 COUNTRY-SCORE                 PIC 9(3)V99 VALUE 0.
-           02 TOTAL-MATCH-SCORE             PIC 9(3)V99 VALUE 0.
-           02 ALIAS-WEIGHT                  PIC 9(3)V99 VALUE 10.
+       01 REPORT-WORK.
+           02 MATCH-INDEX PIC 999 VALUE 0.
+           02 CURRENT-SANCTION-INDEX PIC 999 VALUE 0.
+           02 DISPLAY-TOTAL-MATCH-PERCENT PIC ZZ9.9.
+           02 DISPLAY-NAME-MATCH-PERCENT PIC ZZ9.9.
+           02 DISPLAY-BIRTHDAY-MATCH-PERCENT PIC ZZ9.9.
+           02 DISPLAY-COUNTRY-MATCH-PERCENT PIC ZZ9.9.
+           02 DISPLAY-ALIAS-MATCH-PERCENT PIC ZZ9.9.
+           02 REPORT-SEPARATOR PIC X(90) VALUE ALL "-".       
 
        01 SORT-WRAPPER.
-       02 SORT-INDEX PIC 99.
-       02 COMPARE-INDEX PIC 99.
-       02 COMPARE-INDEX-START PIC 99.
+           02 SORT-INDEX PIC 99.
+           02 COMPARE-INDEX PIC 99.
+           02 COMPARE-INDEX-START PIC 99.
        
        01 MISQ-WRAPPER.
-       02 COUNT-DISPLAY PIC ZZ9.       
-       02 CUSTOMER-INDEX PIC 999 VALUE 1.
+           02 COUNT-DISPLAY PIC ZZ9.       
+           02 CUSTOMER-INDEX PIC 999 VALUE 1.
+           02 SANCTION-INDEX PIC 999 VALUE 1.
        
        01 FORMATTER-WRAPPER.
            COPY "FormatterWrapper.cpy".
@@ -48,187 +49,251 @@
                USING CUSTOMERS-WRAPPER
                    SANCTIONS-WRAPPER.
            
-           PERFORM MATCH-CUSTOMERS-TO-SANCTIONS
+           CALL "MATCHER"
+               USING CUSTOMERS-WRAPPER
+                   SANCTIONS-WRAPPER.
 
            PERFORM BUILD-REPORT
 
            CALL "OUTPUTWRITTER" USING OUTPUT-WRAPPER.
        STOP RUN. 
        
-       MATCH-CUSTOMERS-TO-SANCTIONS.
-           PERFORM VARYING CUSTOMER-INDEX FROM 1 BY 1
-               UNTIL CUSTOMER-INDEX > CUSTOMERS-COUNT
-               PERFORM MATCH-ONE-CUSTOMER-TO-SANCTIONS
-           END-PERFORM
-
-       EXIT.
-
-       MATCH-ONE-CUSTOMER-TO-SANCTIONS.
-           MOVE 0 TO MATCHED-SANCTIONS-COUNT 
-               OF CUSTOMERS(CUSTOMER-INDEX)
-
-           PERFORM VARYING SANCTION-INDEX FROM 1 BY 1
-               UNTIL SANCTION-INDEX > SANCTIONS-COUNT
-               PERFORM EVALUATE-CUSTOMER-AGAINST-SANCTION
-           END-PERFORM
-
-           EXIT.
-
-       EVALUATE-CUSTOMER-AGAINST-SANCTION.
-           PERFORM RESET-MATCH-WORK
-           PERFORM CALCULATE-NAME-AND-ALIAS-SCORE
-           PERFORM CALCULATE-BIRTHDAY-SCORE
-           PERFORM CALCULATE-COUNTRY-SCORE
-           PERFORM CALCULATE-TOTAL-MATCH-SCORE
-
-           IF TOTAL-MATCH-SCORE > 0
-               PERFORM ADD-SANCTION-TO-CUSTOMER
-           END-IF
-
-       EXIT.
-
-       RESET-MATCH-WORK.
-           MOVE 0 TO NAME-MATCH-PERCENT
-           MOVE 0 TO NAME-SCORE
-           MOVE 0 TO ALIAS-SCORE
-           MOVE 0 TO BIRTHDAY-SCORE
-           MOVE 0 TO COUNTRY-SCORE
-           MOVE 0 TO TOTAL-MATCH-SCORE
-
-       EXIT.
-
-       CALCULATE-NAME-AND-ALIAS-SCORE.
-           PERFORM CALCULATE-NAME-SCORE
-           PERFORM CALCULATE-ALIAS-SCORE
-
-           IF ALIAS-SCORE > NAME-SCORE
-               MOVE ALIAS-SCORE TO NAME-SCORE
-           END-IF
-
-       EXIT.
-
-       CALCULATE-NAME-SCORE.
-           IF CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-NAME OF SANCTIONS(SANCTION-INDEX)
-               MOVE 50 TO NAME-SCORE
-           END-IF
-
-       EXIT.
-
-       CALCULATE-ALIAS-SCORE.
-           IF CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-ALIAS-1 OF SANCTIONS(SANCTION-INDEX)
-               ADD 10 TO ALIAS-SCORE
-           END-IF
-
-           IF CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-ALIAS-2 OF SANCTIONS(SANCTION-INDEX)
-               ADD 10 TO ALIAS-SCORE
-           END-IF
-
-           IF CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-ALIAS-3 OF SANCTIONS(SANCTION-INDEX)
-               ADD 10 TO ALIAS-SCORE
-           END-IF
-
-           IF CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-ALIAS-4 OF SANCTIONS(SANCTION-INDEX)
-               ADD 10 TO ALIAS-SCORE
-           END-IF
-
-           IF CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-ALIAS-5 OF SANCTIONS(SANCTION-INDEX)
-               ADD 10 TO ALIAS-SCORE
-           END-IF
-
-       EXIT.
-
-       CALCULATE-BIRTHDAY-SCORE.
-           IF SANCTION-FORMATTED-BIRTHDAY OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-BIRTHDATE OF SANCTIONS(SANCTION-INDEX)
-               MOVE 30 TO BIRTHDAY-SCORE
-           END-IF
-
-       EXIT.
-
-       CALCULATE-COUNTRY-SCORE.
-           IF CUSTOMER-COUNTRY OF CUSTOMERS(CUSTOMER-INDEX)
-               = SANCTION-COUNTRY OF SANCTIONS(SANCTION-INDEX)
-               MOVE 20 TO COUNTRY-SCORE
-           END-IF
-
-           EXIT.
-
-       CALCULATE-TOTAL-MATCH-SCORE.
-           COMPUTE TOTAL-MATCH-SCORE =
-               NAME-SCORE
-               + BIRTHDAY-SCORE
-               + COUNTRY-SCORE
-
-       EXIT.
-
-       ADD-SANCTION-TO-CUSTOMER.
-           IF MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX)
-               >= MATCHED-SANCTIONS-MAX-COUNT 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
-               DISPLAY "WARNING: SANCTION ARRAY FULL FOR CUSTOMER "
-                   CUSTOMER-ID OF CUSTOMERS(CUSTOMER-INDEX)
-               EXIT PARAGRAPH
-           END-IF
-
-           ADD 1 TO MATCHED-SANCTIONS-COUNT
-               OF CUSTOMERS(CUSTOMER-INDEX)
-
-           MOVE SANCTION-INDEX
-               TO MATCHED-SANCTION-INDEX OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
-
-           MOVE NAME-SCORE
-               TO NAME-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
-
-           MOVE ALIAS-SCORE
-               TO ALIAS-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
-
-           MOVE BIRTHDAY-SCORE
-               TO BIRTHDAY-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
-
-           MOVE COUNTRY-SCORE
-               TO COUNTRY-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
-
-           MOVE TOTAL-MATCH-SCORE
-               TO TOTAL-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
-
-       EXIT.
+       
 
        BUILD-REPORT.
            DISPLAY "START BUILD-REPORT"
            
+           PERFORM BUILD-SANCTIONS-REPORT
 
            DISPLAY "END BUILD-REPORT"
            EXIT.
+
+       BUILD-SANCTIONS-REPORT.
+           PERFORM VARYING CUSTOMER-INDEX FROM 1 BY 1
+               UNTIL CUSTOMER-INDEX > CUSTOMERS-COUNT
+               IF MATCHED-SANCTIONS-COUNT 
+                   OF CUSTOMERS(CUSTOMER-INDEX) > 0
+                   PERFORM ADD-CUSTOMER-SANCTIONS-TO-OUTPUT
+               END-IF
+           END-PERFORM
+
+           EXIT.
+
+       ADD-CUSTOMER-SANCTIONS-TO-OUTPUT.
+           MOVE REPORT-SEPARATOR TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Kunde-ID: "
+               DELIMITED BY SIZE
+               CUSTOMER-ID OF CUSTOMERS(CUSTOMER-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Kundenavn: "
+               DELIMITED BY SIZE
+               CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Fødselsdato: "
+               DELIMITED BY SIZE
+               CUSTOMER-BIRTHDATE OF CUSTOMERS(CUSTOMER-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Adresse: "
+               DELIMITED BY SIZE
+               CUSTOMER-ADDRESS OF CUSTOMERS(CUSTOMER-INDEX)
+               DELIMITED BY SPACE
+               ", "
+               DELIMITED BY SIZE
+               CUSTOMER-COUNTRY OF CUSTOMERS(CUSTOMER-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           PERFORM VARYING MATCH-INDEX FROM 1 BY 1
+               UNTIL MATCH-INDEX >
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX)
+               PERFORM ADD-ONE-SANCTION-MATCH-TO-OUTPUT
+           END-PERFORM
+
+           MOVE REPORT-SEPARATOR TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           EXIT.
+
+       ADD-ONE-SANCTION-MATCH-TO-OUTPUT.
+           MOVE MATCHED-SANCTION-INDEX OF
+                MATCHED-SANCTIONS(MATCH-INDEX) 
+                   OF CUSTOMERS(CUSTOMER-INDEX)
+               TO CURRENT-SANCTION-INDEX
+
+           MOVE TOTAL-MATCH-PERCENT OF
+                MATCHED-SANCTIONS(MATCH-INDEX) 
+                   OF CUSTOMERS(CUSTOMER-INDEX)
+               TO DISPLAY-TOTAL-MATCH-PERCENT
+
+           MOVE WORK-NAME-MATCH-PERCENT OF
+                MATCHED-SANCTIONS(MATCH-INDEX) 
+                   OF CUSTOMERS(CUSTOMER-INDEX)
+               TO DISPLAY-NAME-MATCH-PERCENT
+
+           MOVE ALIAS-MATCH-PERCENT OF
+                MATCHED-SANCTIONS(MATCH-INDEX) 
+                   OF CUSTOMERS(CUSTOMER-INDEX)
+               TO DISPLAY-ALIAS-MATCH-PERCENT
+
+           MOVE BIRTHDAY-MATCH-PERCENT OF
+                MATCHED-SANCTIONS(MATCH-INDEX) 
+                   OF CUSTOMERS(CUSTOMER-INDEX)
+               TO DISPLAY-BIRTHDAY-MATCH-PERCENT
+
+           MOVE COUNTRY-MATCH-PERCENT OF
+                MATCHED-SANCTIONS(MATCH-INDEX) 
+                   OF CUSTOMERS(CUSTOMER-INDEX)
+               TO DISPLAY-COUNTRY-MATCH-PERCENT
+
+           MOVE "Match fundet med:" TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Sanction-ID: "
+               DELIMITED BY SIZE
+               SANCTION-ID OF SANCTIONS(CURRENT-SANCTION-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Navn: "
+               DELIMITED BY SIZE
+               SANCTION-NAME OF SANCTIONS(CURRENT-SANCTION-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Fødselsdato: "
+               DELIMITED BY SIZE
+               SANCTION-BIRTHDATE OF SANCTIONS(CURRENT-SANCTION-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Land: "
+               DELIMITED BY SIZE
+               SANCTION-COUNTRY OF SANCTIONS(CURRENT-SANCTION-INDEX)
+               DELIMITED BY SPACE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           MOVE "Match-beskrivelse:" TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           IF WORK-NAME-MATCH-PERCENT OF
+              MATCHED-SANCTIONS(MATCH-INDEX) 
+               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+               STRING
+                   "- Match på navn: "
+                   DELIMITED BY SIZE
+                   DISPLAY-NAME-MATCH-PERCENT
+                   DELIMITED BY SIZE
+                   "%."
+                   DELIMITED BY SIZE
+                   INTO OUTPUT-TEXT-LINE
+               END-STRING
+               PERFORM ADD-OUTPUT-LINE-SAFE
+           END-IF
+
+           IF ALIAS-MATCH-PERCENT OF
+              MATCHED-SANCTIONS(MATCH-INDEX) 
+               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+               STRING
+                   "- Match på alias: "
+                   DELIMITED BY SIZE
+                   DISPLAY-ALIAS-MATCH-PERCENT
+                   DELIMITED BY SIZE
+                   "%."
+                   DELIMITED BY SIZE
+                   INTO OUTPUT-TEXT-LINE
+               END-STRING
+               PERFORM ADD-OUTPUT-LINE-SAFE
+           END-IF
+
+           IF BIRTHDAY-MATCH-PERCENT OF
+              MATCHED-SANCTIONS(MATCH-INDEX) 
+               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+               STRING
+                   "- Match på fødselsdato: "
+                   DELIMITED BY SIZE
+                   DISPLAY-BIRTHDAY-MATCH-PERCENT
+                   DELIMITED BY SIZE
+                   "%."
+                   DELIMITED BY SIZE
+                   INTO OUTPUT-TEXT-LINE
+               END-STRING
+               PERFORM ADD-OUTPUT-LINE-SAFE
+           END-IF
+
+           IF COUNTRY-MATCH-PERCENT OF
+              MATCHED-SANCTIONS(MATCH-INDEX) 
+               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+               STRING
+                   "- Match på land: "
+                   DELIMITED BY SIZE
+                   DISPLAY-COUNTRY-MATCH-PERCENT
+                   DELIMITED BY SIZE
+                   "%."
+                   DELIMITED BY SIZE
+                   INTO OUTPUT-TEXT-LINE
+               END-STRING
+               PERFORM ADD-OUTPUT-LINE-SAFE
+           END-IF
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           STRING
+               "Samlet match-procent: "
+               DELIMITED BY SIZE
+               DISPLAY-TOTAL-MATCH-PERCENT
+               DELIMITED BY SIZE
+               "%"
+               DELIMITED BY SIZE
+               INTO OUTPUT-TEXT-LINE
+           END-STRING
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+           MOVE SPACES TO OUTPUT-TEXT-LINE
+           PERFORM ADD-OUTPUT-LINE-SAFE
+
+       EXIT.
 
        ADD-OUTPUT-LINE-SAFE.
            ADD 1 TO OUTPUT-LINE-COUNT

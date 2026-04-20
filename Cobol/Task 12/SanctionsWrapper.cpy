@@ -2,3 +2,4 @@
            COPY "SanctionRecord.cpy".
        02 SANCTIONS-COUNT PIC 999 VALUE 0.
        02 SANCTIONS-MAX-COUNT PIC 999 VALUE 225.
+       
