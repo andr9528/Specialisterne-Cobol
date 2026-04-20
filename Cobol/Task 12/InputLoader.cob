@@ -63,7 +63,7 @@
                        EXIT PARAGRAPH
                    END-IF
                    PERFORM MOVE-CUSTOMER-RECORD-TO-ARRAY
-                   DISPLAY "Not At End Index: " LINE-INDEX
+      *            DISPLAY "Not At End Index: " LINE-INDEX
                    ADD 1 TO LINE-INDEX
                    ADD 1 TO CUSTOMERS-COUNT
                END-READ
@@ -129,12 +129,12 @@
        EXIT.
 
        LOAD-SANCTIONS-DATA-TO-ARRAY.
-           DISPLAY "START LOAD-BANKS, LINE-INDEX = " LINE-INDEX
+           DISPLAY "START LOAD-SANCTIONS, LINE-INDEX = " LINE-INDEX
            OPEN INPUT IN-SANCTIONS-FILE
            PERFORM UNTIL END-OF-FILE = "Y"
                READ IN-SANCTIONS-FILE INTO IN-SANCTIONS-RECORD
                AT END
-                   DISPLAY "Found End of Banks "
+                   DISPLAY "Found End of Sanctions "
                    "Information file on line: " LINE-INDEX
                    MOVE "Y" TO END-OF-FILE
                NOT AT END
@@ -148,7 +148,7 @@
                        EXIT PARAGRAPH
                    END-IF
                    PERFORM MOVE-SANCTION-RECORD-TO-ARRAY
-                   DISPLAY "Not At End Index: " LINE-INDEX
+      *            DISPLAY "Not At End Index: " LINE-INDEX
                    ADD 1 TO LINE-INDEX
                    ADD 1 TO SANCTIONS-COUNT
                END-READ

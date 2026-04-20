@@ -1,0 +1,999 @@
+Customer ID: 010985-5060
+Customer Name: James
+Birthday: 1985-09-01
+Address: Maple, SE
+
+Match found with:
+Sanction-ID: S130
+Name: James
+Birthday: 1975-11-02
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S042
+Name: James
+Birthday: 1995-07-14
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S082
+Name: James
+Birthday: 1992-03-22
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S163
+Name: James
+Birthday: 1982-09-29
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S200
+Name: James
+Birthday: 1977-10-03
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S100
+Name: James
+Birthday: 1980-05-15
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S068
+Name: James
+Birthday: 1980-05-15
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S191
+Name: James
+Birthday: 1965-04-12
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S071
+Name: James
+Birthday: 1988-01-10
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 211253-2780
+Customer Name: Sophia
+Birthday: 1953-12-21
+Address: Sondergade, DE
+
+Match found with:
+Sanction-ID: S025
+Name: Sophia
+Birthday: 1993-02-25
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S031
+Name: Sophia
+Birthday: 1988-01-10
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S041
+Name: Sophia
+Birthday: 1975-11-02
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S177
+Name: Sophia
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S082
+Name: Sophia
+Birthday: 1985-06-18
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S062
+Name: Sophia
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S078
+Name: Sophia
+Birthday: 1982-09-29
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S099
+Name: Sophia
+Birthday: 1992-03-22
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S079
+Name: Sophia
+Birthday: 1990-07-15
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S093
+Name: Sophia
+Birthday: 1988-01-10
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S104
+Name: Sophia
+Birthday: 1982-09-29
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 041193-2552
+Customer Name: James
+Birthday: 1993-11-04
+Address: Sondergade, CA
+
+Match found with:
+Sanction-ID: S130
+Name: James
+Birthday: 1975-11-02
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S042
+Name: James
+Birthday: 1995-07-14
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S082
+Name: James
+Birthday: 1992-03-22
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S163
+Name: James
+Birthday: 1982-09-29
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S200
+Name: James
+Birthday: 1977-10-03
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S100
+Name: James
+Birthday: 1980-05-15
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S068
+Name: James
+Birthday: 1980-05-15
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S191
+Name: James
+Birthday: 1965-04-12
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S071
+Name: James
+Birthday: 1988-01-10
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 080460-7475
+Customer Name: Mia
+Birthday: 1960-04-08
+Address: Hovedgaden, GB
+
+Match found with:
+Sanction-ID: S140
+Name: Mia
+Birthday: 1992-03-22
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S141
+Name: Mia
+Birthday: 1977-10-03
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S070
+Name: Mia
+Birthday: 1982-09-29
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S043
+Name: Mia
+Birthday: 1982-09-29
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S151
+Name: Mia
+Birthday: 1990-07-15
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S125
+Name: Mia
+Birthday: 1993-02-25
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S117
+Name: Mia
+Birthday: 1965-04-12
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S030
+Name: Mia
+Birthday: 1990-07-15
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S073
+Name: Mia
+Birthday: 1982-09-29
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S075
+Name: Mia
+Birthday: 1982-09-29
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S058
+Name: Mia
+Birthday: 1993-02-25
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S149
+Name: Mia
+Birthday: 1988-01-10
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 090856-7422
+Customer Name: Sophia
+Birthday: 1956-08-09
+Address: Norregade, CA
+
+Match found with:
+Sanction-ID: S025
+Name: Sophia
+Birthday: 1993-02-25
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S031
+Name: Sophia
+Birthday: 1988-01-10
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S041
+Name: Sophia
+Birthday: 1975-11-02
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S177
+Name: Sophia
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S082
+Name: Sophia
+Birthday: 1985-06-18
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S062
+Name: Sophia
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S078
+Name: Sophia
+Birthday: 1982-09-29
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S099
+Name: Sophia
+Birthday: 1992-03-22
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S079
+Name: Sophia
+Birthday: 1990-07-15
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S093
+Name: Sophia
+Birthday: 1988-01-10
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S104
+Name: Sophia
+Birthday: 1982-09-29
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 030490-6728
+Customer Name: Benjamin
+Birthday: 1990-04-03
+Address: Rosenvej, ES
+
+Match found with:
+Sanction-ID: S162
+Name: Benjamin
+Birthday: 1995-07-14
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S038
+Name: Benjamin
+Birthday: 1977-10-03
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S122
+Name: Benjamin
+Birthday: 1985-06-18
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S046
+Name: Benjamin
+Birthday: 1992-03-22
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S023
+Name: Benjamin
+Birthday: 1982-09-29
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S012
+Name: Benjamin
+Birthday: 1978-11-11
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S016
+Name: Benjamin
+Birthday: 1965-04-12
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 010184-9434
+Customer Name: William
+Birthday: 1984-01-01
+Address: Sondergade, US
+
+Match found with:
+Sanction-ID: S125
+Name: William
+Birthday: 1993-02-25
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S066
+Name: William
+Birthday: 1993-02-25
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S061
+Name: William
+Birthday: 1993-02-25
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S001
+Name: William
+Birthday: 1985-06-18
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S102
+Name: William
+Birthday: 1988-01-10
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S161
+Name: William
+Birthday: 1992-03-22
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S001
+Name: William
+Birthday: 1985-06-18
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S042
+Name: William
+Birthday: 1978-11-11
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S047
+Name: William
+Birthday: 1965-04-12
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S120
+Name: William
+Birthday: 1995-07-14
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 140768-3921
+Customer Name: Lucas
+Birthday: 1968-07-14
+Address: Vestergade, IT
+
+Match found with:
+Sanction-ID: S041
+Name: Lucas
+Birthday: 1975-11-02
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S114
+Name: Lucas
+Birthday: 1985-06-18
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S090
+Name: Lucas
+Birthday: 1992-03-22
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 140770-8654
+Customer Name: Lucas
+Birthday: 1970-07-14
+Address: Parkvej, GB
+
+Match found with:
+Sanction-ID: S093
+Name: Lucas
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S188
+Name: Lucas
+Birthday: 1982-09-29
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 030471-7118
+Customer Name: Charlotte
+Birthday: 1971-04-03
+Address: Strandvejen, DE
+
+Match found with:
+Sanction-ID: S013
+Name: Charlotte
+Birthday: 1977-10-03
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S179
+Name: Charlotte
+Birthday: 1978-11-11
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S092
+Name: Charlotte
+Birthday: 1982-09-29
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S099
+Name: Charlotte
+Birthday: 1977-10-03
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S164
+Name: Charlotte
+Birthday: 1990-07-15
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S086
+Name: Charlotte
+Birthday: 1975-11-02
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S182
+Name: Charlotte
+Birthday: 1975-11-02
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S035
+Name: Charlotte
+Birthday: 1990-07-15
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 070570-4599
+Customer Name: Olivia
+Birthday: 1970-05-07
+Address: Parkvej, DK
+
+Match found with:
+Sanction-ID: S017
+Name: Olivia
+Birthday: 1965-04-12
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+
+Sum of match %:  50.0%
+
+Match found with:
+Sanction-ID: S118
+Name: Olivia
+Birthday: 1988-01-10
+Country: IT

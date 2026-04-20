@@ -80,11 +80,8 @@
            EXIT.
 
        ADD-CUSTOMER-SANCTIONS-TO-OUTPUT.
-           MOVE REPORT-SEPARATOR TO OUTPUT-TEXT-LINE
-           PERFORM ADD-OUTPUT-LINE-SAFE
-
            STRING
-               "Kunde-ID: "
+               "Customer ID: "
                DELIMITED BY SIZE
                CUSTOMER-ID OF CUSTOMERS(CUSTOMER-INDEX)
                DELIMITED BY SPACE
@@ -93,7 +90,7 @@
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Kundenavn: "
+               "Customer Name: "
                DELIMITED BY SIZE
                CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
                DELIMITED BY SPACE
@@ -102,16 +99,16 @@
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Fødselsdato: "
+               "Birthday: "
                DELIMITED BY SIZE
-               CUSTOMER-BIRTHDATE OF CUSTOMERS(CUSTOMER-INDEX)
+               SANCTION-FORMATTED-BIRTHDAY OF CUSTOMERS(CUSTOMER-INDEX)
                DELIMITED BY SPACE
                INTO OUTPUT-TEXT-LINE
            END-STRING
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Adresse: "
+               "Address: "
                DELIMITED BY SIZE
                CUSTOMER-ADDRESS OF CUSTOMERS(CUSTOMER-INDEX)
                DELIMITED BY SPACE
@@ -141,37 +138,25 @@
            EXIT.
 
        ADD-ONE-SANCTION-MATCH-TO-OUTPUT.
-           MOVE MATCHED-SANCTION-INDEX OF
-                MATCHED-SANCTIONS(MATCH-INDEX) 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
+           MOVE MATCHED-SANCTION-INDEX(CUSTOMER-INDEX, MATCH-INDEX)
                TO CURRENT-SANCTION-INDEX
 
-           MOVE TOTAL-MATCH-PERCENT OF
-                MATCHED-SANCTIONS(MATCH-INDEX) 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
+           MOVE TOTAL-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX)
                TO DISPLAY-TOTAL-MATCH-PERCENT
 
-           MOVE WORK-NAME-MATCH-PERCENT OF
-                MATCHED-SANCTIONS(MATCH-INDEX) 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
+           MOVE NAME-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX)
                TO DISPLAY-NAME-MATCH-PERCENT
 
-           MOVE ALIAS-MATCH-PERCENT OF
-                MATCHED-SANCTIONS(MATCH-INDEX) 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
+           MOVE ALIAS-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX)
                TO DISPLAY-ALIAS-MATCH-PERCENT
 
-           MOVE BIRTHDAY-MATCH-PERCENT OF
-                MATCHED-SANCTIONS(MATCH-INDEX) 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
+            MOVE BIRTHDAY-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX)
                TO DISPLAY-BIRTHDAY-MATCH-PERCENT
 
-           MOVE COUNTRY-MATCH-PERCENT OF
-                MATCHED-SANCTIONS(MATCH-INDEX) 
-                   OF CUSTOMERS(CUSTOMER-INDEX)
+           MOVE COUNTRY-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX)
                TO DISPLAY-COUNTRY-MATCH-PERCENT
 
-           MOVE "Match fundet med:" TO OUTPUT-TEXT-LINE
+           MOVE "Match found with:" TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
@@ -184,7 +169,7 @@
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Navn: "
+               "Name: "
                DELIMITED BY SIZE
                SANCTION-NAME OF SANCTIONS(CURRENT-SANCTION-INDEX)
                DELIMITED BY SPACE
@@ -193,7 +178,7 @@
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Fødselsdato: "
+               "Birthday: "
                DELIMITED BY SIZE
                SANCTION-BIRTHDATE OF SANCTIONS(CURRENT-SANCTION-INDEX)
                DELIMITED BY SPACE
@@ -202,7 +187,7 @@
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Land: "
+               "Country: "
                DELIMITED BY SIZE
                SANCTION-COUNTRY OF SANCTIONS(CURRENT-SANCTION-INDEX)
                DELIMITED BY SPACE
@@ -216,11 +201,9 @@
            MOVE "Match-beskrivelse:" TO OUTPUT-TEXT-LINE
            PERFORM ADD-OUTPUT-LINE-SAFE
 
-           IF WORK-NAME-MATCH-PERCENT OF
-              MATCHED-SANCTIONS(MATCH-INDEX) 
-               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+           IF NAME-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX) > 0
                STRING
-                   "- Match på navn: "
+                   "- Match by Name: "
                    DELIMITED BY SIZE
                    DISPLAY-NAME-MATCH-PERCENT
                    DELIMITED BY SIZE
@@ -231,11 +214,9 @@
                PERFORM ADD-OUTPUT-LINE-SAFE
            END-IF
 
-           IF ALIAS-MATCH-PERCENT OF
-              MATCHED-SANCTIONS(MATCH-INDEX) 
-               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+           IF ALIAS-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX) > 0
                STRING
-                   "- Match på alias: "
+                   "- Match by alias: "
                    DELIMITED BY SIZE
                    DISPLAY-ALIAS-MATCH-PERCENT
                    DELIMITED BY SIZE
@@ -246,11 +227,9 @@
                PERFORM ADD-OUTPUT-LINE-SAFE
            END-IF
 
-           IF BIRTHDAY-MATCH-PERCENT OF
-              MATCHED-SANCTIONS(MATCH-INDEX) 
-               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+           IF BIRTHDAY-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX) > 0
                STRING
-                   "- Match på fødselsdato: "
+                   "- Match by Birthday: "
                    DELIMITED BY SIZE
                    DISPLAY-BIRTHDAY-MATCH-PERCENT
                    DELIMITED BY SIZE
@@ -261,11 +240,9 @@
                PERFORM ADD-OUTPUT-LINE-SAFE
            END-IF
 
-           IF COUNTRY-MATCH-PERCENT OF
-              MATCHED-SANCTIONS(MATCH-INDEX) 
-               OF CUSTOMERS(CUSTOMER-INDEX) > 0
+           IF COUNTRY-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX) > 0
                STRING
-                   "- Match på land: "
+                   "- Match by Country: "
                    DELIMITED BY SIZE
                    DISPLAY-COUNTRY-MATCH-PERCENT
                    DELIMITED BY SIZE
@@ -280,7 +257,7 @@
            PERFORM ADD-OUTPUT-LINE-SAFE
 
            STRING
-               "Samlet match-procent: "
+               "Sum of match %: "
                DELIMITED BY SIZE
                DISPLAY-TOTAL-MATCH-PERCENT
                DELIMITED BY SIZE

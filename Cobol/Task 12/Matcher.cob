@@ -63,7 +63,7 @@
            PERFORM CALCULATE-COUNTRY-SCORE
            PERFORM CALCULATE-TOTAL-MATCH-SCORE
 
-           IF WORK-TOTAL-MATCH-SCORE > 0
+           IF WORK-TOTAL-MATCH-SCORE > 40
                PERFORM ADD-SANCTION-TO-CUSTOMER
            END-IF
 
@@ -162,45 +162,33 @@
                OF CUSTOMERS(CUSTOMER-INDEX)
 
            MOVE SANCTION-INDEX
-               TO MATCHED-SANCTION-INDEX OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
+               TO MATCHED-SANCTION-INDEX(
+                   CUSTOMER-INDEX,
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX))
 
            MOVE WORK-NAME-SCORE
-               TO NAME-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
+               TO NAME-MATCH-PERCENT(
+                   CUSTOMER-INDEX,
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX))
 
            MOVE WORK-ALIAS-SCORE
-               TO ALIAS-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
+               TO ALIAS-MATCH-PERCENT(
+                   CUSTOMER-INDEX,
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX))
 
            MOVE WORK-BIRTHDAY-SCORE
-               TO BIRTHDAY-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
+               TO BIRTHDAY-MATCH-PERCENT(
+                   CUSTOMER-INDEX,
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX))
 
            MOVE WORK-COUNTRY-SCORE
-               TO COUNTRY-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
+               TO COUNTRY-MATCH-PERCENT(
+                   CUSTOMER-INDEX,
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX))
 
            MOVE WORK-TOTAL-MATCH-SCORE
-               TO TOTAL-MATCH-PERCENT OF
-                  MATCHED-SANCTIONS(
-                      MATCHED-SANCTIONS-COUNT 
-                       OF CUSTOMERS(CUSTOMER-INDEX))
-                  OF CUSTOMERS(CUSTOMER-INDEX)
+               TO TOTAL-MATCH-PERCENT(
+                   CUSTOMER-INDEX,
+                   MATCHED-SANCTIONS-COUNT OF CUSTOMERS(CUSTOMER-INDEX))
 
        EXIT.
