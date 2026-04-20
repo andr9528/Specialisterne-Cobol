@@ -93,7 +93,7 @@
                "Customer Name: "
                DELIMITED BY SIZE
                CUSTOMER-NAME OF CUSTOMERS(CUSTOMER-INDEX)
-               DELIMITED BY SPACE
+               DELIMITED BY SIZE
                INTO OUTPUT-TEXT-LINE
            END-STRING
            PERFORM ADD-OUTPUT-LINE-SAFE
@@ -110,8 +110,9 @@
            STRING
                "Address: "
                DELIMITED BY SIZE
-               CUSTOMER-ADDRESS OF CUSTOMERS(CUSTOMER-INDEX)
-               DELIMITED BY SPACE
+               FUNCTION TRIM(CUSTOMER-ADDRESS 
+                   OF CUSTOMERS(CUSTOMER-INDEX) TRAILING)
+               DELIMITED BY SIZE
                ", "
                DELIMITED BY SIZE
                CUSTOMER-COUNTRY OF CUSTOMERS(CUSTOMER-INDEX)
@@ -172,7 +173,7 @@
                "Name: "
                DELIMITED BY SIZE
                SANCTION-NAME OF SANCTIONS(CURRENT-SANCTION-INDEX)
-               DELIMITED BY SPACE
+               DELIMITED BY SIZE
                INTO OUTPUT-TEXT-LINE
            END-STRING
            PERFORM ADD-OUTPUT-LINE-SAFE
