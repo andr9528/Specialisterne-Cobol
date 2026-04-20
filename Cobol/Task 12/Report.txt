@@ -11,6 +11,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.6%.
 
 Sum of match %:  50.0%
 
@@ -22,6 +23,7 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -33,6 +35,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.6%.
 
 Sum of match %:  50.0%
 
@@ -44,6 +47,7 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -55,6 +59,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -66,6 +71,7 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -77,6 +83,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.8%.
 
 Sum of match %:  50.0%
 
@@ -99,6 +106,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.7%.
 
 Sum of match %:  50.0%
 
@@ -117,6 +125,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.6%.
 
 Sum of match %:  50.0%
 
@@ -128,6 +137,7 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.4%.
 
 Sum of match %:  50.0%
 
@@ -139,6 +149,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.3%.
 
 Sum of match %:  50.0%
 
@@ -150,6 +161,7 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.5%.
 
 Sum of match %:  50.0%
 
@@ -161,6 +173,7 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.6%.
 
 Sum of match %:  50.0%
 
@@ -172,6 +185,7 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.6%.
 
 Sum of match %:  50.0%
 
@@ -183,6 +197,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   4.9%.
 
 Sum of match %:  50.0%
 
@@ -194,6 +209,7 @@ Country: DE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.4%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
@@ -217,6 +233,7 @@ Country: SE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.4%.
 
 Sum of match %:  50.0%
 
@@ -228,8 +245,124 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.3%.
 
 Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 060284-2805
+Customer Name: Emma Olsen
+Birthday: 1984-02-06
+Address: Vestergade 15, US
+
+Match found with:
+Sanction-ID: S029
+Name: Emma Olson
+Birthday: 1992-03-22
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   2.8%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S014
+Name: Emma Olson
+Birthday: 1992-03-22
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   1.6%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S082
+Name: Emma Olson
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   2.0%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S060
+Name: Emma Olson
+Birthday: 1992-03-22
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   1.0%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S199
+Name: Emma Olson
+Birthday: 1985-06-18
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   0.8%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S118
+Name: Emma Olson
+Birthday: 1965-04-12
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   3.8%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S090
+Name: Emma Olson
+Birthday: 1988-01-10
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   2.8%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S007
+Name: Emma Olson
+Birthday: 1980-05-15
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   2.0%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S060
+Name: Emma Olson
+Birthday: 1988-01-10
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by alias:   4.0%.
+
+Sum of match %:  45.0%
 
 ------------------------------------------------------------------------------------------
 
@@ -246,6 +379,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.6%.
 
 Sum of match %:  50.0%
 
@@ -257,6 +391,7 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -268,6 +403,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.6%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
@@ -280,6 +416,7 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -291,6 +428,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -302,6 +440,7 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.9%.
 
 Sum of match %:  50.0%
 
@@ -313,6 +452,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.8%.
 
 Sum of match %:  50.0%
 
@@ -336,6 +476,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.7%.
 
 Sum of match %:  50.0%
 
@@ -354,6 +495,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.1%.
 
 Sum of match %:  50.0%
 
@@ -365,6 +507,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.2%.
 
 Sum of match %:  50.0%
 
@@ -398,6 +541,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.1%.
 
 Sum of match %:  50.0%
 
@@ -409,6 +553,7 @@ Country: SE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.1%.
 
 Sum of match %:  50.0%
 
@@ -420,6 +565,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.2%.
 
 Sum of match %:  50.0%
 
@@ -442,6 +588,7 @@ Country: SE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.2%.
 
 Sum of match %:  50.0%
 
@@ -453,6 +600,7 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.2%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
@@ -465,6 +613,7 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.0%.
 
 Sum of match %:  50.0%
 
@@ -476,8 +625,41 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.2%.
 
 Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 231061-5237
+Customer Name: John Doe
+Birthday: 1961-10-23
+Address: Elm Street 5, FR
+
+Match found with:
+Sanction-ID: S174
+Name: John Smith
+Birthday: 1988-01-10
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  25.0%.
+- Match by alias:   3.5%.
+- Match by Country:  20.0%.
+
+Sum of match %:  45.0%
+
+Match found with:
+Sanction-ID: S070
+Name: John Smith
+Birthday: 1990-07-15
+Country: FR
+
+Match-beskrivelse:
+- Match by Name:  25.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  45.0%
 
 ------------------------------------------------------------------------------------------
 
@@ -494,6 +676,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.6%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
@@ -506,6 +689,7 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.4%.
 
 Sum of match %:  50.0%
 
@@ -517,6 +701,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.3%.
 
 Sum of match %:  50.0%
 
@@ -528,6 +713,7 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.5%.
 
 Sum of match %:  50.0%
 
@@ -539,6 +725,7 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.6%.
 
 Sum of match %:  50.0%
 
@@ -550,6 +737,7 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.6%.
 
 Sum of match %:  50.0%
 
@@ -561,6 +749,7 @@ Country: US
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   4.9%.
 
 Sum of match %:  50.0%
 
@@ -572,6 +761,7 @@ Country: DE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.4%.
 
 Sum of match %:  50.0%
 
@@ -594,6 +784,7 @@ Country: SE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.4%.
 
 Sum of match %:  50.0%
 
@@ -605,8 +796,29 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.3%.
 
 Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 061159-3582
+Customer Name: Michael Nielsen
+Birthday: 1959-11-06
+Address: Norregade 2, DE
+
+Match found with:
+Sanction-ID: S139
+Name: Michael Nilsen
+Birthday: 1993-02-25
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  33.3%.
+- Match by alias:   0.6%.
+- Match by Country:  20.0%.
+
+Sum of match %:  53.3%
 
 ------------------------------------------------------------------------------------------
 
@@ -623,6 +835,7 @@ Country: FR
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.1%.
 
 Sum of match %:  50.0%
 
@@ -634,6 +847,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.1%.
 
 Sum of match %:  50.0%
 
@@ -657,6 +871,7 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   0.7%.
 
 Sum of match %:  50.0%
 
@@ -668,6 +883,7 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.5%.
 
 Sum of match %:  50.0%
 
@@ -679,6 +895,7 @@ Country: IT
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   5.0%.
 
 Sum of match %:  50.0%
 
@@ -690,6 +907,7 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.8%.
 
 Sum of match %:  50.0%
 
@@ -708,6 +926,7 @@ Country: SE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   2.3%.
 
 Sum of match %:  50.0%
 
@@ -719,6 +938,7 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.0%.
 
 Sum of match %:  50.0%
 
@@ -741,6 +961,7 @@ Country: DE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   3.8%.
 
 Sum of match %:  50.0%
 
@@ -752,6 +973,7 @@ Country: IT
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.5%.
 
 Sum of match %:  50.0%
 
@@ -763,6 +985,7 @@ Country: IT
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by alias:   1.5%.
 
 Sum of match %:  50.0%
 
@@ -774,226 +997,3 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S042
-Name: William Brown
-Birthday: 1978-11-11
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S047
-Name: William Brown
-Birthday: 1965-04-12
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S120
-Name: William Brown
-Birthday: 1995-07-14
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-------------------------------------------------------------------------------------------
-
-Customer ID: 140768-3921
-Customer Name: Lucas Miller
-Birthday: 1968-07-14
-Address: Vestergade 15, IT
-
-Match found with:
-Sanction-ID: S041
-Name: Lucas Miller
-Birthday: 1975-11-02
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S114
-Name: Lucas Miller
-Birthday: 1985-06-18
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S090
-Name: Lucas Miller
-Birthday: 1992-03-22
-Country: GB
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-------------------------------------------------------------------------------------------
-
-Customer ID: 140770-8654
-Customer Name: Lucas Rodriguez
-Birthday: 1970-07-14
-Address: Parkvej 23, GB
-
-Match found with:
-Sanction-ID: S093
-Name: Lucas Rodriguez
-Birthday: 1993-02-25
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S188
-Name: Lucas Rodriguez
-Birthday: 1982-09-29
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-------------------------------------------------------------------------------------------
-
-Customer ID: 030471-7118
-Customer Name: Charlotte Taylor
-Birthday: 1971-04-03
-Address: Strandvejen 45, DE
-
-Match found with:
-Sanction-ID: S013
-Name: Charlotte Taylor
-Birthday: 1977-10-03
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S179
-Name: Charlotte Taylor
-Birthday: 1978-11-11
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S092
-Name: Charlotte Taylor
-Birthday: 1982-09-29
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S099
-Name: Charlotte Taylor
-Birthday: 1977-10-03
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S164
-Name: Charlotte Taylor
-Birthday: 1990-07-15
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S086
-Name: Charlotte Taylor
-Birthday: 1975-11-02
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S182
-Name: Charlotte Taylor
-Birthday: 1975-11-02
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S035
-Name: Charlotte Taylor
-Birthday: 1990-07-15
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-------------------------------------------------------------------------------------------
-
-Customer ID: 070570-4599
-Customer Name: Olivia Johnson
-Birthday: 1970-05-07
-Address: Parkvej 23, DK
-
-Match found with:
-Sanction-ID: S017
-Name: Olivia Johnson
-Birthday: 1965-04-12
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S118
-Name: Olivia Johnson
-Birthday: 1988-01-10
-Country: IT

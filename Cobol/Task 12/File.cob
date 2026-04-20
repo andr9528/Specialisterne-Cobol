@@ -217,7 +217,7 @@
 
            IF ALIAS-MATCH-PERCENT(CUSTOMER-INDEX, MATCH-INDEX) > 0
                STRING
-                   "- Match by alias: "
+                   "- Match by Alias: "
                    DELIMITED BY SIZE
                    DISPLAY-ALIAS-MATCH-PERCENT
                    DELIMITED BY SIZE
