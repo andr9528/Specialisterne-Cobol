@@ -4,42 +4,6 @@ Birthday: 1985-09-01
 Address: Maple Avenue 89, SE
 
 Match found with:
-Sanction-ID: S130
-Name: James White
-Birthday: 1975-11-02
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S042
-Name: James White
-Birthday: 1995-07-14
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   0.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S082
-Name: James White
-Birthday: 1992-03-22
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
 Sanction-ID: S163
 Name: James White
 Birthday: 1982-09-29
@@ -47,56 +11,10 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   0.9%.
+- Match by Alias:   0.9%.
+- Match by Birthday:   0.7%.
 
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S200
-Name: James White
-Birthday: 1977-10-03
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   0.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S100
-Name: James White
-Birthday: 1980-05-15
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   0.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S068
-Name: James White
-Birthday: 1980-05-15
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.8%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S191
-Name: James White
-Birthday: 1965-04-12
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
+Sum of match %:  50.7%
 
 Match found with:
 Sanction-ID: S071
@@ -106,9 +24,10 @@ Country: NO
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   2.7%.
+- Match by Alias:   2.7%.
+- Match by Birthday:   6.4%.
 
-Sum of match %:  50.0%
+Sum of match %:  56.4%
 
 ------------------------------------------------------------------------------------------
 
@@ -118,90 +37,6 @@ Birthday: 1953-12-21
 Address: Sondergade 10, DE
 
 Match found with:
-Sanction-ID: S025
-Name: Sophia Davis
-Birthday: 1993-02-25
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S031
-Name: Sophia Davis
-Birthday: 1988-01-10
-Country: GB
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.4%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S041
-Name: Sophia Davis
-Birthday: 1975-11-02
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.3%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S177
-Name: Sophia Davis
-Birthday: 1993-02-25
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.5%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S082
-Name: Sophia Davis
-Birthday: 1985-06-18
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S062
-Name: Sophia Davis
-Birthday: 1993-02-25
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S078
-Name: Sophia Davis
-Birthday: 1982-09-29
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   4.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
 Sanction-ID: S099
 Name: Sophia Davis
 Birthday: 1992-03-22
@@ -209,45 +44,10 @@ Country: DE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   2.4%.
+- Match by Alias:   2.4%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
-
-Match found with:
-Sanction-ID: S079
-Name: Sophia Davis
-Birthday: 1990-07-15
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S093
-Name: Sophia Davis
-Birthday: 1988-01-10
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.4%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S104
-Name: Sophia Davis
-Birthday: 1982-09-29
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.3%.
-
-Sum of match %:  50.0%
 
 ------------------------------------------------------------------------------------------
 
@@ -257,54 +57,6 @@ Birthday: 1984-02-06
 Address: Vestergade 15, US
 
 Match found with:
-Sanction-ID: S029
-Name: Emma Olson
-Birthday: 1992-03-22
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   2.8%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S014
-Name: Emma Olson
-Birthday: 1992-03-22
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   1.6%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S082
-Name: Emma Olson
-Birthday: 1993-02-25
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   2.0%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S060
-Name: Emma Olson
-Birthday: 1992-03-22
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   1.0%.
-
-Sum of match %:  45.0%
-
-Match found with:
 Sanction-ID: S199
 Name: Emma Olson
 Birthday: 1985-06-18
@@ -312,57 +64,10 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  45.0%.
-- Match by alias:   0.8%.
+- Match by Alias:   0.8%.
+- Match by Birthday:  16.3%.
 
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S118
-Name: Emma Olson
-Birthday: 1965-04-12
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   3.8%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S090
-Name: Emma Olson
-Birthday: 1988-01-10
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   2.8%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S007
-Name: Emma Olson
-Birthday: 1980-05-15
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   2.0%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S060
-Name: Emma Olson
-Birthday: 1988-01-10
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  45.0%.
-- Match by alias:   4.0%.
-
-Sum of match %:  45.0%
+Sum of match %:  61.3%
 
 ------------------------------------------------------------------------------------------
 
@@ -372,18 +77,6 @@ Birthday: 1993-11-04
 Address: Sondergade 10, CA
 
 Match found with:
-Sanction-ID: S130
-Name: James White
-Birthday: 1975-11-02
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
 Sanction-ID: S042
 Name: James White
 Birthday: 1995-07-14
@@ -391,9 +84,10 @@ Country: DK
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   0.9%.
+- Match by Alias:   0.9%.
+- Match by Birthday:  13.1%.
 
-Sum of match %:  50.0%
+Sum of match %:  63.1%
 
 Match found with:
 Sanction-ID: S082
@@ -403,58 +97,11 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   3.6%.
+- Match by Alias:   3.6%.
+- Match by Birthday:  13.8%.
 - Match by Country:  20.0%.
 
-Sum of match %:  70.0%
-
-Match found with:
-Sanction-ID: S163
-Name: James White
-Birthday: 1982-09-29
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   0.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S200
-Name: James White
-Birthday: 1977-10-03
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   0.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S100
-Name: James White
-Birthday: 1980-05-15
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   0.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S068
-Name: James White
-Birthday: 1980-05-15
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.8%.
-
-Sum of match %:  50.0%
+Sum of match %:  83.8%
 
 Match found with:
 Sanction-ID: S191
@@ -468,129 +115,12 @@ Match-beskrivelse:
 
 Sum of match %:  70.0%
 
-Match found with:
-Sanction-ID: S071
-Name: James White
-Birthday: 1988-01-10
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.7%.
-
-Sum of match %:  50.0%
-
 ------------------------------------------------------------------------------------------
 
 Customer ID: 080460-7475
 Customer Name: Mia Lewis
 Birthday: 1960-04-08
 Address: Hovedgaden 12, GB
-
-Match found with:
-Sanction-ID: S140
-Name: Mia Lewis
-Birthday: 1992-03-22
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.1%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S141
-Name: Mia Lewis
-Birthday: 1977-10-03
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.2%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S070
-Name: Mia Lewis
-Birthday: 1982-09-29
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S043
-Name: Mia Lewis
-Birthday: 1982-09-29
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S151
-Name: Mia Lewis
-Birthday: 1990-07-15
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.1%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S125
-Name: Mia Lewis
-Birthday: 1993-02-25
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.1%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S117
-Name: Mia Lewis
-Birthday: 1965-04-12
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.2%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S030
-Name: Mia Lewis
-Birthday: 1990-07-15
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S073
-Name: Mia Lewis
-Birthday: 1982-09-29
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.2%.
-
-Sum of match %:  50.0%
 
 Match found with:
 Sanction-ID: S075
@@ -600,66 +130,10 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   2.2%.
+- Match by Alias:   2.2%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
-
-Match found with:
-Sanction-ID: S058
-Name: Mia Lewis
-Birthday: 1993-02-25
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S149
-Name: Mia Lewis
-Birthday: 1988-01-10
-Country: NO
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.2%.
-
-Sum of match %:  50.0%
-
-------------------------------------------------------------------------------------------
-
-Customer ID: 231061-5237
-Customer Name: John Doe
-Birthday: 1961-10-23
-Address: Elm Street 5, FR
-
-Match found with:
-Sanction-ID: S174
-Name: John Smith
-Birthday: 1988-01-10
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  25.0%.
-- Match by alias:   3.5%.
-- Match by Country:  20.0%.
-
-Sum of match %:  45.0%
-
-Match found with:
-Sanction-ID: S070
-Name: John Smith
-Birthday: 1990-07-15
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  25.0%.
-- Match by Country:  20.0%.
-
-Sum of match %:  45.0%
 
 ------------------------------------------------------------------------------------------
 
@@ -676,129 +150,10 @@ Country: CA
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   1.6%.
+- Match by Alias:   1.6%.
 - Match by Country:  20.0%.
 
 Sum of match %:  70.0%
-
-Match found with:
-Sanction-ID: S031
-Name: Sophia Davis
-Birthday: 1988-01-10
-Country: GB
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.4%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S041
-Name: Sophia Davis
-Birthday: 1975-11-02
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.3%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S177
-Name: Sophia Davis
-Birthday: 1993-02-25
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.5%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S082
-Name: Sophia Davis
-Birthday: 1985-06-18
-Country: DK
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S062
-Name: Sophia Davis
-Birthday: 1993-02-25
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.6%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S078
-Name: Sophia Davis
-Birthday: 1982-09-29
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   4.9%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S099
-Name: Sophia Davis
-Birthday: 1992-03-22
-Country: DE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.4%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S079
-Name: Sophia Davis
-Birthday: 1990-07-15
-Country: US
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S093
-Name: Sophia Davis
-Birthday: 1988-01-10
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.4%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S104
-Name: Sophia Davis
-Birthday: 1982-09-29
-Country: ES
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.3%.
-
-Sum of match %:  50.0%
 
 ------------------------------------------------------------------------------------------
 
@@ -815,7 +170,7 @@ Country: DE
 
 Match-beskrivelse:
 - Match by Name:  33.3%.
-- Match by alias:   0.6%.
+- Match by Alias:   0.6%.
 - Match by Country:  20.0%.
 
 Sum of match %:  53.3%
@@ -826,30 +181,6 @@ Customer ID: 030490-6728
 Customer Name: Benjamin Moore
 Birthday: 1990-04-03
 Address: Rosenvej 3, ES
-
-Match found with:
-Sanction-ID: S162
-Name: Benjamin Moore
-Birthday: 1995-07-14
-Country: FR
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.1%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S038
-Name: Benjamin Moore
-Birthday: 1977-10-03
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.1%.
-
-Sum of match %:  50.0%
 
 Match found with:
 Sanction-ID: S122
@@ -864,6 +195,20 @@ Match-beskrivelse:
 Sum of match %:  70.0%
 
 Match found with:
+Sanction-ID: S152
+Name: Daniel Martin
+Birthday: 1990-07-15
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:   4.2%.
+- Match by Alias:   4.2%.
+- Match by Birthday:  27.1%.
+- Match by Country:  20.0%.
+
+Sum of match %:  51.4%
+
+Match found with:
 Sanction-ID: S046
 Name: Benjamin Moore
 Birthday: 1992-03-22
@@ -871,45 +216,10 @@ Country: GB
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   0.7%.
+- Match by Alias:   0.7%.
+- Match by Birthday:  10.3%.
 
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S023
-Name: Benjamin Moore
-Birthday: 1982-09-29
-Country: CA
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.5%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S012
-Name: Benjamin Moore
-Birthday: 1978-11-11
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   5.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S016
-Name: Benjamin Moore
-Birthday: 1965-04-12
-Country: GB
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.8%.
-
-Sum of match %:  50.0%
+Sum of match %:  60.3%
 
 ------------------------------------------------------------------------------------------
 
@@ -919,41 +229,6 @@ Birthday: 1984-01-01
 Address: Sondergade 10, US
 
 Match found with:
-Sanction-ID: S125
-Name: William Brown
-Birthday: 1993-02-25
-Country: SE
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   2.3%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S066
-Name: William Brown
-Birthday: 1993-02-25
-Country: GB
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   3.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S061
-Name: William Brown
-Birthday: 1993-02-25
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-
-Sum of match %:  50.0%
-
-Match found with:
 Sanction-ID: S001
 Name: William Brown
 Birthday: 1985-06-18
@@ -961,33 +236,10 @@ Country: DE
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
-- Match by alias:   3.8%.
+- Match by Alias:   3.8%.
+- Match by Birthday:  15.3%.
 
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S102
-Name: William Brown
-Birthday: 1988-01-10
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.5%.
-
-Sum of match %:  50.0%
-
-Match found with:
-Sanction-ID: S161
-Name: William Brown
-Birthday: 1992-03-22
-Country: IT
-
-Match-beskrivelse:
-- Match by Name:  50.0%.
-- Match by alias:   1.5%.
-
-Sum of match %:  50.0%
+Sum of match %:  65.3%
 
 Match found with:
 Sanction-ID: S001
@@ -997,3 +249,751 @@ Country: ES
 
 Match-beskrivelse:
 - Match by Name:  50.0%.
+- Match by Alias:   3.8%.
+- Match by Birthday:  15.3%.
+
+Sum of match %:  65.3%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 190684-4127
+Customer Name: John Doe
+Birthday: 1984-06-19
+Address: Birkevej 7, NO
+
+Match found with:
+Sanction-ID: S078
+Name: John Smith
+Birthday: 1982-09-29
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  25.0%.
+- Match by Alias:   5.8%.
+- Match by Birthday:  12.7%.
+- Match by Country:  20.0%.
+
+Sum of match %:  57.7%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 240794-8043
+Customer Name: Sara Hansen
+Birthday: 1994-07-24
+Address: Norregade 2, DK
+
+Match found with:
+Sanction-ID: S005
+Name: Jonathan Doe
+Birthday: 1993-02-25
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  16.6%.
+- Match by Alias:   1.8%.
+- Match by Birthday:  15.9%.
+- Match by Country:  20.0%.
+
+Sum of match %:  52.6%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 210156-8694
+Customer Name: Emma Olsen
+Birthday: 1956-01-21
+Address: Hovedgaden 12, GB
+
+Match found with:
+Sanction-ID: S199
+Name: Emma Olson
+Birthday: 1985-06-18
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by Alias:   0.8%.
+- Match by Country:  20.0%.
+
+Sum of match %:  65.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 130674-9036
+Customer Name: Sophia Davis
+Birthday: 1974-06-13
+Address: Rosenvej 3, SE
+
+Match found with:
+Sanction-ID: S041
+Name: Sophia Davis
+Birthday: 1975-11-02
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.3%.
+- Match by Birthday:  16.1%.
+
+Sum of match %:  66.1%
+
+Match found with:
+Sanction-ID: S093
+Name: Sophia Davis
+Birthday: 1988-01-10
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   2.4%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 210994-2224
+Customer Name: Daniel Martin
+Birthday: 1994-09-21
+Address: Rosenvej 3, DE
+
+Match found with:
+Sanction-ID: S039
+Name: Daniel Martin
+Birthday: 1995-07-14
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Birthday:  21.9%.
+
+Sum of match %:  71.9%
+
+Match found with:
+Sanction-ID: S170
+Name: Daniel Martin
+Birthday: 1992-03-22
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   2.3%.
+- Match by Birthday:   5.0%.
+
+Sum of match %:  55.0%
+
+Match found with:
+Sanction-ID: S144
+Name: Daniel Martin
+Birthday: 1978-11-11
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   6.1%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S107
+Name: Daniel Martin
+Birthday: 1992-03-22
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   2.3%.
+- Match by Birthday:   5.0%.
+
+Sum of match %:  55.0%
+
+Match found with:
+Sanction-ID: S021
+Name: Daniel Martin
+Birthday: 1993-02-25
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.8%.
+- Match by Birthday:  14.3%.
+
+Sum of match %:  64.3%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 260577-1465
+Customer Name: Olivia Johnson
+Birthday: 1977-05-26
+Address: Strandvejen 45, DK
+
+Match found with:
+Sanction-ID: S046
+Name: Olivia Johnson
+Birthday: 1977-10-03
+Country: CA
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   0.7%.
+- Match by Birthday:  26.4%.
+
+Sum of match %:  76.4%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 180191-3810
+Customer Name: Sara Hansen
+Birthday: 1991-01-18
+Address: Norregade 2, ES
+
+Match found with:
+Sanction-ID: S122
+Name: Sara H.
+Birthday: 1993-02-25
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  27.2%.
+- Match by Birthday:   8.9%.
+- Match by Country:  20.0%.
+
+Sum of match %:  56.2%
+
+Match found with:
+Sanction-ID: S109
+Name: Sara H.
+Birthday: 1990-07-15
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  27.2%.
+- Match by Alias:   1.8%.
+- Match by Birthday:  24.8%.
+
+Sum of match %:  52.1%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 060599-3770
+Customer Name: Benjamin Moore
+Birthday: 1999-05-06
+Address: Enghave 34, GB
+
+Match found with:
+Sanction-ID: S046
+Name: Benjamin Moore
+Birthday: 1992-03-22
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   0.7%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S016
+Name: Benjamin Moore
+Birthday: 1965-04-12
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   2.8%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 040490-2889
+Customer Name: Amelia Thomas
+Birthday: 1990-04-04
+Address: Sondergade 10, ES
+
+Match found with:
+Sanction-ID: S165
+Name: Amelia Thomas
+Birthday: 1985-06-18
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   1.5%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S012
+Name: Amelia Thomas
+Birthday: 1988-01-10
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   0.7%.
+- Match by Birthday:   7.6%.
+- Match by Country:  20.0%.
+
+Sum of match %:  77.6%
+
+Match found with:
+Sanction-ID: S164
+Name: Charlotte Taylor
+Birthday: 1990-07-15
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:   6.2%.
+- Match by Alias:   4.6%.
+- Match by Birthday:  27.2%.
+- Match by Country:  20.0%.
+
+Sum of match %:  53.4%
+
+Match found with:
+Sanction-ID: S152
+Name: Daniel Martin
+Birthday: 1990-07-15
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:   3.8%.
+- Match by Alias:   3.8%.
+- Match by Birthday:  27.2%.
+- Match by Country:  20.0%.
+
+Sum of match %:  51.0%
+
+Match found with:
+Sanction-ID: S135
+Name: Amelia Thomas
+Birthday: 1965-04-12
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 220893-4321
+Customer Name: Alice Smith
+Birthday: 1993-08-22
+Address: Hovedgaden 12, DK
+
+Match found with:
+Sanction-ID: S187
+Name: Tom Anderson
+Birthday: 1993-02-25
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  11.5%.
+- Match by Alias:  11.5%.
+- Match by Birthday:  25.1%.
+- Match by Country:  20.0%.
+
+Sum of match %:  56.6%
+
+Match found with:
+Sanction-ID: S065
+Name: Emily Harris
+Birthday: 1993-02-25
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:   8.3%.
+- Match by Alias:   2.7%.
+- Match by Birthday:  25.1%.
+- Match by Country:  20.0%.
+
+Sum of match %:  53.4%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 210166-8550
+Customer Name: Jacob Hall
+Birthday: 1966-01-21
+Address: Strandvejen 45, US
+
+Match found with:
+Sanction-ID: S108
+Name: Jacob Hall
+Birthday: 1995-07-14
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   1.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 060252-5940
+Customer Name: Olivia Johnson
+Birthday: 1952-02-06
+Address: Norregade 2, SE
+
+Match found with:
+Sanction-ID: S121
+Name: Olivia Johnson
+Birthday: 1990-07-15
+Country: SE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   0.7%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 271088-6536
+Customer Name: Michael Nielsen
+Birthday: 1988-10-27
+Address: Norregade 2, NO
+
+Match found with:
+Sanction-ID: S114
+Name: Michael Nilsen
+Birthday: 1995-07-14
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  33.3%.
+- Match by Alias:   2.6%.
+- Match by Country:  20.0%.
+
+Sum of match %:  53.3%
+
+Match found with:
+Sanction-ID: S049
+Name: Michael Nilsen
+Birthday: 1988-01-10
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  33.3%.
+- Match by Alias:   1.3%.
+- Match by Birthday:  22.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  75.3%
+
+Match found with:
+Sanction-ID: S149
+Name: Mia Lewis
+Birthday: 1988-01-10
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:  10.0%.
+- Match by Alias:   4.0%.
+- Match by Birthday:  22.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  52.0%
+
+Match found with:
+Sanction-ID: S071
+Name: James White
+Birthday: 1988-01-10
+Country: NO
+
+Match-beskrivelse:
+- Match by Name:   8.6%.
+- Match by Alias:   8.6%.
+- Match by Birthday:  22.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  50.7%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 141186-5781
+Customer Name: Jacob Hall
+Birthday: 1986-11-14
+Address: Sondergade 10, GB
+
+Match found with:
+Sanction-ID: S103
+Name: Jacob Hall
+Birthday: 1985-06-18
+Country: DE
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   6.0%.
+- Match by Birthday:  15.9%.
+
+Sum of match %:  65.9%
+
+Match found with:
+Sanction-ID: S080
+Name: Jacob Hall
+Birthday: 1988-01-10
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   5.0%.
+- Match by Birthday:  18.4%.
+
+Sum of match %:  68.4%
+
+Match found with:
+Sanction-ID: S119
+Name: Jacob Hall
+Birthday: 1978-11-11
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S113
+Name: Jacob Hall
+Birthday: 1980-05-15
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 071094-3706
+Customer Name: Amelia Thomas
+Birthday: 1994-10-07
+Address: Enghave 34, IT
+
+Match found with:
+Sanction-ID: S182
+Name: Emily Harris
+Birthday: 1995-07-14
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:   7.6%.
+- Match by Alias:   2.3%.
+- Match by Birthday:  22.3%.
+- Match by Country:  20.0%.
+
+Sum of match %:  50.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 281259-8160
+Customer Name: Emily Harris
+Birthday: 1959-12-28
+Address: Enghave 34, GB
+
+Match found with:
+Sanction-ID: S047
+Name: Emily Harris
+Birthday: 1985-06-18
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   2.5%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 250850-6716
+Customer Name: Benjamin Moore
+Birthday: 1950-08-25
+Address: Parkvej 23, GB
+
+Match found with:
+Sanction-ID: S046
+Name: Benjamin Moore
+Birthday: 1992-03-22
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   0.7%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S016
+Name: Benjamin Moore
+Birthday: 1965-04-12
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   2.8%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 050858-4866
+Customer Name: Jacob Hall
+Birthday: 1958-08-05
+Address: Elm Street 5, GB
+
+Match found with:
+Sanction-ID: S119
+Name: Jacob Hall
+Birthday: 1978-11-11
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+Match found with:
+Sanction-ID: S113
+Name: Jacob Hall
+Birthday: 1980-05-15
+Country: GB
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 021180-2115
+Customer Name: Emma Olsen
+Birthday: 1980-11-02
+Address: Vestergade 15, DK
+
+Match found with:
+Sanction-ID: S118
+Name: Emma Olson
+Birthday: 1965-04-12
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by Alias:   3.8%.
+- Match by Country:  20.0%.
+
+Sum of match %:  65.0%
+
+Match found with:
+Sanction-ID: S007
+Name: Emma Olson
+Birthday: 1980-05-15
+Country: DK
+
+Match-beskrivelse:
+- Match by Name:  45.0%.
+- Match by Alias:   2.0%.
+- Match by Birthday:  25.3%.
+- Match by Country:  20.0%.
+
+Sum of match %:  90.3%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 201086-3635
+Customer Name: Charlotte Taylor
+Birthday: 1986-10-20
+Address: Vestergade 15, IT
+
+Match found with:
+Sanction-ID: S179
+Name: Charlotte Taylor
+Birthday: 1978-11-11
+Country: IT
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   1.2%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
+
+------------------------------------------------------------------------------------------
+
+Customer ID: 070576-1893
+Customer Name: Daniel Martin
+Birthday: 1976-05-07
+Address: Elm Street 5, ES
+
+Match found with:
+Sanction-ID: S074
+Name: Daniel Martin
+Birthday: 1978-11-11
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Birthday:   4.8%.
+
+Sum of match %:  54.8%
+
+Match found with:
+Sanction-ID: S125
+Name: Daniel Martin
+Birthday: 1977-10-03
+Country: US
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.0%.
+- Match by Birthday:  15.9%.
+
+Sum of match %:  65.9%
+
+Match found with:
+Sanction-ID: S074
+Name: Daniel Martin
+Birthday: 1978-11-11
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   5.3%.
+- Match by Birthday:   4.8%.
+- Match by Country:  20.0%.
+
+Sum of match %:  74.8%
+
+Match found with:
+Sanction-ID: S152
+Name: Daniel Martin
+Birthday: 1990-07-15
+Country: ES
+
+Match-beskrivelse:
+- Match by Name:  50.0%.
+- Match by Alias:   3.8%.
+- Match by Country:  20.0%.
+
+Sum of match %:  70.0%
